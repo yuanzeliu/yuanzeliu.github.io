@@ -11,7 +11,7 @@ I was born in mid-fall after a [major flood in southern China](https://en.wikipe
 
 For the first 14 years of my life, I never once left our hometown (a very small town in the mid of nowhere). Both of my parents are locals, and so were our earliest traceable ancestors—going back a thousand years (my friend and advisor Josh visited our family temple and can vouch for that!). 
 
-By all expectations I might have stayed, grown old, and died my hometown. I still remember my mom telling me in kindergarten that her biggest hope was for me to finish high school so she could throw a big party. But I’ve always had an annoyingly curious and adventurous streak, which has consistently nudged me off the expected path (sorry, Mom!). 
+By all expectations I might have stayed, grown old, and died in my hometown. I still remember my mom telling me in kindergarten that her biggest hope was for me to finish high school so she could throw a big party. But I’ve always had an annoyingly curious and adventurous streak, which has consistently nudged me off the expected path (sorry, Mom!). 
 
 At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for more than two years—always looking toward the next stop.
 
