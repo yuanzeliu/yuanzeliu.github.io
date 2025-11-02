@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi! This is Yuanze (pronunciation: [yuăn](https://en.wiktionary.org/wiki/File:zh-yu%C7%8En.ogg) [zé](https://en.wiktionary.org/wiki/File:zh-z%C3%A9.ogg), sounds like YOO-ahn-zuh). I am a first-year PhD student in Behavioral Science at Booth School of Business, University of Chicago, where I work with Prof. [Joshua Jackson](https://www.joshuaconradjackson.com/). 
+Hi! This is Yuanze (pronunciation: [yuăn](https://en.wiktionary.org/wiki/File:zh-yu%C7%8En.ogg) [zé](https://en.wiktionary.org/wiki/File:zh-z%C3%A9.ogg), sounds like YOO-ahn-zuh). I am a first-year PhD student in Behavioral Science at Booth School of Business, University of Chicago, where I work with Prof. [Joshua Jackson](https://www.joshuaconradjackson.com/).  
 
 I study cultural evolution across many kinds of cultural groups, including organizations, political groups, and national cultures. I am especially interested in the cultural impact of new institutions and technologies (e.g., [large AI models](https://yuanzeliu.github.io/files/hybridNetwork.docx)). Ultimately, my work aims to understand how we can build better forms of collective life. My research revolves around three broad questions: 
 
