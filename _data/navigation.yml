@@ -29,5 +29,5 @@ main:
   # - title: "CV"
   #   url: /cv-json/
     
-  - title: "Biography"
-    url: /markdown/
+  - title: "Bio"
+    url: /bio/
