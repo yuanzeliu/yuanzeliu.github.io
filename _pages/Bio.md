@@ -7,9 +7,11 @@ author_profile: true
 
 
 
-I was born in mid-fall after a major flood in southern China. My parents chose my name as a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately (not so secret anymore), it simply means staying away from marshes and floods. They wanted me safe, and I was.
+I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods).My parents gave me a name as a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it simply means staying away from marshes and floods. Basically, they just wanted me to be safe. Maybe because of the magic of this name, I survived a server car accident when I was a kid. Otherwiese, you will not be reading this webpage.
 
-I spent my first 14 years in the same town without leaving once. Both of my parents are locals, and our family records trace back about a thousand years—my advisor and friend Josh even visited our family temple and can vouch for it.
+For the first 14 years of my life, I never once left our hometown. Both of my parents are locals, and so were our earliest traceable ancestors—going back a thousand years (my friend and advisor Josh visited our family temple and can vouch for that!).
+
+By all expectations I might have stayed, grown old, and died there. I still remember my mom telling me in kindergarten that her biggest hope was for me to finish high school so she could throw a big party. But I’ve always had a curious and adventurous streak, which has consistently nudged me off the expected path (sorry, Mom!). At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for more than two years—already looking toward the next stop.
 
 <style>
 /* Scope to this page only */
@@ -62,8 +64,6 @@ I spent my first 14 years in the same town without leaving once. Both of my pare
   </figure>
 </div>
 
-By all expectations I might have stayed, grown old, and died there. I still remember my mom telling me in kindergarten that her biggest hope was for me to finish high school so she could throw a big party. But I have an adventurous streak. At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for more than two years—already looking toward the next stop.
-
-That same adventurousness made me a generalist. I love big questions and wandering across fields: psychology (of course), linguistics, sociology, philosophy, anthropology, physics (I was on my high-school physics Olympiad team), biology, and more. This curiosity is also why I take an intentionally interdisciplinary approach in my research.
+That same adventurousness made me a generalist. I love big questions and wandering across fields: psychology (of course), linguistics, sociology, philosophy, anthropology, physics (I was on my high-school physics Olympiad team), biology, and more. This curiosity is also why I take an interdisciplinary approach in my research.
 
 Outside of work I am very outdoorsy. I like walking through neighborhoods, learning new cultures—first across regions of China, now across the United States—and spending time with friends.
