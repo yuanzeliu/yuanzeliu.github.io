@@ -5,13 +5,11 @@ author_profile: true
 
 ---
 
+I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods). As a result, my parents gave me a name that is a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it means staying away from marshes and floods—my parents simply wanted me to be safe. 
 
+For the first 14 years of my life, I never once left my hometown (a very small one in the mid of nowhere). Both of my parents are locals, and so were our earliest traceable ancestors—going back a thousand years (my friend and advisor Josh visited our family temple and can vouch for that!). 
 
-I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods). My parents gave me a name that is a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it’s the “individualistic” opposite, meaning staying away from marshes and floods—my parents simply wanted me to be safe. Perhaps thanks to the magic of this name, I survived a severe car accident as a kid; otherwise you wouldn’t be reading this page.
-
-For the first 14 years of my life, I never once left our hometown (a very small town in the mid of nowhere). Both of my parents are locals, and so were our earliest traceable ancestors—going back a thousand years (my friend and advisor Josh visited our family temple and can vouch for that!). 
-
-By all expectations I might have stayed, grown old, and died in my hometown. I still remember my mom telling me in kindergarten that her biggest hope was for me to finish high school so she could throw a big party. But I’ve always had an annoyingly curious and adventurous streak, which has consistently nudged me off the expected path (sorry, Mom!). 
+By all expectations I might have stayed, grown old, and died in my hometown. My mother’s dream for me was to graduate from high school, and she promised a big party if I did. But I’ve always had an annoyingly curious and adventurous streak, which has consistently nudged me off the expected path (sorry, Mom!). 
 
 At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for more than two years—always looking toward the next stop.
 
