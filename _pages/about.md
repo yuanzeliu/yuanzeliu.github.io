@@ -17,7 +17,8 @@ My second line of research investigates when cultural evolution malfunctions. Hu
 
 Third, to address these puzzles, I study how human communities can intentionally steer their own cultural evolution—for example, by deciding [which practices to adopt](https://doi.org/10.31234/osf.io/7bqxp_v1), [what ideas to spread](https://onlinelibrary.wiley.com/doi/full/10.1111/pops.12927), [how information circulates](https://yuanzeliu.github.io/files/hybridNetwork.docx), and [how disagreements are managed](https://doi.org/10.31234/osf.io/gfdwx_v1). 
 
-For my personal story, please see the [Bio](https://yuanzeliu.github.io/bio/).
+For more details of my research, please see [Research](https://yuanzeliu.github.io/Research/).
+For my personal story, please see [Bio](https://yuanzeliu.github.io/bio/).
 
 <p style="text-align:center;margin-top:20px;">
 <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=HhrBCMvvM0ADB46f8r2wVXbDz1I0B3sdZ74VDjmfZwY&&co=003366&cmo=126d3b&cmn=cb0821&ct=808080"></script>
