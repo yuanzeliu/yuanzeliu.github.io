@@ -7,9 +7,9 @@ author_profile: true
 
 I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods). As a result, my parents gave me a name that is a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it means staying away from marshes and floods—my parents simply wanted me to be safe. 
 
-For the first 14 years of my life, I never once left my hometown (a very small one in the mid of nowhere). Both of my parents are locals, and so were our earliest traceable ancestors—going back a thousand years (my friend and advisor Josh visited our family temple and can vouch for that!). 
+For the first 14 years of my life, I never left my small hometown in the middle of nowhere. Both of my parents are locals, and so were our earliest traceable ancestors—going back a thousand years (my friend and advisor Josh visited our family temple and can vouch for that!). 
 
-By all expectations I might have stayed, grown old, and died in my hometown (and you won't be seeing this website if that happened). My mother’s dream for me was to graduate from high school, and she promised a big party if I did. But I’ve always had an annoyingly curious and adventurous streak, which has consistently nudged me off the expected path (sorry, Mom!). 
+By all expectations, I might have stayed, grown old, and died in my hometown (and you won't be seeing this website if that happened). My mother’s dream for me was to graduate from high school, and she promised a big party if I did. But I’ve always had an annoyingly curious and adventurous streak, which has consistently nudged me off the expected path (sorry, Mom!). 
 
 At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for the last two years. I am always excited for the next stop!
 
@@ -64,6 +64,6 @@ At 14 I left home for school, lived four years in Changsha, seven in Beijing, an
   </figure>
 </div>
 
-That same adventurousness made me a generalist. I love big questions and wandering across fields: psychology (of course), linguistics, sociology, philosophy, anthropology, physics (I stayed one year on my high-school physics Olympiad team), biology, and more. This curiosity is also why I take an interdisciplinary approach in my research.
+That same adventurousness made me a generalist. I love big questions that span multiple fields, like psychology (of course), linguistics, sociology, philosophy, anthropology, physics, and biology.
 
-Outside of work I am very outdoorsy. I like walking through neighborhoods, learning new cultures—first across regions of China, now across the United States—and spending time with friends.
+When not doing research, I’ll likely be outside. I love walking around neighborhoods, learning about new cultures, and spending time with friends.
