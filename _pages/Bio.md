@@ -2,17 +2,14 @@
 permalink: /bio/
 title: "Bio"
 author_profile: true
-
+classes: "bio-page"
 ---
-<style>
-/* Only widen this page */
-.page__content {
-  max-width: 1200px !important;   /* 调大宽度 */
-  width: 95%;
-  margin: 0 auto;
-}
-</style>
 
+<style>
+  article.bio-page {
+    max-width: 1000px !important;  /* 你自己调 900/950/1000 都行 */
+  }
+</style>
  
 
 I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods). As a result, my parents gave me a name that is a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it means staying away from marshes and floods—my parents simply wanted me to be safe. 
