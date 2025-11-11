@@ -33,13 +33,15 @@ At 14 I left home for school, lived four years in Changsha, seven in Beijing, an
 }
 
 .page__content figure.bio-figure img {
-  max-width: 55%;
+  max-width: 500px;           /* lock to a fixed size instead of % */
+  width: 100%;                /* still responsive */
   height: auto;
   display: block;
   margin: 0.5rem auto;
   border-radius: 6px;
   box-shadow: 0 0 8px rgba(0,0,0,0.08);
 }
+
 
 .page__content figure.bio-figure figcaption {
   margin-top: 0.5rem;
