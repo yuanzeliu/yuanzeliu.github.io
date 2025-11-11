@@ -6,11 +6,15 @@ classes: "bio-page"
 ---
 
 <style>
-  article.bio-page {
-    max-width: 1000px !important;  /* 你自己调 900/950/1000 都行 */
-  }
+/* Widen the content area only on the Bio page */
+body.bio-page .page,
+body.bio-page .page__inner-wrap,
+body.bio-page .page__content {
+  max-width: 1000px !important; /* adjust as you like: 900–1000 is typical */
+  width: 100%;
+  margin: 0 auto;
+}
 </style>
- 
 
 I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods). As a result, my parents gave me a name that is a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it means staying away from marshes and floods—my parents simply wanted me to be safe. 
 
@@ -21,18 +25,20 @@ By all expectations, I might have stayed, grown old, and died in my hometown (an
 At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for the last two years. I am always excited for the next stop!
 
 <style>
-/* Scope to this page only */
+/* Bio image and caption styling */
+
+/* Wrap the figure so it stays centered as a block */
 .bio-figure-wrap {
   width: 100%;
-  display: flex;              /* vertical stack */
-  flex-direction: column;
-  align-items: center;        /* horizontal center */
+  display: flex;
+  flex-direction: column;   /* vertical stack */
+  align-items: center;      /* horizontal center */
   margin: 1.25rem 0;
 }
 
 .page__content figure.bio-figure {
-  float: none !important;     /* kill any theme float */
-  margin: 0;                  /* reset theme margins */
+  float: none !important;   /* override theme floats */
+  margin: 0;
   text-align: center;
   font-family: inherit;
 }
@@ -49,7 +55,7 @@ At 14 I left home for school, lived four years in Changsha, seven in Beijing, an
 .page__content figure.bio-figure figcaption {
   margin-top: 0.5rem;
   width: 100%;
-  text-align: center;         /* center the caption */
+  text-align: center;
   font-size: 0.95rem;
   line-height: 1.5;
   color: #555;
@@ -59,7 +65,9 @@ At 14 I left home for school, lived four years in Changsha, seven in Beijing, an
 
 /* Mobile: make image larger on small screens */
 @media (max-width: 900px) {
-  .page__content figure.bio-figure img { max-width: 90%; }
+  .page__content figure.bio-figure img {
+    max-width: 90%;
+  }
 }
 </style>
 
@@ -74,4 +82,3 @@ At 14 I left home for school, lived four years in Changsha, seven in Beijing, an
 That same adventurousness made me a generalist. I love big questions that span multiple fields, like psychology (of course), linguistics, sociology, philosophy, anthropology, physics, and biology.
 
 When not doing research, I’ll likely be outside. I love walking around neighborhoods, learning about new cultures, and spending time with friends.
-
