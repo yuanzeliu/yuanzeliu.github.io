@@ -69,7 +69,7 @@ body[data-theme="dark"] .chev {
 
 </style>
 
-Below is an introduction of my research by topics. You can find my published papers and preprints on my [Google Scholar](https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248) page or a broader list of research projects in my [CV](https://yuanzeliu.github.io/files/LIU%20Yuanze_CV_20251027.pdf).
+Below is an introduction of my research by topics. You can find my published papers and preprints on my [Google Scholar](https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248) page or a broader list of research projects in my [CV](https://yuanzeliu.github.io/CV/).
 
 
 <!-- ===== Theme 1: Why We Became Who We Are ===== -->
