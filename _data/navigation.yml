@@ -23,11 +23,11 @@ main:
   #- title: "Blog Posts"
     #url: /year-archive/
     
-  #- title: "CV"
-  #  url: /files/LIU Yuanze_CV_20251028.pdf
-    
   - title: "CV"
-     url: /CV/
+    url: /files/LIU Yuanze_CV_20251028.pdf
+    
+  #- title: "CV"
+  #   url: /CV/
     
   - title: "Bio"
     url: /bio/
