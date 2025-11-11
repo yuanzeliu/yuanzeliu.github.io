@@ -65,7 +65,8 @@ At 14 I left home for school, lived four years in Changsha, seven in Beijing, an
 <div class="bio-figure-wrap">
   <figure class="bio-figure">
     <img src="{{ '/images/withMom.png' | relative_url }}"
-         alt="Yuanze and his mom smiling together">
+         alt="Yuanze and his mom smiling together"
+         style="max-width: 380px; width: 100%; height: auto; display: block; margin: 0.5rem auto; border-radius: 6px; box-shadow: 0 0 8px rgba(0,0,0,0.08);">
     <figcaption>With my mom — I was eager to find the Zoo.</figcaption>
   </figure>
 </div>
