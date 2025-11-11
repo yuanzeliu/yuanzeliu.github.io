@@ -7,7 +7,7 @@ author_profile: true
 <style>
 /* Only widen this page */
 .page__content {
-  max-width: 950px !important;   /* 调大宽度 */
+  max-width: 1200px !important;   /* 调大宽度 */
   width: 95%;
   margin: 0 auto;
 }
