@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 You can download a PDF version of my CV
-<a href="https://yuanzeliu.github.io/files/LIU%20Yuanze_CV_20251027.pdf" target="_blank" rel="noopener">
+<a href="https://yuanzeliu.github.io/files/LIU%20Yuanze_CV_20251028.pdf" target="_blank" rel="noopener">
 here
 </a>.
 
