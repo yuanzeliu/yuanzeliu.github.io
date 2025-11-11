@@ -4,7 +4,15 @@ title: "Bio"
 author_profile: true
 
 ---
-<div style="max-width: 900px; margin: 0 auto;">
+<style>
+/* Only widen this page */
+.page__content {
+  max-width: 950px !important;   /* 调大宽度 */
+  width: 95%;
+  margin: 0 auto;
+}
+</style>
+
  
 
 I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods). As a result, my parents gave me a name that is a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it means staying away from marshes and floods—my parents simply wanted me to be safe. 
@@ -70,4 +78,3 @@ That same adventurousness made me a generalist. I love big questions that span m
 
 When not doing research, I’ll likely be outside. I love walking around neighborhoods, learning about new cultures, and spending time with friends.
 
-</div>
