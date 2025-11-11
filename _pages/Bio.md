@@ -4,6 +4,9 @@ title: "Bio"
 author_profile: true
 
 ---
+<div style="max-width: 900px; margin: 0 auto;">
+  <p>Your paragraph text here...</p>
+</div>
 
 I was born in mid-fall after a [major flood in southern China](https://en.wikipedia.org/wiki/1998_China_floods). As a result, my parents gave me a name that is a small pun. Publicly, most people read it in a Confucian key—beneficence that reaches far. Privately, it means staying away from marshes and floods—my parents simply wanted me to be safe. 
 
