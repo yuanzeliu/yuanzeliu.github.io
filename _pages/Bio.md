@@ -13,54 +13,7 @@ By all expectations, I might have stayed, grown old, and died in my hometown (an
 
 At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for the last two years. I am always excited for the next stop!
 
-<style>
-/* Bio image and caption styling */
 
-/* Wrap the figure so it stays centered as a block */
-.bio-figure-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: column;   /* vertical stack */
-  align-items: center;      /* horizontal center */
-  margin: 1.25rem 0;
-}
-
-.page__content figure.bio-figure {
-  float: none !important;   /* override theme floats */
-  margin: 0;
-  text-align: center;
-  font-family: inherit;
-}
-
-.page__content figure.bio-figure img {
-  max-width: 500px;           /* lock to a fixed size instead of % */
-  width: 100%;                /* still responsive */
-  height: auto;
-  display: block;
-  margin: 0.5rem auto;
-  border-radius: 6px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.08);
-}
-
-
-.page__content figure.bio-figure figcaption {
-  margin-top: 0.5rem;
-  width: 100%;
-  text-align: center;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #555;
-  font-style: italic;
-  font-family: inherit;
-}
-
-/* Mobile: make image larger on small screens */
-@media (max-width: 900px) {
-  .page__content figure.bio-figure img {
-    max-width: 90%;
-  }
-}
-</style>
 
 <div class="bio-figure-wrap">
   <figure class="bio-figure">
