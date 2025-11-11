@@ -14,43 +14,62 @@ By all expectations, I might have stayed, grown old, and died in my hometown (an
 At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for the last two years. I am always excited for the next stop!
 
 <style>
-/* 只负责整体居中和上下留白，尺寸和字体交给行内样式 */
+/* === Fix figure layout and caption position === */
+
+/* Center the whole figure block */
 .bio-figure-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 1.5rem 0;
 }
+
+/* Make sure figure and caption stack vertically */
+.page__content figure.bio-figure {
+  float: none !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  text-align: center !important;
+}
+
+/* Fix image size */
+.page__content figure.bio-figure img {
+  max-width: 380px;      /* set your preferred width */
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  margin: 0.5rem auto;
+  display: block;
+}
+
+/* Caption: same font as body, centered */
+.page__content figure.bio-figure figcaption {
+  display: block !important;
+  float: none !important;
+  text-align: center !important;
+  font-size: 16px;       /* match body text */
+  line-height: 1.6;
+  color: inherit;        /* inherit body color */
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+/* On mobile, allow larger scaling */
+@media (max-width: 900px) {
+  .page__content figure.bio-figure img {
+    max-width: 85%;
+  }
+}
 </style>
 
 <div class="bio-figure-wrap">
-  <figure class="bio-figure" style="margin: 0; text-align: center;">
-    <img
-      src="{{ '/images/withMom.png' | relative_url }}"
-      alt="Yuanze and his mom smiling together"
-      style="
-        max-width: 380px;      /* 控制桌面端大小 */
-        width: 100%;           /* 保证在小屏幕自适应 */
-        height: auto;
-        display: block;
-        margin: 0.5rem auto;
-        border-radius: 6px;
-        box-shadow: 0 0 8px rgba(0,0,0,0.08);
-      "
-    >
-    <figcaption
-      style="
-        display: block;
-        margin-top: 0.4rem;
-        font-size: 16px;       /* 与正文一致 */
-        line-height: 1.6;
-        color: inherit;        /* 跟正文同色 */
-        font-style: italic;
-        text-align: center;
-      "
-    >
-      With my mom — I was eager to find the Zoo.
-    </figcaption>
+  <figure class="bio-figure">
+    <img src="{{ '/images/withMom.png' | relative_url }}"
+         alt="Yuanze and his mom smiling together">
+    <figcaption>With my mom — I was eager to find the Zoo.</figcaption>
   </figure>
 </div>
 
