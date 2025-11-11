@@ -13,13 +13,63 @@ By all expectations, I might have stayed, grown old, and died in my hometown (an
 
 At 14 I left home for school, lived four years in Changsha, seven in Beijing, and I have been in Chicago for the last two years. I am always excited for the next stop!
 
+<style>
+/* --- Bio image and caption styling --- */
 
+/* wrapper */
+.bio-figure-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+/* figure */
+.page__content figure.bio-figure {
+  float: none !important;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* image */
+.page__content figure.bio-figure img {
+  max-width: 380px;       /* fixed visual size on desktop */
+  width: 100%;            /* responsive on small screens */
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  margin: 0.5rem auto;
+  display: block;
+}
+
+/* caption — match body text style */
+.page__content figure.bio-figure figcaption {
+  display: block !important;
+  float: none !important;
+  text-align: center !important;
+  font-size: 16px;              /* same as body text */
+  line-height: 1.6;             /* same line height */
+  color: inherit;               /* use page text color */
+  font-style: italic;
+  margin-top: 0.4rem;
+}
+
+/* make image larger on mobile */
+@media (max-width: 900px) {
+  .page__content figure.bio-figure img {
+    max-width: 85%;
+  }
+}
+</style>
 
 <div class="bio-figure-wrap">
   <figure class="bio-figure">
     <img src="{{ '/images/withMom.png' | relative_url }}"
-         alt="Yuanze and his mom smiling together"
-         style="max-width: 380px; width: 100%; height: auto; display: block; margin: 0.5rem auto; border-radius: 6px; box-shadow: 0 0 8px rgba(0,0,0,0.08);">
+         alt="Yuanze and his mom smiling together">
     <figcaption>With my mom — I was eager to find the Zoo.</figcaption>
   </figure>
 </div>
