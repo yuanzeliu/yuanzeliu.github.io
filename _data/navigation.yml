@@ -29,5 +29,5 @@ main:
   #- title: "CV"
   #   url: /CV/
     
-  - title: "Bio"
-    url: /bio/
+  #- title: "Bio"
+  #  url: /bio/
