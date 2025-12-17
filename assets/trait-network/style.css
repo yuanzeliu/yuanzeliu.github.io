@@ -170,3 +170,46 @@ button.secondary:hover { border-color: rgba(255,255,255,0.20); }
   color: var(--muted);
   line-height: 1.5;
 }
+/* Citation box */
+.citebox {
+  padding: 12px;
+}
+
+.cite-title {
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  color: var(--text);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.cite-text {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.cite-links {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.cite-links .sep {
+  margin: 0 6px;
+  opacity: 0.6;
+  color: var(--muted);
+}
+
+.cite-note {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
