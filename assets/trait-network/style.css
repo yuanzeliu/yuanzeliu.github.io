@@ -170,28 +170,30 @@ button.secondary:hover { border-color: rgba(255,255,255,0.20); }
   color: var(--muted);
   line-height: 1.5;
 }
-/* Citation box */
+/* Citation box (smaller + tighter) */
 .citebox {
-  padding: 12px;
+  padding: 10px;
+  font-size: 10px;           /* overall base font size */
+  line-height: 1.35;
 }
 
 .cite-title {
-  font-size: 12px;
+  font-size: 11px;           /* title slightly larger than body */
   letter-spacing: 0.2px;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 600;
 }
 
 .cite-text {
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: 10px;
+  line-height: 1.35;
   color: var(--muted);
 }
 
 .cite-links {
-  margin-top: 10px;
-  font-size: 12px;
+  margin-top: 8px;
+  font-size: 10px;
 }
 
 .cite-links .sep {
@@ -201,15 +203,16 @@ button.secondary:hover { border-color: rgba(255,255,255,0.20); }
 }
 
 .cite-note {
-  margin-top: 8px;
-  font-size: 11px;
+  margin-top: 6px;
+  font-size: 10px;
   color: var(--muted);
 }
 
-a {
-  color: var(--accent);
+/* Links should not look too loud */
+.citebox a {
+  color: rgba(180, 205, 255, 0.9);
   text-decoration: none;
 }
-a:hover {
+.citebox a:hover {
   text-decoration: underline;
 }
