@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trait Lemma Network</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Cytoscape.js -->
+  <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="title">
+        <h1>Trait Lemma Network</h1>
+        <div class="subtitle">
+          Hover to preview, click a node to view metadata, search to locate a lemma.
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="search">
+          <input id="searchInput" type="text" placeholder="Search lemma, for example honest" list="lemmaSuggestions" />
+          <datalist id="lemmaSuggestions"></datalist>
+          <button id="searchBtn" type="button">Find</button>
+          <button id="resetViewBtn" type="button" class="secondary">Reset view</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="main">
+      <aside class="panel left">
+        <h2>Filters</h2>
+
+        <div class="block">
+          <label class="label">Jaccard threshold</label>
+          <div class="row">
+            <input id="jaccardSlider" type="range" min="0" max="1" step="0.01" value="0.40" />
+            <span id="jaccardValue" class="pill">0.40</span>
+          </div>
+          <div class="hint">
+            This filters edges within the exported top-20 graph.
+          </div>
+        </div>
+
+        <div class="block">
+          <label class="label">FACT groups</label>
+          <div class="checkboxes" id="factCheckboxes">
+            <label><input type="checkbox" value="Fitness" checked /> Fitness</label>
+            <label><input type="checkbox" value="Agency" checked /> Agency</label>
+            <label><input type="checkbox" value="Communion" checked /> Communion</label>
+            <label><input type="checkbox" value="Traditionalism" checked /> Traditionalism</label>
+            <label><input type="checkbox" value="None" checked /> None</label>
+          </div>
+        </div>
+
+        <div class="block">
+          <button id="clearSelectionBtn" type="button" class="secondary">Clear selection</button>
+        </div>
+
+        <div class="block small">
+          <div id="statsBox" class="stats"></div>
+        </div>
+      </aside>
+
+      <section class="canvas">
+        <div id="cy"></div>
+        <div id="tooltip" class="tooltip hidden"></div>
+        <div id="loading" class="loading">Loading data...</div>
+      </section>
+
+      <aside class="panel right">
+        <h2>Node details</h2>
+        <div id="detailBox" class="detail empty">
+          Click a node to view lemma metadata.
+        </div>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <div>
+        Static site for GitHub Pages. Data are precomputed in R, the browser only renders and filters.
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
