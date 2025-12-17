@@ -30,7 +30,7 @@ let cy = null;
 // Metadata maps
 let lemmaMetaMap = new Map();   // id -> meta object
 let lemmaIndex = [];            // list for datalist
-let allFactSelected = new Set(["Fitness", "Agency", "Communion", "Traditionalism", "None"]);
+let allFactSelected = new Set(["Fitness", "Agency", "Communion", "Traditionalism", "Uncategorized"]);
 
 // Runtime caches
 let selectedNodeId = null;
@@ -186,7 +186,7 @@ function applyFilters() {
 
   // Nodes: FACT filter
   cy.nodes().forEach(n => {
-    const f = n.data("fact") || "None";
+    const f = n.data("fact") || "Uncategorized";
     const visible = allFactSelected.has(f);
     n.style("display", visible ? "element" : "none");
   });
@@ -263,7 +263,7 @@ function renderDetail(meta, nodeData) {
   detailBox.classList.remove("empty");
 
   const id = nodeData?.id || meta?.id || "NA";
-  const fact = nodeData?.fact || meta?.fact || "None";
+  const fact = nodeData?.fact || meta?.fact || "Uncategorized";
   const degree = nodeData?.degree ?? meta?.degree ?? "NA";
   const nDimensions = nodeData?.n_dimensions ?? meta?.n_dimensions ?? "NA";
 
@@ -512,7 +512,7 @@ function initCy(networkJson) {
   cy.on("mouseover", "node", (evt) => {
     const n = evt.target;
     const id = n.id();
-    const fact = n.data("fact") || "None";
+    const fact = n.data("fact") || "Uncategorized";
     const degree = n.data("degree");
     const nDim = n.data("n_dimensions");
 
