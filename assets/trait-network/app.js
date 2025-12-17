@@ -618,6 +618,12 @@ function initUI() {
 
     // Fix positions BEFORE Cytoscape init
     sanitizePresetPositions(networkJson);
+    if (networkJson && Array.isArray(networkJson.edges)) {
+  networkJson.edges = networkJson.edges.filter(e => {
+    const d = e.data || {};
+    return d.source && d.target && d.source !== d.target;
+  });
+}
 
     buildMetaMap(metaJson);
     initSearchIndex(indexJson);
