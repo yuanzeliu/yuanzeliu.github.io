@@ -1,6 +1,7 @@
 /* ============================================================
    Trait Lemma Network, static web app for GitHub Pages
    Uses Cytoscape.js with preset layout (x,y are precomputed in R)
+   Fixes: sanitize preset positions to avoid NaN/outlier collapse
    ============================================================ */
 
 const DATA_DIR = "data";
@@ -35,14 +36,18 @@ let allFactSelected = new Set(["Fitness", "Agency", "Communion", "Traditionalism
 let selectedNodeId = null;
 let currentJaccardThreshold = parseFloat(slider.value);
 
-// Utility helpers
+// ----------------------------
+// Utilities
+// ----------------------------
 function clamp(v, lo, hi) {
   return Math.max(lo, Math.min(hi, v));
 }
 
 function fmtNumber(x, digits = 3) {
   if (x === null || x === undefined || Number.isNaN(x)) return "NA";
-  return Number(x).toFixed(digits);
+  const n = Number(x);
+  if (!Number.isFinite(n)) return "NA";
+  return n.toFixed(digits);
 }
 
 function escapeHtml(str) {
@@ -63,8 +68,8 @@ function hideLoading() {
   loadingEl.style.display = "none";
 }
 
-function setStats(text) {
-  statsBox.innerHTML = text;
+function setStats(html) {
+  statsBox.innerHTML = html;
 }
 
 function buildDatalist(items) {
@@ -79,16 +84,79 @@ function buildDatalist(items) {
   datalist.appendChild(frag);
 }
 
-// Tooltip logic
-function showTooltip(html, x, y) {
+// ----------------------------
+// Critical fix: sanitize preset positions
+// - Fill missing/NaN coords with jitter near center
+// - Normalize all coords into a stable box to prevent outliers ruining fit()
+// ----------------------------
+function sanitizePresetPositions(elements) {
+  const nodes = elements?.nodes || [];
+  if (!Array.isArray(nodes) || nodes.length === 0) return elements;
+
+  const xs = [];
+  const ys = [];
+
+  for (const n of nodes) {
+    const p = n.position || {};
+    const x = Number(p.x);
+    const y = Number(p.y);
+    if (Number.isFinite(x) && Number.isFinite(y)) {
+      xs.push(x);
+      ys.push(y);
+    }
+  }
+
+  // If too few valid points, do not attempt normalization
+  // (Fallback: Cytoscape can later apply a force layout if needed)
+  if (xs.length < Math.max(10, nodes.length * 0.1)) {
+    return elements;
+  }
+
+  const xMin = Math.min(...xs), xMax = Math.max(...xs);
+  const yMin = Math.min(...ys), yMax = Math.max(...ys);
+
+  const cx = (xMin + xMax) / 2;
+  const cy = (yMin + yMax) / 2;
+
+  const spanX = Math.max(xMax - xMin, 1e-9);
+  const spanY = Math.max(yMax - yMin, 1e-9);
+
+  // Map the larger span to roughly 2000 units
+  const scale = 2000 / Math.max(spanX, spanY);
+
+  for (const n of nodes) {
+    const p = n.position || {};
+    let x = Number(p.x);
+    let y = Number(p.y);
+
+    // Repair missing/invalid coords
+    if (!Number.isFinite(x) || !Number.isFinite(y)) {
+      x = cx + (Math.random() - 0.5) * 20;
+      y = cy + (Math.random() - 0.5) * 20;
+    }
+
+    // Normalize
+    n.position = {
+      x: (x - cx) * scale,
+      y: (y - cy) * scale
+    };
+  }
+
+  return elements;
+}
+
+// ----------------------------
+// Tooltip
+// ----------------------------
+function showTooltip(html, clientX, clientY) {
   tooltipEl.innerHTML = html;
   tooltipEl.classList.remove("hidden");
 
   const rect = cyContainer.getBoundingClientRect();
   const padding = 12;
 
-  const left = clamp(x - rect.left + 14, padding, rect.width - 340);
-  const top = clamp(y - rect.top + 14, padding, rect.height - 120);
+  const left = clamp(clientX - rect.left + 14, padding, rect.width - 340);
+  const top = clamp(clientY - rect.top + 14, padding, rect.height - 120);
 
   tooltipEl.style.left = `${left}px`;
   tooltipEl.style.top = `${top}px`;
@@ -98,7 +166,9 @@ function hideTooltip() {
   tooltipEl.classList.add("hidden");
 }
 
-// FACT checkbox handler
+// ----------------------------
+// Filters
+// ----------------------------
 function initFactCheckboxes() {
   const box = document.getElementById("factCheckboxes");
   box.addEventListener("change", () => {
@@ -111,33 +181,31 @@ function initFactCheckboxes() {
   });
 }
 
-// Apply filters: FACT selection + jaccard threshold
 function applyFilters() {
   if (!cy) return;
 
-  // Filter nodes by FACT
+  // Nodes: FACT filter
   cy.nodes().forEach(n => {
     const f = n.data("fact") || "None";
     const visible = allFactSelected.has(f);
     n.style("display", visible ? "element" : "none");
   });
 
-  // Filter edges by jaccard threshold, also hide edges if either endpoint is hidden
+  // Edges: Jaccard threshold + endpoints visible
   cy.edges().forEach(e => {
-    const w = e.data("jaccard");
+    const w = Number(e.data("jaccard"));
     const s = e.source();
     const t = e.target();
     const endpointsVisible = (s.style("display") !== "none") && (t.style("display") !== "none");
-    const pass = (w >= currentJaccardThreshold) && endpointsVisible;
+    const pass = Number.isFinite(w) && (w >= currentJaccardThreshold) && endpointsVisible;
     e.style("display", pass ? "element" : "none");
   });
 
-  // Optional: fade nodes with zero visible edges
+  // Fade isolates (optional)
   cy.nodes().forEach(n => {
-    const hasVisibleEdge = n.connectedEdges().some(e => e.style("display") !== "none");
     const isVisible = n.style("display") !== "none";
     if (!isVisible) return;
-
+    const hasVisibleEdge = n.connectedEdges().some(e => e.style("display") !== "none");
     n.style("opacity", hasVisibleEdge ? 1.0 : 0.25);
   });
 
@@ -150,18 +218,20 @@ function updateStats() {
   const visibleNodes = cy.nodes().filter(n => n.style("display") !== "none").length;
   const visibleEdges = cy.edges().filter(e => e.style("display") !== "none").length;
 
-  const text = `
+  const html = `
     <div><b>Visible nodes:</b> ${visibleNodes}</div>
     <div><b>Visible edges:</b> ${visibleEdges}</div>
     <div><b>Jaccard threshold:</b> ${fmtNumber(currentJaccardThreshold, 2)}</div>
     <div class="hint" style="margin-top:8px;">
-      Tip: If the graph looks sparse, lower the threshold or broaden FACT filters.
+      Tip: Lower the threshold if the graph looks sparse.
     </div>
   `;
-  setStats(text);
+  setStats(html);
 }
 
+// ----------------------------
 // Highlight helpers
+// ----------------------------
 function clearHighlights() {
   if (!cy) return;
   cy.elements().removeClass("dimmed");
@@ -180,7 +250,9 @@ function highlightNeighborhood(node) {
   node.addClass("selected");
 }
 
-// Detail panel rendering
+// ----------------------------
+// Detail panel
+// ----------------------------
 function renderDetail(meta, nodeData) {
   if (!meta && !nodeData) {
     detailBox.classList.add("empty");
@@ -202,25 +274,24 @@ function renderDetail(meta, nodeData) {
   const valence = meta?.valence;
   const arousal = meta?.arousal;
 
-  // Dimension specific profile: list of {dimension, relevance, positivity, super_dimension}
   const dimProfile = meta?.dim_profile || [];
   const dimSorted = [...dimProfile]
     .filter(d => d && d.relevance !== null && d.relevance !== undefined && !Number.isNaN(d.relevance))
-    .sort((a, b) => (b.relevance || -Infinity) - (a.relevance || -Infinity));
+    .sort((a, b) => (Number(b.relevance) || -Infinity) - (Number(a.relevance) || -Infinity));
 
   const topDims = dimSorted.slice(0, 12);
 
-  // Build a small "bar list" by relevance
   let barsHtml = "";
   if (topDims.length > 0) {
-    const maxRel = Math.max(...topDims.map(d => d.relevance || 0), 1e-9);
+    const maxRel = Math.max(...topDims.map(d => Number(d.relevance) || 0), 1e-9);
     barsHtml = `
       <div class="section-title">Top dimensions by relevance</div>
       <div class="bars">
         ${topDims.map(d => {
-          const rel = d.relevance ?? 0;
+          const rel = Number(d.relevance) || 0;
           const pos = d.positivity;
           const wPct = clamp((rel / maxRel) * 100, 0, 100);
+
           const label = escapeHtml(d.dimension);
           const relTxt = fmtNumber(rel, 3);
           const posTxt = (pos === null || pos === undefined || Number.isNaN(pos)) ? "NA" : fmtNumber(pos, 3);
@@ -276,7 +347,15 @@ function renderDetail(meta, nodeData) {
   `;
 }
 
+// ----------------------------
 // Search and navigation
+// ----------------------------
+function clearSelection() {
+  clearHighlights();
+  selectedNodeId = null;
+  renderDetail(null, null);
+}
+
 function focusNodeById(id) {
   if (!cy) return;
 
@@ -306,23 +385,25 @@ function focusNodeById(id) {
 
 function resetView() {
   if (!cy) return;
+
   clearHighlights();
   selectedNodeId = null;
+
+  const visibleEles = cy.elements().filter(e => e.style("display") !== "none");
+  if (visibleEles.length === 0) return;
+
   cy.stop();
   cy.animate(
-    { fit: { eles: cy.elements().filter(e => e.style("display") !== "none"), padding: 40 } },
+    { fit: { eles: visibleEles, padding: 50 } },
     { duration: 350 }
   );
+
   renderDetail(null, null);
 }
 
-function clearSelection() {
-  clearHighlights();
-  selectedNodeId = null;
-  renderDetail(null, null);
-}
-
-// Init Cytoscape styles
+// ----------------------------
+// Cytoscape styles
+// ----------------------------
 function buildCyStyle() {
   return [
     {
@@ -342,7 +423,7 @@ function buildCyStyle() {
       style: {
         "line-color": "rgba(200,200,200,0.18)",
         "width": "mapData(jaccard, 0, 1, 0.25, 2.2)",
-        "curve-style": "bezier",
+        "curve-style": "straight",
         "opacity": 0.9
       }
     },
@@ -381,7 +462,9 @@ function buildCyStyle() {
   ];
 }
 
-// Main load
+// ----------------------------
+// Load data
+// ----------------------------
 async function loadAllData() {
   showLoading("Loading network...");
   const netResp = await fetch(FILE_NETWORK);
@@ -399,7 +482,6 @@ async function loadAllData() {
 }
 
 function buildMetaMap(metaJson) {
-  // metaJson is an array of objects, each object has an id
   lemmaMetaMap = new Map();
   for (const m of metaJson) {
     if (!m || !m.id) continue;
@@ -413,23 +495,27 @@ function initSearchIndex(indexJson) {
   buildDatalist(lemmas);
 }
 
+// ----------------------------
+// Init Cytoscape
+// ----------------------------
 function initCy(networkJson) {
   cy = cytoscape({
     container: cyContainer,
     elements: networkJson,
-    layout: { name: "preset" }, // x,y are given
+    layout: { name: "preset" },
     style: buildCyStyle(),
     wheelSensitivity: 0.12,
     pixelRatio: 1
   });
 
-  // Tooltip: show on node hover
+  // Tooltip: node hover
   cy.on("mouseover", "node", (evt) => {
     const n = evt.target;
     const id = n.id();
     const fact = n.data("fact") || "None";
     const degree = n.data("degree");
     const nDim = n.data("n_dimensions");
+
     const html = `
       <div><b>${escapeHtml(id)}</b></div>
       <div style="margin-top:4px;color:rgba(255,255,255,0.8);">
@@ -441,12 +527,11 @@ function initCy(networkJson) {
         Click to open details.
       </div>
     `;
-    // Use the mouse position from the original event if available
+
     const r = evt.originalEvent;
     if (r && typeof r.clientX === "number") {
       showTooltip(html, r.clientX, r.clientY);
     } else {
-      // Fallback, place tooltip near center
       const rect = cyContainer.getBoundingClientRect();
       showTooltip(html, rect.left + rect.width * 0.5, rect.top + rect.height * 0.2);
     }
@@ -455,8 +540,9 @@ function initCy(networkJson) {
   cy.on("mousemove", "node", (evt) => {
     const r = evt.originalEvent;
     if (!r) return;
-    tooltipEl.style.left = `${clamp(r.clientX - cyContainer.getBoundingClientRect().left + 14, 12, cyContainer.clientWidth - 340)}px`;
-    tooltipEl.style.top = `${clamp(r.clientY - cyContainer.getBoundingClientRect().top + 14, 12, cyContainer.clientHeight - 120)}px`;
+    const rect = cyContainer.getBoundingClientRect();
+    tooltipEl.style.left = `${clamp(r.clientX - rect.left + 14, 12, rect.width - 340)}px`;
+    tooltipEl.style.top = `${clamp(r.clientY - rect.top + 14, 12, rect.height - 120)}px`;
   });
 
   cy.on("mouseout", "node", () => {
@@ -475,11 +561,9 @@ function initCy(networkJson) {
     renderDetail(meta, n.data());
   });
 
-  // Click background
+  // Click background: hide tooltip
   cy.on("tap", (evt) => {
-    if (evt.target === cy) {
-      hideTooltip();
-    }
+    if (evt.target === cy) hideTooltip();
   });
 
   // Initial fit
@@ -488,7 +572,9 @@ function initCy(networkJson) {
   }, 80);
 }
 
-// Wire UI events
+// ----------------------------
+// UI wiring
+// ----------------------------
 function initUI() {
   initFactCheckboxes();
 
@@ -521,11 +607,17 @@ function initUI() {
   });
 }
 
+// ----------------------------
 // Boot
+// ----------------------------
 (async function main() {
   try {
     initUI();
+
     const { networkJson, metaJson, indexJson } = await loadAllData();
+
+    // Fix positions BEFORE Cytoscape init
+    sanitizePresetPositions(networkJson);
 
     buildMetaMap(metaJson);
     initSearchIndex(indexJson);
