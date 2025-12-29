@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Trait Lemma Network</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Cytoscape.js -->
+  <title>Human Trait Network</title>
+  <!-- Cache-bust to ensure the latest CSS is loaded (especially on GitHub Pages) -->
+  <link rel="stylesheet" href="style.css?v=20251229" />
   <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
 </head>
 
@@ -14,16 +13,16 @@
   <div class="app">
     <header class="header">
       <div class="title">
-        <h1>Trait Lemma Network</h1>
+        <h1>Human Trait Network</h1>
         <div class="subtitle">
-          Hover to preview, click a node to view metadata, search to locate a lemma.
+          Hover to preview, click a node to view metadata, use search to locate a word.
         </div>
       </div>
 
       <div class="header-actions">
         <div class="search">
-          <input id="searchInput" type="text" placeholder="Search lemma, for example honest" list="lemmaSuggestions" />
-          <datalist id="lemmaSuggestions"></datalist>
+          <input id="searchInput" type="text" placeholder="Search (e.g., honest)" list="nodeSuggestions" />
+          <datalist id="nodeSuggestions"></datalist>
           <button id="searchBtn" type="button">Find</button>
           <button id="resetViewBtn" type="button" class="secondary">Reset view</button>
         </div>
@@ -41,7 +40,35 @@
             <span id="jaccardValue" class="pill">0.40</span>
           </div>
           <div class="hint">
-            This filters edges within the exported top-20 graph.
+            Filters edges within the exported top-20-per-node graph.
+          </div>
+        </div>
+
+        <div class="block">
+
+
+          <div class="row">
+            <label>
+              <input type="checkbox" id="edgeWeightedToggle" />
+              Show edge weights (opacity)
+            </label>
+          </div>
+
+          <div class="hint">
+            If enabled, edge opacity reflects Jaccard (relative to current threshold).
+          </div>
+
+
+
+          <div class="row">
+            <label>
+              <input type="checkbox" id="valenceShadingToggle" />
+              Valence shading (brightness)
+            </label>
+          </div>
+
+          <div class="hint">
+            If enabled, node brightness reflects valence (higher = brighter, lower = darker). Nodes with valence = NA are hidden.
           </div>
         </div>
 
@@ -54,6 +81,9 @@
             <label><input type="checkbox" value="Traditionalism" checked /> Traditionalism</label>
             <label><input type="checkbox" value="Uncategorized" checked /> Uncategorized</label>
           </div>
+          <div class="hint">
+            Node colors update dynamically based on selected groups and each node’s FACT mean relevance.
+          </div>
         </div>
 
         <div class="block">
@@ -65,36 +95,33 @@
         </div>
 
         <div class="block small">
-  <div class="detail citebox">
-    <div class="cite-title">Citation & Links</div>
+          <div class="detail citebox">
+            <div class="cite-title">Citation & Links</div>
 
-    <div class="cite-text">
-      This interactive visualization accompanies:
-      <br/><br/>
-      Liu, Y., Charlesworth, T., Koch, A., Luttrell, A., &amp; Jackson, J. C. (2025).
-      <i>The content, structure, and history of English trait words</i> (No. 7qkg8_v1).
-      <i>PsyArXiv</i>. https://doi.org/10.31234/osf.io/7qkg8_v1
-    </div>
+            <div class="cite-text">
+              This interactive visualization accompanies:
+              <br/><br/>
+              Liu, Y., Charlesworth, T., Koch, A., Luttrell, A., &amp; Jackson, J. C. (2025).
+              <i>The content, structure, and history of English trait words</i> (No. 7qkg8_v1).
+              <i>PsyArXiv</i>. https://doi.org/10.31234/osf.io/7qkg8_v1
+            </div>
 
-    <div class="cite-links">
-      <a href="https://osf.io/preprints/psyarxiv/7qkg8_v1" target="_blank" rel="noopener">
-        Paper (PsyArXiv)
-      </a>
-      <span class="sep">•</span>
-      <a href="https://osf.io/7k4yj/files/osfstorage" target="_blank" rel="noopener">
-        Data (OSF)
-      </a>
-    </div>
+            <div class="cite-links">
+              <a href="https://osf.io/preprints/psyarxiv/7qkg8_v1" target="_blank" rel="noopener">
+                Paper (PsyArXiv)
+              </a>
+              <span class="sep">•</span>
+              <a href="https://osf.io/7k4yj/files/osfstorage" target="_blank" rel="noopener">
+                Data (OSF)
+              </a>
+            </div>
 
-    <div class="cite-note">
-      R&amp;R in <i>Journal of Personality and Social Psychology</i>.
-    </div>
-  </div>
-</div>
+            <div class="cite-note">
+              R&amp;R in <i>Journal of Personality and Social Psychology</i>.
+            </div>
+          </div>
+        </div>
       </aside>
-
-      
-
 
       <section class="canvas">
         <div id="cy"></div>
@@ -105,18 +132,19 @@
       <aside class="panel right">
         <h2>Node details</h2>
         <div id="detailBox" class="detail empty">
-          Click a node to view lemma metadata.
+          Click a node to view metadata.
         </div>
       </aside>
     </div>
 
     <footer class="footer">
       <div>
-        Static site for GitHub Pages. Data are precomputed in R, the browser only renders and filters.
+        Static site for GitHub Pages. Data are precomputed in R; the browser only renders and filters.
       </div>
     </footer>
   </div>
 
+  <!-- Keep only ONE app.js include -->
   <script src="app.js"></script>
 </body>
 </html>
