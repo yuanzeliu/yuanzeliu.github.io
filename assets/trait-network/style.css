@@ -15,7 +15,7 @@
 }
 
 *{ box-sizing: border-box; }
-html,body{ height:100%; margin:0; background: radial-gradient(1200px 900px at 30% 10%, #182048 0%, #0b1020 60%, #070a14 100%); color: var(--text); font-family: var(--sans); }
+html,body{ height:100%; margin:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
 
 .app{ display:flex; flex-direction:column; min-height:100vh; }
 
