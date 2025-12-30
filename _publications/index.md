@@ -205,7 +205,8 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>Policy Insights from the Behavioral and Brain Sciences</em>.
       </p>
       <p class="links">
-        <a class="btn btn--primary btn--sm" href="/files/ai_prioritization.pdf">PDF</a> <!-- placeholder -->
+        <a class="btn btn--light btn--sm" href="https://journals.sagepub.com/doi/10.1177/23727322251408311">Journal</a>
+        <a class="btn btn--primary btn--sm" href="/files/jackson-et-al-2025-large-ai-models-have-a-prioritization-problem-policy-implications-and-solutions.pdf">PDF</a> <!-- placeholder -->
       </p>
     </div>
   </div>
