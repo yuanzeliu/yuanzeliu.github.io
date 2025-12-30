@@ -777,7 +777,7 @@ function applyFactFilterAndColors(refit = false) {
   updateStats();
 
   // Update edge opacity weights after visibility changes
-  applyEdgeWeightsOpacity(false);
+  updateEdgeWeights();
 
   if (refit) {
     try {
@@ -1020,6 +1020,14 @@ async function loadWordNetwork() {
         })
         .map((s) => String(s).trim())
         .filter(Boolean);
+
+      // Make autocomplete predictable: de-duplicate + alphabetical (case-insensitive)
+      indexList = Array.from(new Set(indexList)).sort((a, b) =>
+        String(a).localeCompare(String(b), undefined, {
+          sensitivity: "base",
+          numeric: true,
+        })
+      );
     }
     rebuildDatalist();
 
