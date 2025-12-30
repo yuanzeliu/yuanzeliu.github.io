@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 You can download a PDF version of my CV
-[here](/files/LIU%20Yuanze_CV_20251028.pdf).
+[here](/files/LIU%20Yuanze_CV_20251205.pdf).
 
 <style>
 .cv-frame-wrapper {
@@ -51,7 +51,7 @@ You can download a PDF version of my CV
 
 <div class="cv-frame-wrapper">
   <iframe
-    src="/files/LIU%20Yuanze_CV_20251028.pdf#view=FitH"
+    src="/files/LIU%20Yuanze_CV_20251205.pdf#view=FitH"
     loading="lazy">
   </iframe>
 </div>
