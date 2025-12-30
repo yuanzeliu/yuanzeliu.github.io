@@ -12,7 +12,7 @@
 
    ===================================================================== */
 
-window.APP_VERSION = "v18-word-only-valence-2025-12-29";
+window.APP_VERSION = "v20-word-only-valence-toggle-no-refit-2025-12-30";
 console.log("APP_VERSION:", window.APP_VERSION);
 
 // ----------------------------
@@ -84,6 +84,13 @@ const elEdgeWeightedToggle = document.getElementById("edgeWeightedToggle");
 // Valence shading control (optional; if enabled, node brightness reflects valence)
 const elValenceShadingToggle = document.getElementById("valenceShadingToggle");
 
+
+// Valence range controls (optional; if enabled, filter nodes by valence interval)
+const elValenceMinSlider = document.getElementById("valenceMinSlider");
+const elValenceMaxSlider = document.getElementById("valenceMaxSlider");
+const elValenceMinValue = document.getElementById("valenceMinValue");
+const elValenceMaxValue = document.getElementById("valenceMaxValue");
+
 // This datalist id should exist in HTML: <datalist id="nodeSuggestions"></datalist>
 const elSuggestions = document.getElementById("nodeSuggestions");
 
@@ -148,6 +155,89 @@ function computeValenceDomainFromMeta() {
   }
   return { min, max };
 }
+
+
+// ----------------------------
+// Valence range filter helpers
+// ----------------------------
+function initValenceRangeToDefault() {
+  // Default: include all valence values AND include nodes with valence = NA
+  const min = asNumberMaybe(valenceDomain?.min);
+  const max = asNumberMaybe(valenceDomain?.max);
+
+  valenceRange = {
+    min: min === null ? -1 : min,
+    max: max === null ? 1 : max,
+  };
+
+  // Sync UI if sliders exist
+  if (elValenceMinSlider) {
+    elValenceMinSlider.min = String(valenceRange.min);
+    elValenceMinSlider.max = String(valenceRange.max);
+    elValenceMinSlider.step = "0.01";
+    elValenceMinSlider.value = String(valenceRange.min);
+  }
+  if (elValenceMaxSlider) {
+    elValenceMaxSlider.min = String(valenceRange.min);
+    elValenceMaxSlider.max = String(valenceRange.max);
+    elValenceMaxSlider.step = "0.01";
+    elValenceMaxSlider.value = String(valenceRange.max);
+  }
+
+  if (elValenceMinValue) elValenceMinValue.textContent = valenceRange.min.toFixed(2);
+  if (elValenceMaxValue) elValenceMaxValue.textContent = valenceRange.max.toFixed(2);
+}
+
+function isValenceRangeDefault() {
+  const dMin = asNumberMaybe(valenceDomain?.min);
+  const dMax = asNumberMaybe(valenceDomain?.max);
+  const rMin = asNumberMaybe(valenceRange?.min);
+  const rMax = asNumberMaybe(valenceRange?.max);
+
+  // If not initialized yet, treat as default (do not filter)
+  if (dMin === null || dMax === null || rMin === null || rMax === null) return true;
+
+  const EPS = 1e-9;
+  return (rMin <= dMin + EPS) && (rMax >= dMax - EPS);
+}
+
+function clampAndSyncValenceRangeFromUI() {
+  if (!elValenceMinSlider || !elValenceMaxSlider) return;
+
+  let rMin = asNumberMaybe(elValenceMinSlider.value);
+  let rMax = asNumberMaybe(elValenceMaxSlider.value);
+
+  const dMin = asNumberMaybe(valenceDomain?.min) ?? -1;
+  const dMax = asNumberMaybe(valenceDomain?.max) ?? 1;
+
+  if (rMin === null) rMin = dMin;
+  if (rMax === null) rMax = dMax;
+
+  // Clamp to domain
+  rMin = Math.max(dMin, Math.min(dMax, rMin));
+  rMax = Math.max(dMin, Math.min(dMax, rMax));
+
+  // Ensure min <= max
+  if (rMin > rMax) {
+    const mid = (rMin + rMax) / 2;
+    rMin = mid;
+    rMax = mid;
+  }
+
+  valenceRange = { min: rMin, max: rMax };
+
+  // Reflect back to UI (in case we clamped)
+  elValenceMinSlider.value = String(rMin);
+  elValenceMaxSlider.value = String(rMax);
+
+  // Prevent sliders from crossing (better UX)
+  elValenceMinSlider.max = String(rMax);
+  elValenceMaxSlider.min = String(rMin);
+
+  if (elValenceMinValue) elValenceMinValue.textContent = rMin.toFixed(2);
+  if (elValenceMaxValue) elValenceMaxValue.textContent = rMax.toFixed(2);
+}
+
 
 function valenceToSigned(v) {
   const x = asNumberMaybe(v);
@@ -258,6 +348,9 @@ function resetFactSelectionToAll() {
   if (elValenceShadingToggle) elValenceShadingToggle.checked = false;
   valenceShadingEnabled = false;
   syncValenceControlUI();
+
+  // 3.75) Reset valence range filter to default (all values + NA)
+  initValenceRangeToDefault();
 
   // 4) Re-apply node filter + colors (and refit)
   applyFactFilterAndColors(true);
@@ -734,6 +827,19 @@ function applyFactFilterAndColors(refit = false) {
     // IMPORTANT: must be 'let' because valence shading may override visibility (hide NA valence)
     let visible = hasMembership ? intersects : showUncat;
 
+
+    // Apply valence range filter (raw meta valence). Default includes NA valence nodes.
+    const meta = metaById.get(n.id()) || {};
+    const vRaw = meta?.valence;
+    const vNum = asNumberMaybe(vRaw);
+
+    const rangeDefault = isValenceRangeDefault();
+    const inRange = (vNum !== null) && (vNum >= (valenceRange?.min ?? -Infinity)) && (vNum <= (valenceRange?.max ?? Infinity));
+    const passesValenceRange = (vNum === null) ? rangeDefault : inRange;
+
+    visible = visible && passesValenceRange;
+
+
     // Pick FACT-driven display group + base color
     const pick = pickDisplayFactAndColor(d, selectedOnlyFACT);
     n.data("display_fact", pick.fact);
@@ -742,7 +848,6 @@ function applyFactFilterAndColors(refit = false) {
     let c = pick.color;
 
     if (valenceShadingEnabled) {
-      const meta = metaById.get(n.id()) || {};
       const valenceRaw = meta?.valence;
 
       // Convert valence to signed [-1, 1] (supports either [-1,1] or [0,1] inputs)
@@ -803,6 +908,7 @@ function updateStats() {
     <div><b>Nodes:</b> ${visibleNodes} / ${totalNodes}</div>
     <div><b>Edges:</b> ${visibleEdges} / ${totalEdges}</div>
     <div><b>Jaccard threshold:</b> ${thr.toFixed(2)}</div>
+    <div><b>Valence range:</b> ${fmtScalar(valenceRange?.min, 2)} to ${fmtScalar(valenceRange?.max, 2)}${isValenceRangeDefault() ? " (all + NA)" : ""}</div>
   `;
 }
 
@@ -1009,6 +1115,9 @@ async function loadWordNetwork() {
     // compute valence domain for brightness mapping
     valenceDomain = computeValenceDomainFromMeta();
 
+    // initialize valence range controls (default: all values + NA)
+    initValenceRangeToDefault();
+
     // index list: accept ["honest", ...] OR [{id:"honest"}, ...]
     indexList = [];
     if (Array.isArray(indexJson)) {
@@ -1116,7 +1225,23 @@ function wireEvents() {
     elValenceShadingToggle.addEventListener("change", () => {
       valenceShadingEnabled = !!elValenceShadingToggle.checked;
       // Recompute colors + hide NA valence nodes when enabled
-      applyFactFilterAndColors(true);
+      applyFactFilterAndColors(false);
+    });
+  }
+
+
+
+  // Valence range sliders
+  if (elValenceMinSlider) {
+    elValenceMinSlider.addEventListener("input", () => {
+      clampAndSyncValenceRangeFromUI();
+      applyFactFilterAndColors(false);
+    });
+  }
+  if (elValenceMaxSlider) {
+    elValenceMaxSlider.addEventListener("input", () => {
+      clampAndSyncValenceRangeFromUI();
+      applyFactFilterAndColors(false);
     });
   }
 

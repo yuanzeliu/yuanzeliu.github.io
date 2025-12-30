@@ -15,7 +15,7 @@
 }
 
 *{ box-sizing: border-box; }
-html,body{ height:100%; margin:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
+html,body{ height:100%; margin:0; background: radial-gradient(1200px 900px at 30% 10%, #182048 0%, #0b1020 60%, #070a14 100%); color: var(--text); font-family: var(--sans); }
 
 .app{ display:flex; flex-direction:column; min-height:100vh; }
 
@@ -97,22 +97,6 @@ button.secondary{ background: transparent; border: 1px solid rgba(255,255,255,0.
 .label{ font-size: 12px; color: var(--muted); display:block; margin-bottom: 8px; }
 .row{ display:flex; align-items:center; gap: 10px; }
 .hint{ font-size: 12px; color: var(--muted2); margin-top: 6px; line-height: 1.35; }
-
-/* Increase spacing between consecutive toggle sections (hint -> next toggle) */
-.panel.left .block .row + .hint + .row{ margin-top: 12px; }
-
-/* Ensure consistent typography for checkbox rows in the left Filters panel */
-.panel.left .block .row > label{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  /* Match the section label typography (e.g., "Jaccard threshold") */
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  color: var(--muted) !important;
-  line-height: 1.25;
-  -webkit-text-size-adjust: 100%;
-}
 
 .pill{
   display:inline-block;
@@ -436,4 +420,75 @@ html, body {
 
 .muted {
   opacity: 0.75;
+}
+
+
+/* =========================================================
+   Dual-handle range slider (two <input type="range"> on one axis)
+   ========================================================= */
+.dual-range{
+  position: relative;
+  flex: 1 1 auto;
+  height: 22px;
+}
+
+/* Stack both sliders on the same track */
+.dual-range input[type="range"]{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  background: transparent;
+  pointer-events: none; /* allow clicks to pass through except thumbs */
+}
+
+/* Re-enable pointer events on thumbs so users can drag them */
+.dual-range input[type="range"]::-webkit-slider-thumb{ pointer-events: auto; }
+.dual-range input[type="range"]::-moz-range-thumb{ pointer-events: auto; }
+
+/* Keep the min thumb above the max thumb */
+.dual-range .range-min{ z-index: 3; }
+.dual-range .range-max{ z-index: 2; }
+
+/* Show only ONE track (use the max slider's track; hide the min slider's track) */
+.dual-range .range-min::-webkit-slider-runnable-track{ background: transparent; }
+.dual-range .range-min::-moz-range-track{ background: transparent; }
+
+
+
+/* =========================================================
+   Toggle + range label typography (match "Show edge weights")
+   ========================================================= */
+.toggle-label{
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--muted);
+}
+.toggle-label input[type="checkbox"]{
+  transform: translateY(1px);
+  margin-right: 8px;
+}
+
+/* Valence range (two sliders: Min/Max) */
+.range-grid{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+.range-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.range-label{
+  width: 36px;
+  flex: 0 0 36px;
+}
+.range-row input[type="range"]{
+  flex: 1 1 auto;
+  min-width: 0;
 }

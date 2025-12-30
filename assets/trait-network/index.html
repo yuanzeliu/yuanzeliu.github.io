@@ -4,8 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Human Trait Network</title>
-  <!-- Cache-bust to ensure the latest CSS is loaded (especially on GitHub Pages) -->
-  <link rel="stylesheet" href="style.css?v=20251229" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
 </head>
 
@@ -48,7 +47,7 @@
 
 
           <div class="row">
-            <label>
+            <label class="toggle-label">
               <input type="checkbox" id="edgeWeightedToggle" />
               Show edge weights (opacity)
             </label>
@@ -61,7 +60,7 @@
 
 
           <div class="row">
-            <label>
+            <label class="toggle-label">
               <input type="checkbox" id="valenceShadingToggle" />
               Valence shading (brightness)
             </label>
@@ -72,7 +71,30 @@
           </div>
         </div>
 
+        
         <div class="block">
+          <label class="label">Valence range</label>
+
+          <div class="range-grid">
+            <div class="range-row">
+              <span class="toggle-label range-label">Min</span>
+              <input id="valenceMinSlider" type="range" min="-1" max="1" step="0.01" value="-1" />
+              <span id="valenceMinValue" class="pill">-1.00</span>
+            </div>
+
+            <div class="range-row">
+              <span class="toggle-label range-label">Max</span>
+              <input id="valenceMaxSlider" type="range" min="-1" max="1" step="0.01" value="1" />
+              <span id="valenceMaxValue" class="pill">1.00</span>
+            </div>
+          </div>
+
+          <div class="hint">
+            Adjust to show nodes whose valence lies within the selected range. Default shows all valence values and nodes with valence = NA.
+          </div>
+        </div>
+
+<div class="block">
           <label class="label">FACT groups</label>
           <div class="checkboxes" id="factCheckboxes">
             <label><input type="checkbox" value="Fitness" checked /> Fitness</label>
@@ -101,13 +123,17 @@
             <div class="cite-text">
               This interactive visualization accompanies:
               <br/><br/>
-              Anonymous authors. (2025).
-              <i>The content, structure, and history of English trait words</i>.
-              <i>PsyArXiv</i>
+              Liu, Y., Charlesworth, T., Koch, A., Luttrell, A., &amp; Jackson, J. C. (2025).
+              <i>The content, structure, and history of English trait words</i> (No. 7qkg8_v1).
+              <i>PsyArXiv</i>. https://doi.org/10.31234/osf.io/7qkg8_v1
             </div>
 
             <div class="cite-links">
-              <a href="https://osf.io/7k4yj/overview?view_only=8355ec82071e4b7e9d3cf6c11e1306e5" target="_blank" rel="noopener">
+              <a href="https://osf.io/preprints/psyarxiv/7qkg8_v1" target="_blank" rel="noopener">
+                Paper (PsyArXiv)
+              </a>
+              <span class="sep">•</span>
+              <a href="https://osf.io/7k4yj/files/osfstorage" target="_blank" rel="noopener">
                 Data (OSF)
               </a>
             </div>
