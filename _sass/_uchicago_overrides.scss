@@ -1,0 +1,144 @@
+/* UChicago overrides loaded LAST */
+
+:root {
+  --uchicago-maroon: #800000;
+  --uchicago-maroon-hover: #5a0000;
+
+  --uchicago-gray-100: #D9D9D9;
+  --uchicago-gray-300: #A6A6A6;
+  --uchicago-gray-500: #737373;
+
+  /* These are referenced by your syntax styles */
+  --global-code-background-color: rgba(217, 217, 217, 0.25);
+  --global-border-color: #D9D9D9;
+}
+
+/* Links */
+a {
+  color: var(--uchicago-maroon);
+  text-decoration-color: rgba(128, 0, 0, 0.18);
+  text-underline-offset: 0.18em;
+}
+a:hover,
+a:focus {
+  color: var(--uchicago-maroon-hover);
+  text-decoration-color: rgba(90, 0, 0, 0.28);
+}
+a:visited {
+  color: #4d0000;
+}
+
+/* Masthead / Navigation */
+.masthead {
+  background: #ffffff; /* Or use var(--uchicago-gray-100) for a gray nav */
+  border-bottom: 1px solid var(--uchicago-gray-100);
+}
+.masthead a,
+.greedy-nav a {
+  color: #111111;
+}
+.masthead a:hover,
+.greedy-nav a:hover,
+.masthead a:focus,
+.greedy-nav a:focus {
+  color: var(--uchicago-maroon);
+}
+
+/* Inline highlight */
+mark {
+  background: rgba(128, 0, 0, 0.10);
+  color: #111111;
+  padding: 0.05em 0.2em;
+  border-radius: 0.25em;
+}
+
+/* Code syntax: reduce bright cyan to maroon for keywords */
+.highlight .k,
+.highlight .kd,
+.highlight .kr,
+.highlight .kt,
+.highlight .kn,
+.highlight .kp {
+  color: var(--uchicago-maroon);
+}
+
+/* ===== HBS-style full maroon masthead ===== */
+
+:root {
+  --uchicago-maroon: #800000;
+  --uchicago-gray-100: #D9D9D9;
+}
+
+/* The bar itself */
+.masthead {
+  background: var(--uchicago-maroon) !important;
+  border-bottom: none !important;
+}
+
+/* The 1px divider in your _masthead.scss */
+.masthead::after {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Remove the centered white strip:
+   both the inner container and greedy-nav paint white by default */
+.masthead__inner-wrap,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links,
+.masthead__menu,
+.masthead__menu-item {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Make all masthead text white */
+.masthead a,
+.greedy-nav a,
+.site-title,
+.site-title a {
+  color: #ffffff !important;
+}
+
+/* Hover */
+.masthead a:hover,
+.masthead a:focus,
+.greedy-nav a:hover,
+.greedy-nav a:focus {
+  color: var(--uchicago-gray-100) !important;
+}
+
+/* Optional: adjust the underline bar in .greedy-nav .visible-links a:before
+   (your code currently uses --global-border-color; on maroon it looks odd) */
+.greedy-nav .visible-links a:before {
+  background: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Optional: slim padding to look like the reference site */
+.masthead__inner-wrap {
+  padding: 0.35em 1em !important;
+}
+
+/* Prevent fixed masthead from overlapping page content */
+body {
+  padding-top: 3.2rem; /* adjust if needed */
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 3.6rem; /* slightly taller on mobile */
+  }
+}
+
+/* Debug: make iframes and stats widgets visible */
+iframe {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.clustrmaps-wrap {
+  text-align: center;
+  margin: 40px 0 10px;
+  min-height: 220px;
+}

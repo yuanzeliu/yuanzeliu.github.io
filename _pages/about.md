@@ -23,8 +23,8 @@ My research revolves around three broad questions:
 For more details of my work, please see [Research](https://yuanzeliu.github.io/Research/).
 For my personal story, please see [Bio](https://yuanzeliu.github.io/bio/).
 
-<p style="text-align:center;margin-top:20px;">
-<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=HhrBCMvvM0ADB46f8r2wVXbDz1I0B3sdZ74VDjmfZwY&&co=003366&cmo=126d3b&cmn=cb0821&ct=808080"></script>
-</p>
+{% include clustrmaps.html %}
+
+
 
 
