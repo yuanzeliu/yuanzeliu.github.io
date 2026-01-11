@@ -142,3 +142,10 @@ iframe {
   margin: 40px 0 10px;
   min-height: 220px;
 }
+
+/* English comment: subtle sidebar background to separate it from main content */
+.sidebar {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 1rem;
+}
