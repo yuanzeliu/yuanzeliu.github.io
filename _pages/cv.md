@@ -9,42 +9,40 @@ You can download a PDF version of my CV
 [here](/files/LIU%20Yuanze_CV_20251205.pdf).
 
 <style>
+/* 容器样式 */
 .cv-frame-wrapper {
   width: 100%;
-  max-width: 100%;
-  height: 85vh;
-  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
+  margin-top: 1.5rem;
 }
 
+/* iframe 核心样式 */
 .cv-frame-wrapper iframe {
-  width: 80%;               /* Desktop width, leave some margin */
-  height: 100%;
+  /* 电脑端默认设置 */
+  width: 80%;               
+  height: 75vh;             /* 【已修改】从 85vh 减小到 75vh，缩短电脑端长度 */
   border: none;
   border-radius: 4px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* ✅ Responsive design for mobile and tablets */
+/* --- 响应式设计 (手机/平板适配) --- */
+
+/* 平板 (iPad 等) */
 @media (max-width: 1024px) {
   .cv-frame-wrapper iframe {
-    width: 90%;             /* Tablets: slightly wider */
-    height: 80vh;           /* Reduce height */
+    width: 90%;             
+    height: 65vh;           /* 平板端稍微再短一点 */
   }
 }
 
+/* 手机 (iPhone / Android) */
 @media (max-width: 768px) {
   .cv-frame-wrapper iframe {
-    width: 100%;            /* Mobile: full width */
-    height: 75vh;           /* Allow some scroll space */
-  }
-}
-
-@media (max-width: 480px) {
-  .cv-frame-wrapper iframe {
-    width: 100%;
-    height: 70vh;           /* Smaller screens: slightly shorter */
+    width: 95%;             /* 【已修改】改为 95%，防止紧贴手机屏幕边缘 */
+    height: 50vh;           /* 【已修改】大幅减小高度，防止手机滑动时“陷”在PDF里出不来 */
+    min-height: 400px;      /* 保证最小高度，避免太扁 */
   }
 }
 </style>
@@ -52,6 +50,7 @@ You can download a PDF version of my CV
 <div class="cv-frame-wrapper">
   <iframe
     src="/files/LIU%20Yuanze_CV_20251205.pdf#view=FitH"
-    loading="lazy">
+    loading="lazy"
+    title="CV Preview">
   </iframe>
 </div>
