@@ -42,3 +42,17 @@
     "vendor/font-awesome/brands",
     "uchicago_overrides"
 ;
+
+.clustrmaps-wrap{
+  margin: 16px auto 0;
+  max-width: 520px; /* 可改大 */
+  line-height: 0;   /* 关键：消掉底部“基线空白” */
+}
+
+.page__content > :last-child{
+  margin-bottom: 0;
+}
+
+.page__footer{
+  margin-top: 1.5rem; /* 还大就 1rem */
+}

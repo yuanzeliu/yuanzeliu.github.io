@@ -23,7 +23,10 @@ My research revolves around three broad questions:
 For more details of my work, please see [Research](https://yuanzeliu.github.io/Research/).
 For my personal story, please see [Bio](https://yuanzeliu.github.io/bio/).
 
-{% include clustrmaps.html %}
+<div class="clustrmaps-wrap">
+  {% include clustrmaps.html %}
+</div>
+
 
 
 
