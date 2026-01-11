@@ -21,7 +21,7 @@ You can download a PDF version of my CV
 .cv-frame-wrapper iframe {
   /* 电脑端默认设置 */
   width: 80%;               
-  height: 75vh;             /* 【已修改】从 85vh 减小到 75vh，缩短电脑端长度 */
+  height: 55vh;             /* 【已修改】从 85vh 减小到 75vh，缩短电脑端长度 */
   border: none;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
