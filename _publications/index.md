@@ -41,31 +41,6 @@ author_profile: true
   .rcard { flex-direction: column; }
   .rcard .img img { width: 100%; max-width: 100%; }
 }
-/* Dark mode support */
-body[data-theme="dark"] .theme {
-  background: #2d2d2d; /* dark card */
-  border-color: #444;
-}
-
-body[data-theme="dark"] .rcard {
-  border-color: #555;
-}
-
-body[data-theme="dark"] .rcard .txt {
-  color: #ddd; /* make text brighter */
-}
-
-body[data-theme="dark"] .rcard .img img {
-  border-color: #555;
-}
-
-body[data-theme="dark"] .theme > summary {
-  color: #eee;
-}
-
-body[data-theme="dark"] .chev {
-  filter: invert(90%); /* make arrow visible */
-}
 
 </style>
 
@@ -93,7 +68,7 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7qkg8_v1">Preprint</a>
-        
+        <a class="btn btn--light btn--sm" href="https://yuanzeliu.github.io/assets/trait-network/">Interactive App</a>
       </p>
     </div>
   </div>
