@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 You can download a PDF version of my CV
-[here](/files/LIU%20Yuanze_CV_20260113.pdf).
+[here](/files/LIU%20Yuanze_CV_20260302.pdf).
 
 <style>
 /* 容器样式 */
@@ -40,16 +40,16 @@ You can download a PDF version of my CV
 /* 手机 (iPhone / Android) */
 @media (max-width: 768px) {
   .cv-frame-wrapper iframe {
-    width: 95%;             /* 【已修改】改为 95%，防止紧贴手机屏幕边缘 */
-    height: 50vh;           /* 【已修改】大幅减小高度，防止手机滑动时“陷”在PDF里出不来 */
-    min-height: 400px;      /* 保证最小高度，避免太扁 */
+    width: 95%;             
+    height: 50vh;           
+    min-height: 400px;      
   }
 }
 </style>
 
 <div class="cv-frame-wrapper">
   <iframe
-    src="/files/LIU%20Yuanze_CV_20260113.pdf#view=FitH"
+    src="/files/LIU%20Yuanze_CV_20260302.pdf#view=FitH"
     loading="lazy"
     title="CV Preview">
   </iframe>
