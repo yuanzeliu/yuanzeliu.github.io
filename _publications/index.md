@@ -192,17 +192,17 @@ Below is an introduction of my research by topics. You can find my published pap
       <img src="/images/Research_CivilRights.png" alt="Civil rights polarization">
     </div>
     <div class="txt">
-      <h4>Historical polarization in legislative support for civil rights in the United States</h4>
+      <h4>The widening partisan gap in legislative support for civil rights in the United States</h4>
       <p>
         Analyzing six decades of U.S. bill language, “civil rights” becomes both more common and more party-polarized, with accelerations in the early 1990s and mid-2010s. As civil-rights issues (race, gender, LGBTQ+) tighten their coupling to party identity—especially amid Black Lives Matter—legislative agendas encode issue polarization, creating conditions for institutional conflict and policy malfunction.
       </p>
       <p class="citation">
-        Jackson, J. C., <strong>Liu, Y.</strong>, & Kteily, N. S. (R&amp;R).
-        Historical polarization in legislative support for civil rights in the United States.
+        Jackson, J. C., <strong>Liu, Y.</strong>, & Kteily, N. S. (2026).
+        The widening partisan gap in legislative support for civil rights in the United States.
         <em>Nature Communications</em>.
       </p>
       <p class="links">
-        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7cqfs_v3">Preprint</a>
+        <a class="btn btn--light btn--sm" href="https://www.nature.com/articles/s41467-026-73607-x">Journal</a>
       </p>
     </div>
   </div>
