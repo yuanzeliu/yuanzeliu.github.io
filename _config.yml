@@ -25,8 +25,8 @@ author:
   name       : "Yuanze Liu"
   #pronouns   : "He/Him"                         # Standard English format
   bio        : "Organizational Behavior PhD student @HBS"
-  #location   : "Chicago"
-  #employer   : "University of Chicago"
+  location   : "Bsoton, MA"
+  employer   : "Harvard University"                       # Optional: your employer
   #uri        : ""                               # Optional: your personal webpage
   email      : "yuanzeliu@hbs.edu"
 
