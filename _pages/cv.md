@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 You can download a PDF version of my CV
-[here](/files/LIU%20Yuanze_CV_20260302.pdf).
+[here](/files/LIU%20Yuanze_CV_202605.pdf).
 
 <style>
 /* 容器样式 */
