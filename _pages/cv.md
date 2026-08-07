@@ -49,7 +49,7 @@ You can download a PDF version of my CV
 
 <div class="cv-frame-wrapper">
   <iframe
-    src="/files/LIU%20Yuanze_CV_20260302.pdf#view=FitH"
+    src="/files/LIU%20Yuanze_CV_202605.pdf#view=FitH"
     loading="lazy"
     title="CV Preview">
   </iframe>
