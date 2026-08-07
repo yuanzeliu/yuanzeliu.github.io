@@ -87,7 +87,7 @@ Below is an introduction of my research by topics. You can find my published pap
         Dillion, D., <strong>Liu, Y.</strong>, Chen, Y., Watts, J., Zhao, C., Baral, S., Bucker, W., Atari, M.,
         Kteily, N., & Jackson, J. (under review).
         Prejudice tied to state centralization in historical societies.
-        <em>Science Advances</em>.
+        <em>Nature Communications</em>.
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/zxuth">Preprint</a>
