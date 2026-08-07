@@ -24,11 +24,11 @@ author:
   avatar     : "profile1.png"                    # Avatar image in /images or root
   name       : "Yuanze Liu"
   #pronouns   : "He/Him"                         # Standard English format
-  bio        : "Behavioral Science PhD student @ChicagoBooth"
+  bio        : "Organizational Behavior PhD student @HBS"
   #location   : "Chicago"
   #employer   : "University of Chicago"
   #uri        : ""                               # Optional: your personal webpage
-  email      : "yuanze.liu@chicagobooth.edu"
+  email      : "yuanzeliu@hbs.edu"
 
 
   # Academic websites
@@ -53,7 +53,7 @@ author:
 
   # Social media
   artstation       : # Username
-  bluesky          : "yuanzeliu.bsky.social" # Replace this with you Bluesky username
+  #bluesky          : "yuanzeliu.bsky.social" 
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -70,7 +70,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : "LIU_Yuanze"# Username for X / Twitter
+  #twitter          : "LIU_Yuanze"# Username for X / Twitter
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
