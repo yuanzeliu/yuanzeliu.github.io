@@ -33,8 +33,11 @@ author_profile: true
 .rcard .txt { flex: 1; line-height: 1.55; font-size: 16px; }
 .rcard .txt h4 { margin: 0 0 6px 0; font-size: 18px; }
 
-/* link buttons (uses Minimal Mistakes button classes if present) */
-.rcard .links a { margin-right: 10px; }
+/* link buttons */
+.rcard .links a,
+.rcard .links span.btn {
+  margin-right: 10px;
+}
 
 /* mobile */
 @media (max-width: 720px) {
@@ -112,7 +115,7 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://journals.sagepub.com/doi/epub/10.1177/01461672231190753">Journal</a>
-        <a class="btn btn--primary btn--sm" href="/files/cultural_attachment.pdf">PDF</a> <!-- placeholder -->
+        <a class="btn btn--primary btn--sm" href="/files/cultural_attachment.pdf">PDF</a>
       </p>
     </div>
   </div>
@@ -129,14 +132,15 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="citation">
         Medvedev, D., <strong>Liu, Y.</strong>, Talhelm, T., & Jackson, J. (writing).
-        Cultural variation in values is greatest among higher income groups. <em>Working paper</em>.
+        Cultural variation in values is greatest among higher income groups.
+        <em>Working paper</em>.
       </p>
       <p class="links">
-        <a class="btn btn--primary btn--sm" href="/files/income_values.pdf">PDF</a> <!-- placeholder -->
+        <!-- <a class="btn btn--primary btn--sm" href="/files/income_values.pdf">PDF</a> -->
+        <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
   </div>
-
 
   <!-- 8) LLM value measurement tool -->
   <div class="rcard">
@@ -150,10 +154,12 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="citation">
         Zhang, H., Bai, R., <strong>Liu, Y.</strong>, & Jackson, J. (writing).
-        Scaling cross-national measurement of political values in parliamentary speeches using large language models. <em>Working paper</em>.
+        Scaling cross-national measurement of political values in parliamentary speeches using large language models.
+        <em>Working paper</em>.
       </p>
       <p class="links">
-        <a class="btn btn--primary btn--sm" href="/files/value_tool.pdf">PDF</a> <!-- placeholder -->
+        <!-- <a class="btn btn--primary btn--sm" href="/files/value_tool.pdf">PDF</a> -->
+        <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
   </div>
@@ -181,12 +187,12 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://journals.sagepub.com/doi/10.1177/23727322251408311">Journal</a>
-        <a class="btn btn--primary btn--sm" href="/files/jackson-et-al-2025-large-ai-models-have-a-prioritization-problem-policy-implications-and-solutions.pdf">PDF</a> <!-- placeholder -->
+        <a class="btn btn--primary btn--sm" href="/files/jackson-et-al-2025-large-ai-models-have-a-prioritization-problem-policy-implications-and-solutions.pdf">PDF</a>
       </p>
     </div>
   </div>
 
-  <!-- 10) Civil rights polarization (duplicate of earlier item but belongs here conceptually) -->
+  <!-- 10) Civil rights polarization -->
   <div class="rcard">
     <div class="img">
       <img src="/images/Research_CivilRights.png" alt="Civil rights polarization">
@@ -224,7 +230,7 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://onlinelibrary.wiley.com/doi/full/10.1111/pops.12927">Journal</a>
-        <a class="btn btn--primary btn--sm" href="/files/neoliberalism_covid.pdf">PDF</a> <!-- placeholder -->
+        <a class="btn btn--primary btn--sm" href="/files/neoliberalism_covid.pdf">PDF</a>
       </p>
     </div>
   </div>
@@ -241,11 +247,11 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="citation">
         <strong>Liu, Y.</strong>, Sun, Z., Hu, Z., Wang, Y., Wang, Q., Hou, Y., & Hong, Y.-y. (submitted).
-        Exclusive cultural “legacy”: Cultural essentialism increases derogation of outgroup’s use of shared culture. <em>Manuscript submitted</em>.
+        Exclusive cultural “legacy”: Cultural essentialism increases derogation of outgroup’s use of shared culture.
+        <em>Manuscript submitted</em>.
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7bqxp_v1">Preprint</a>
-         <!-- placeholder -->
       </p>
     </div>
   </div>
@@ -268,10 +274,12 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="citation">
         <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
-        Depolarization in human–AI hybrid networks through complex contagion. <em>In progress</em>.
+        Depolarization in human–AI hybrid networks through complex contagion.
+        <em>In progress</em>.
       </p>
       <p class="links">
-        <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> <!-- placeholder -->
+        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
+        <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
   </div>
@@ -288,10 +296,12 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="citation">
         <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
-        AI brokerage promotes human connection in hybrid social networks. <em>In progress</em>.
+        AI brokerage promotes human connection in hybrid social networks.
+        <em>In progress</em>.
       </p>
       <p class="links">
-        <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> <!-- placeholder -->
+        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
+        <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
   </div>
@@ -308,10 +318,12 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="citation">
         Hu, X., <strong>Liu, Y.</strong>, Li, Y., Li, X., & Chen, Y. (preparing).
-        SocAIty: A platform for studying social and cultural evolution in human–AI hybrid networks. <em>In preparation</em>.
+        SocAIty: A platform for studying social and cultural evolution in human–AI hybrid networks.
+        <em>In preparation</em>.
       </p>
       <p class="links">
-        <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> <!-- placeholder -->
+        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
+        <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
   </div>
@@ -333,7 +345,6 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/gfdwx_v1">Preprint</a>
-         <!-- placeholder -->
       </p>
     </div>
   </div>
