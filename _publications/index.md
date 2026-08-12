@@ -67,9 +67,8 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>Journal of Personality and Social Psychology</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7qkg8_v1">Preprint</a> -->
-        <!-- <a class="btn btn--light btn--sm" href="https://yuanzeliu.github.io/assets/trait-network/">Interactive App</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7qkg8_v1">Preprint</a>
+        <a class="btn btn--light btn--sm" href="https://yuanzeliu.github.io/assets/trait-network/">Interactive App</a>
       </p>
     </div>
   </div>
@@ -91,8 +90,7 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>Nature Communications</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/zxuth">Preprint</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/zxuth">Preprint</a>
       </p>
     </div>
   </div>
@@ -134,8 +132,7 @@ Below is an introduction of my research by topics. You can find my published pap
         Cultural variation in values is greatest among higher income groups. <em>Working paper</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/income_values.pdf">PDF</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--primary btn--sm" href="/files/income_values.pdf">PDF</a> <!-- placeholder -->
       </p>
     </div>
   </div>
@@ -156,8 +153,7 @@ Below is an introduction of my research by topics. You can find my published pap
         Scaling cross-national measurement of political values in parliamentary speeches using large language models. <em>Working paper</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/value_tool.pdf">PDF</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--primary btn--sm" href="/files/value_tool.pdf">PDF</a> <!-- placeholder -->
       </p>
     </div>
   </div>
@@ -190,7 +186,7 @@ Below is an introduction of my research by topics. You can find my published pap
     </div>
   </div>
 
-  <!-- 10) Civil rights polarization -->
+  <!-- 10) Civil rights polarization (duplicate of earlier item but belongs here conceptually) -->
   <div class="rcard">
     <div class="img">
       <img src="/images/Research_CivilRights.png" alt="Civil rights polarization">
@@ -248,8 +244,8 @@ Below is an introduction of my research by topics. You can find my published pap
         Exclusive cultural “legacy”: Cultural essentialism increases derogation of outgroup’s use of shared culture. <em>Manuscript submitted</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7bqxp_v1">Preprint</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7bqxp_v1">Preprint</a>
+         <!-- placeholder -->
       </p>
     </div>
   </div>
@@ -275,8 +271,7 @@ Below is an introduction of my research by topics. You can find my published pap
         Depolarization in human–AI hybrid networks through complex contagion. <em>In progress</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> <!-- placeholder -->
       </p>
     </div>
   </div>
@@ -296,8 +291,7 @@ Below is an introduction of my research by topics. You can find my published pap
         AI brokerage promotes human connection in hybrid social networks. <em>In progress</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> <!-- placeholder -->
       </p>
     </div>
   </div>
@@ -317,8 +311,7 @@ Below is an introduction of my research by topics. You can find my published pap
         SocAIty: A platform for studying social and cultural evolution in human–AI hybrid networks. <em>In preparation</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> <!-- placeholder -->
       </p>
     </div>
   </div>
@@ -339,8 +332,8 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>Personality and Social Psychology Bulletin</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/gfdwx_v1">Preprint</a> -->
-        <span>Available upon request.</span>
+        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/gfdwx_v1">Preprint</a>
+         <!-- placeholder -->
       </p>
     </div>
   </div>
