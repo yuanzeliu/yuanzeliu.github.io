@@ -62,4 +62,4 @@ yarn-error.log
 *.iml
 
 # Project private files
-files/
+# (restored) files/ is tracked again
