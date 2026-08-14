@@ -18,3 +18,48 @@ package-lock.json
 
 # Ignore folders related to IDEs
 .vscode/
+
+# Common OS, editor temp files
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+# Env / secrets
+.env
+.env.*
+secrets.yml
+credentials.yml
+*.pem
+*.key
+*.crt
+
+# Python / virtualenv / caches
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.python-version
+.ipynb_checkpoints/
+
+# Jekyll / build
+.jekyll-cache/
+.cache/
+tmp/
+
+# Node logs
+npm-debug.log*
+yarn-error.log
+
+# Logs / DB
+*.log
+*.sqlite3
+*.db
+
+# IDEs
+.idea/
+*.iml
+
+# Project private files
+files/
