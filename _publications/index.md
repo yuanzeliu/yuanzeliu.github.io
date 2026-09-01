@@ -133,7 +133,6 @@ Below is an introduction of my research by topics. You can find my published pap
       <p class="citation">
         Medvedev, D., <strong>Liu, Y.</strong>, Talhelm, T., & Jackson, J. (writing).
         Cultural variation in values is greatest among higher income groups.
-        <em>Working paper</em>.
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -154,7 +153,6 @@ Below is an introduction of my research by topics. You can find my published pap
       <p class="citation">
         Zhang, H., Bai, R., <strong>Liu, Y.</strong>, & Jackson, J. (writing).
         Scaling cross-national measurement of political values in parliamentary speeches using large language models.
-        <em>Working paper</em>.
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -246,7 +244,6 @@ Below is an introduction of my research by topics. You can find my published pap
       <p class="citation">
         <strong>Liu, Y.</strong>, Sun, Z., Hu, Z., Wang, Y., Wang, Q., Hou, Y., & Hong, Y.-y. (submitted).
         Exclusive cultural “legacy”: Cultural essentialism increases derogation of outgroup’s use of shared culture.
-        <em>Manuscript submitted</em>.
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7bqxp_v1">Preprint</a>
@@ -273,7 +270,6 @@ Below is an introduction of my research by topics. You can find my published pap
       <p class="citation">
         <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
         Depolarization in human–AI hybrid networks through complex contagion.
-        <em>In progress</em>.
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -294,7 +290,6 @@ Below is an introduction of my research by topics. You can find my published pap
       <p class="citation">
         <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
         AI brokerage and human connection in hybrid social networks.
-        <em>In progress</em>.
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -315,7 +310,6 @@ Below is an introduction of my research by topics. You can find my published pap
       <p class="citation">
         Hu, X., <strong>Liu, Y.</strong>, Li, Y., Li, X., & Chen, Y. (preparing).
         SocAIty: A platform for studying social and cultural evolution in human–AI hybrid networks.
-        <em>In preparation</em>.
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
