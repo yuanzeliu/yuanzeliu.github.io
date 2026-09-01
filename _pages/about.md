@@ -27,11 +27,11 @@ My research revolves around three broad questions:
   I study how human collectives can steer their own development—for example, by changing which practices are adopted, which ideas spread, how information circulates, and how disagreements are managed. I am especially interested in how new institutions and technologies can alter these processes and potentially improve collective outcomes.
 
 For more details of my work, please see [Research](https://yuanzeliu.github.io/Research/).
+For my personal story, please see [Bio](https://yuanzeliu.github.io/bio/).
 
 <div class="statable-map-wrap">
   {% include statable-map.html %}
 </div>
-
 
 
 
