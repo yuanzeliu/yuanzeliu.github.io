@@ -12,12 +12,12 @@ site_theme    : "default"  # Currently available options are "default", "air"
 title         : "YUANZE LIU"
 title_separator: "-"
 name          : &name "Yuanze Liu"
-description   : &description "Yuanze Liu's academic portfolio"   # Short description for SEO and header
+description   : &description "Yuanze Liu is a PhD student in Organizational Behavior at Harvard Business School studying collective psychology and cultural evolution."
 
 # For a user/organization site (https://yuanzeliu.github.io)
-#url           : "https://yuanzeliu.github.io"  # Full site URL (no trailing slash)
-#baseurl       : ""                             # Must stay empty for user/org sites
-#repository    : "yuanzeliu.github.io"
+url           : "https://yuanzeliu.github.io"
+baseurl       : ""
+repository    : "yuanzeliu/yuanzeliu.github.io"
 
 # Site Author - controls sidebar info
 author:
@@ -144,9 +144,12 @@ og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : Yuanze Liu
+  links:
+    - "https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248"
+    - "https://www.researchgate.net/profile/Yuanze-Liu-3?ev=hdr_xprf"
+    - "https://www.linkedin.com/in/yuanze-liu-0233a0202"
 
 
 # Analytics
