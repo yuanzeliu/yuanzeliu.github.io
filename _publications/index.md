@@ -47,7 +47,7 @@ author_profile: true
 
 </style>
 
-Below is an introduction of my research by topics. You can find my published papers and preprints on my [Google Scholar](https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248) page or a broader list of research projects in my [CV](https://yuanzeliu.github.io/CV/).
+Below is an introduction of my research by topics. You can find my published papers and preprints on my [Google Scholar](https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248) page or a broader list of research projects in my [CV](https://yuanzeliu.github.io/CV/). For research in progress, † denotes lead-authored projects.
 
 
 <!-- ===== Theme 1: Why We Became Who We Are ===== -->
@@ -126,13 +126,12 @@ Below is an introduction of my research by topics. You can find my published pap
       <img src="/images/Research_income_values.png" alt="Income and cultural values">
     </div>
     <div class="txt">
-      <h4>Cultural variation in values is greatest among higher income groups</h4>
+      <h4>Cultural variation in values across income groups</h4>
       <p>
         This working paper examines whether income changes the degree to which people reflect local cultural norms. Using global and U.S. regional datasets, we study whether higher-income groups converge toward a common set of values or become more differentiated across cultural contexts.
       </p>
       <p class="citation">
-        Medvedev, D., <strong>Liu, Y.</strong>, Talhelm, T., & Jackson, J. (writing).
-        Cultural variation in values is greatest among higher income groups.
+        (With Medvedev, D., Talhelm, T., & Jackson, J.)
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -146,13 +145,12 @@ Below is an introduction of my research by topics. You can find my published pap
       <img src="/images/Research_value_tool.png" alt="LLM-based value measurement">
     </div>
     <div class="txt">
-      <h4>Scaling cross-national measurement of political values in parliamentary speeches</h4>
+      <h4>Scaling cross-national measurement of political values in parliamentary speeches using large language models</h4>
       <p>
         We are developing an LLM-based framework for annotating political values in parliamentary speeches across countries. The project evaluates whether major theories of values can be integrated into a scalable approach for studying how elite value expression varies across societies and over time.
       </p>
       <p class="citation">
-        Zhang, H., Bai, R., <strong>Liu, Y.</strong>, & Jackson, J. (writing).
-        Scaling cross-national measurement of political values in parliamentary speeches using large language models.
+        (With Zhang, H., Bai, R., & Jackson, J.)
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -263,13 +261,12 @@ Below is an introduction of my research by topics. You can find my published pap
       <img src="/images/Research_LLM_depolarization.png" alt="Fact-sensitive AI in hybrid networks">
     </div>
     <div class="txt">
-      <h4>Depolarization in human–AI hybrid networks through complex contagion</h4>
+      <h4>Depolarization in human–AI hybrid networks</h4>
       <p>
         We are conducting a human–AI hybrid social network experiment to test whether fact-sensitive AI agents—embedded as trusted in-group partners—can promote belief updating and depolarization. Building on complex-contagion theory, the planned analyses examine how consistent, evidence-based reinforcement spreads across issues such as guns, climate, and immigration.
       </p>
       <p class="citation">
-        <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
-        Depolarization in human–AI hybrid networks through complex contagion.
+        (With Jackson, J., Hu, X., & Chen, Y.) †
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -283,13 +280,12 @@ Below is an introduction of my research by topics. You can find my published pap
       <img src="/images/Research_broker_agent.png" alt="AI broker agent diagram">
     </div>
     <div class="txt">
-      <h4>Can AI brokerage promote human connection in hybrid social networks?</h4>
+      <h4>AI brokerage and human connection</h4>
       <p>
         We are testing whether AI agents can serve as brokers—building rapport, matching partners, and offering lightweight conversational scaffolding—to reduce undersociality and communication friction. The study examines whether this design can support more frequent and higher-quality human interactions without encouraging over-reliance on AI companionship.
       </p>
       <p class="citation">
-        <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
-        AI brokerage and human connection in hybrid social networks.
+        (With Jackson, J., Hu, X., & Chen, Y.) †
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
@@ -308,8 +304,7 @@ Below is an introduction of my research by topics. You can find my published pap
         We are developing a framework for human–AI hybrid networks across state, structure, and process layers, specifying AI roles as participants, brokers, moderators, or analysts. <em>SocAIty</em> is intended to support real-time, multi-stage network experiments on how AI integration may reshape communication, coordination, learning, and norm dynamics.
       </p>
       <p class="citation">
-        Hu, X., <strong>Liu, Y.</strong>, Li, Y., Li, X., & Chen, Y. (preparing).
-        SocAIty: A platform for studying social and cultural evolution in human–AI hybrid networks.
+        (With Hu, X., Li, Y., Li, X., & Chen, Y.)
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
