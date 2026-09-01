@@ -11,23 +11,5 @@ main:
   - title: "Research"
     url: /Research/
 
-  #- title: "Talks"
-    #url: /talks/    
-
-  #- title: "Teaching"
-    #url: /teaching/    
-    
-  #- title: "Portfolio"
-    #url: /portfolio/
-        
-  #- title: "Blog Posts"
-    #url: /year-archive/
-    
   - title: "CV"
     url: /CV/
-    
-  #- title: "CV"
-  #   url: /CV/
-    
-  #- title: "Bio"
-  #  url: /bio/

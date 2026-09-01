@@ -128,7 +128,7 @@ Below is an introduction of my research by topics. You can find my published pap
     <div class="txt">
       <h4>Cultural variation in values is greatest among higher income groups</h4>
       <p>
-        Across global (N=259,388, 92 countries) and U.S. regional (N=72,390) datasets, higher-income individuals exhibit greater cultural differentiation—their values diverge more sharply across nations and regions than those of lower-income groups. Wealth amplifies local value norms (liberal in post-materialist contexts, conservative in traditional contexts), indicating that economic stratification shapes cultural evolutionary trajectories via heterogeneity, not convergence.
+        This working paper examines whether income changes the degree to which people reflect local cultural norms. Using global and U.S. regional datasets, we study whether higher-income groups converge toward a common set of values or become more differentiated across cultural contexts.
       </p>
       <p class="citation">
         Medvedev, D., <strong>Liu, Y.</strong>, Talhelm, T., & Jackson, J. (writing).
@@ -136,7 +136,6 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>Working paper</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/income_values.pdf">PDF</a> -->
         <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
@@ -150,7 +149,7 @@ Below is an introduction of my research by topics. You can find my published pap
     <div class="txt">
       <h4>Scaling cross-national measurement of political values in parliamentary speeches</h4>
       <p>
-        We introduce an LLM-based framework for value annotation that unifies major theories (Schwartz, Inglehart, Hofstede) and overcomes limits of surveys/manual coding. By enabling scalable, cross-cultural, real-time analysis of elite value expression, the tool provides a methodological foundation for tracing how value systems evolve across societies and history.
+        We are developing an LLM-based framework for annotating political values in parliamentary speeches across countries. The project evaluates whether major theories of values can be integrated into a scalable approach for studying how elite value expression varies across societies and over time.
       </p>
       <p class="citation">
         Zhang, H., Bai, R., <strong>Liu, Y.</strong>, & Jackson, J. (writing).
@@ -158,7 +157,6 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>Working paper</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/value_tool.pdf">PDF</a> -->
         <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
@@ -270,7 +268,7 @@ Below is an introduction of my research by topics. You can find my published pap
     <div class="txt">
       <h4>Depolarization in human–AI hybrid networks through complex contagion</h4>
       <p>
-        We design a human–AI hybrid social network experiment to test whether fact-sensitive AI agents—embedded as trusted in-group partners—promote belief updating and depolarization. Building on complex-contagion theory, the study models how consistent, evidence-based reinforcement spreads across issues (e.g., guns, climate, immigration) and stabilizes collective judgments.
+        We are conducting a human–AI hybrid social network experiment to test whether fact-sensitive AI agents—embedded as trusted in-group partners—can promote belief updating and depolarization. Building on complex-contagion theory, the planned analyses examine how consistent, evidence-based reinforcement spreads across issues such as guns, climate, and immigration.
       </p>
       <p class="citation">
         <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
@@ -278,7 +276,6 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>In progress</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
         <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
@@ -290,17 +287,16 @@ Below is an introduction of my research by topics. You can find my published pap
       <img src="/images/Research_broker_agent.png" alt="AI broker agent diagram">
     </div>
     <div class="txt">
-      <h4>AI brokerage promotes human connection in hybrid social networks</h4>
+      <h4>Can AI brokerage promote human connection in hybrid social networks?</h4>
       <p>
-        We engineer AI agents to serve as brokers—building rapport, matching partners, and offering lightweight conversational scaffolding—to reduce undersociality and communication friction. By catalyzing more frequent, higher-quality human interactions (engagement, reciprocity, weak ties), the system drives the micro-mechanisms of healthier cultural evolution.
+        We are testing whether AI agents can serve as brokers—building rapport, matching partners, and offering lightweight conversational scaffolding—to reduce undersociality and communication friction. The study examines whether this design can support more frequent and higher-quality human interactions without encouraging over-reliance on AI companionship.
       </p>
       <p class="citation">
         <strong>Liu, Y.</strong>, Hu, X., Jackson, J., & Chen, Y. (data collecting).
-        AI brokerage promotes human connection in hybrid social networks.
+        AI brokerage and human connection in hybrid social networks.
         <em>In progress</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
         <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
@@ -314,7 +310,7 @@ Below is an introduction of my research by topics. You can find my published pap
     <div class="txt">
       <h4>SocAIty: A platform for studying social and cultural evolution in human–AI hybrid networks</h4>
       <p>
-        We develop a framework for human–AI hybrid networks across state, structure, and process layers, specifying AI roles as participants, brokers, moderators, or analysts. To operationalize it, <em>SocAIty</em> enables real-time, multi-stage, networked experiments, allowing researchers to test how AI integration reshapes communication, coordination, learning, and norm dynamics.
+        We are developing a framework for human–AI hybrid networks across state, structure, and process layers, specifying AI roles as participants, brokers, moderators, or analysts. <em>SocAIty</em> is intended to support real-time, multi-stage network experiments on how AI integration may reshape communication, coordination, learning, and norm dynamics.
       </p>
       <p class="citation">
         Hu, X., <strong>Liu, Y.</strong>, Li, Y., Li, X., & Chen, Y. (preparing).
@@ -322,7 +318,6 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>In preparation</em>.
       </p>
       <p class="links">
-        <!-- <a class="btn btn--primary btn--sm" href="/files/hybridNetwork.docx">DOC</a> -->
         <span class="btn btn--light btn--sm">Available upon request</span>
       </p>
     </div>
