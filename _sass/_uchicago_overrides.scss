@@ -1,8 +1,13 @@
 /* UChicago overrides loaded LAST */
 
 :root {
+  color-scheme: light;
   --uchicago-maroon: #800000;
   --uchicago-maroon-hover: #5a0000;
+  --uchicago-link-color: #800000;
+  --uchicago-link-hover: #5a0000;
+  --uchicago-link-visited: #4d0000;
+  --sidebar-bg-color: #f5f5f5;
 
   --uchicago-gray-100: #D9D9D9;
   --uchicago-gray-300: #A6A6A6;
@@ -15,17 +20,17 @@
 
 /* Links */
 a {
-  color: var(--uchicago-maroon);
+  color: var(--uchicago-link-color);
   text-decoration-color: rgba(128, 0, 0, 0.18);
   text-underline-offset: 0.18em;
 }
 a:hover,
 a:focus {
-  color: var(--uchicago-maroon-hover);
+  color: var(--uchicago-link-hover);
   text-decoration-color: rgba(90, 0, 0, 0.28);
 }
 a:visited {
-  color: #4d0000;
+  color: var(--uchicago-link-visited);
 }
 
 /* Masthead / Navigation */
@@ -145,7 +150,51 @@ iframe {
 
 /* English comment: subtle sidebar background to separate it from main content */
 .sidebar {
-  background: #f5f5f5;
+  background: var(--sidebar-bg-color);
   border-radius: 12px;
   padding: 1rem;
+}
+
+/* Follow the browser/OS preference; no theme switch is shown. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --uchicago-link-color: #f0a7ad;
+  --uchicago-link-hover: #ffd0d3;
+  --uchicago-link-visited: #d8b2c4;
+  --sidebar-bg-color: #383838;
+  --global-base-color: #686868;
+  --global-code-background-color: #2f2f2f;
+  --global-code-text-color: #f3f3f3;
+  --global-border-color: #6f6f6f;
+}
+
+html[data-theme="dark"] mark {
+  background: rgba(240, 167, 173, 0.18);
+  color: var(--global-text-color);
+}
+
+input,
+textarea,
+select {
+  background-color: var(--global-bg-color);
+  border-color: var(--global-border-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --uchicago-link-color: #f0a7ad;
+    --uchicago-link-hover: #ffd0d3;
+    --uchicago-link-visited: #d8b2c4;
+    --sidebar-bg-color: #383838;
+    --global-base-color: #686868;
+    --global-code-background-color: #2f2f2f;
+    --global-code-text-color: #f3f3f3;
+    --global-border-color: #6f6f6f;
+  }
+
+  mark {
+    background: rgba(240, 167, 173, 0.18);
+    color: var(--global-text-color);
+  }
 }

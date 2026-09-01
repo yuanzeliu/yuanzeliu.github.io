@@ -7,7 +7,7 @@ author_profile: true
 
 <style>
 /* --- Collapsible “theme” blocks --- */
-.theme { margin: 1.25rem 0; border: 1px solid #e6e6e6; border-radius: 10px; background: #fff; }
+.theme { margin: 1.25rem 0; border: 1px solid var(--global-border-color); border-radius: 10px; background: var(--global-bg-color); }
 .theme > summary {
   /* clickable header row */
   cursor: pointer; list-style: none; padding: 12px 14px; font-weight: 600;
@@ -19,14 +19,14 @@ author_profile: true
 
 /* --- One left-image / right-text row (your “table”) --- */
 .rcard {
-  display: flex; gap: 16px; padding: 14px; border-top: 1px solid #f0f0f0;
+  display: flex; gap: 16px; padding: 14px; border-top: 1px solid var(--global-border-color);
 }
-.rcard:first-of-type { border-top: 1px solid #eee; }
+.rcard:first-of-type { border-top: 1px solid var(--global-border-color); }
 
 /* image column */
 .rcard .img img {
   width: 180px; max-width: 35vw; height: auto;
-  border: 1px solid #e6e6e6; border-radius: 8px;
+  border: 1px solid var(--global-border-color); border-radius: 8px;
 }
 
 /* text column */

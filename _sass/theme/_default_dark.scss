@@ -35,6 +35,7 @@ $sidebar-screen-min-width   : 1024px;
 
 /* Dark theme for the site */
 html[data-theme="dark"] {
+    color-scheme: dark;
     --global-base-color                 : #{$background};
     --global-bg-color                   : #{$background};
     --global-footer-bg-color            : #{$background};
@@ -51,4 +52,27 @@ html[data-theme="dark"] {
     --global-text-color                 : #{$text};
     --global-text-color-light           : #f3f3f3;
     --global-thead-color                : #{$background-lighter};
+}
+
+/* Apply the same palette before JavaScript runs, and when JavaScript is disabled. */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --global-base-color                 : #{$background};
+        --global-bg-color                   : #{$background};
+        --global-footer-bg-color            : #{$background};
+        --global-border-color               : #{$light-gray};
+        --global-dark-border-color          : #{$background-light};
+        --global-code-background-color      : #fafafa;
+        --global-code-text-color            : #{$darker-gray};
+        --global-fig-caption-color          : #{$light-gray};
+        --global-link-color                 : #{$link};
+        --global-link-color-hover           : #{$link-dark};
+        --global-link-color-visited         : #{$link-light};
+        --global-masthead-link-color        : #{$text};
+        --global-masthead-link-color-hover  : #{$background-light};
+        --global-text-color                 : #{$text};
+        --global-text-color-light           : #f3f3f3;
+        --global-thead-color                : #{$background-lighter};
+    }
 }
