@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Search people, names, descriptions, occupations, and source contexts in the Twenty-Five Histories.">
+  <title>Historical Person Data Search</title>
+  <style>
+    :root{--bg:#f4f6f8;--surface:#fff;--text:#182235;--muted:#687587;--line:#dbe2e9;--accent:#235f78;--soft:#eaf4f6;--warn:#8b5e16;--warnbg:#fff5db;--tag:#eef2f5}
+    @media(prefers-color-scheme:dark){:root{--bg:#10171f;--surface:#17212b;--text:#eef3f7;--muted:#aab6c3;--line:#354351;--accent:#79c6df;--soft:#173441;--warn:#ffd27a;--warnbg:#3b3019;--tag:#263440}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans CJK TC",sans-serif}main{max-width:1180px;margin:auto;padding:34px 22px 80px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}.heading{min-width:0}h1{font-size:clamp(30px,5vw,48px);line-height:1.08;margin:0 0 10px}h2,h3{margin:0}.lead{color:var(--muted);font-size:17px;line-height:1.65;max-width:900px}.language-switch{display:flex;gap:5px;flex:0 0 auto;background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:4px}.language-switch button{border:0;padding:7px 10px}.language-switch button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}.search-panel,.person{background:var(--surface);border:1px solid var(--line);border-radius:16px}.search-panel{padding:18px;margin:25px 0 16px;position:sticky;top:8px;z-index:5;box-shadow:0 8px 28px color-mix(in srgb,var(--bg),transparent 30%)}.search-row{display:grid;grid-template-columns:minmax(260px,1fr) auto;gap:10px}.search-row input{width:100%;font:inherit;font-size:19px;padding:13px 15px;border:2px solid var(--line);border-radius:11px;background:var(--surface);color:var(--text)}button,select{font:inherit;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:9px;padding:9px 12px;cursor:pointer}button.primary{background:var(--accent);color:var(--surface);border-color:var(--accent);font-weight:650;padding-inline:22px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-top:11px}.filters label{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}.status{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:14px;margin:15px 2px}.examples{margin-top:12px;color:var(--muted);font-size:13px}.examples button{padding:4px 8px;font-size:13px}.results{display:grid;gap:14px}.person{padding:19px 21px}.person-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.person-name{font-size:25px;font-weight:750}.sub{color:var(--muted);font-size:13px;margin-top:5px}.metrics{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}.metric,.tag{display:inline-block;background:var(--tag);border-radius:999px;padding:5px 9px;font-size:12px}.metric strong{font-size:14px}.homonym{background:var(--warnbg);color:var(--warn)}.block{margin-top:15px}.block-title{font-weight:700;font-size:13px;color:var(--muted);margin-bottom:7px}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag.match{background:var(--soft);color:var(--accent);font-weight:650}.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.fact{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.55}.fact b{display:block;color:var(--muted);font-size:11px;margin-bottom:3px}.counted{font-variant-numeric:tabular-nums}details{border-top:1px solid var(--line);margin-top:15px;padding-top:11px}summary{cursor:pointer;font-weight:700}.context{border-left:3px solid var(--line);padding:8px 11px;margin:10px 0;font-size:13px;line-height:1.55}.context .where{font-weight:700}.evidence{color:var(--muted)}.empty{background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:42px;text-align:center;color:var(--muted)}mark{background:#ffe895;color:#231f10;padding:0 1px;border-radius:2px}.warning{border-left:4px solid var(--warn);background:var(--warnbg);padding:10px 13px;margin:14px 0;border-radius:5px;font-size:13px;color:var(--warn)}.source-note{color:var(--muted);font-size:12px;line-height:1.5;margin:20px 2px 0}
+    @media(max-width:760px){main{padding-top:24px}.page-head{display:block}.language-switch{width:max-content;margin:16px 0 0}.search-panel{position:static}.search-row{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.person-head{display:block}.metrics{justify-content:flex-start;margin-top:12px}.status{display:block}.status span{display:block;margin-top:4px}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="page-head">
+    <div class="heading">
+      <h1 id="page-title"></h1>
+      <p class="lead" id="page-lead"></p>
+    </div>
+    <div class="language-switch" role="group" aria-label="Language">
+      <button type="button" id="lang-en" data-lang="en">English</button>
+      <button type="button" id="lang-zh" data-lang="zh">繁體中文</button>
+    </div>
+  </header>
+  <div class="search-panel">
+    <div class="search-row">
+      <input id="query" type="search" autocomplete="off">
+      <button class="primary" id="search" type="button"></button>
+    </div>
+    <div class="filters">
+      <label><span id="mode-label"></span><select id="mode"></select></label>
+      <label><span id="period-label"></span><select id="period"></select></label>
+      <label><span id="work-label"></span><select id="work"></select></label>
+      <label><span id="sort-label"></span><select id="sort"></select></label>
+      <button id="reset" type="button"></button>
+    </div>
+    <div class="examples"><span id="quick-label"></span> <button data-q="劉邦">劉邦</button> <button data-q="漢高祖">漢高祖</button> <button data-q="元宏">元宏</button> <button data-q="王佐">王佐</button></div>
+  </div>
+  <div class="status" aria-live="polite"><span id="status"></span><span id="version"></span></div>
+  <div id="results" class="results"></div>
+  <p id="source-note" class="source-note"></p>
+</main>
+<script src="person-search-global-entities-v3-data.js"></script>
+<script>
+(()=>{
+  'use strict';
+  const DATA=window.PERSON_SEARCH_DATA;
+  const people=DATA.people;
+  const $=id=>document.getElementById(id);
+  const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const norm=value=>String(value??'').normalize('NFKC').toLocaleLowerCase('zh-Hant').replace(/[\s·‧・／/—–\-（）()《》〈〉「」『』,，。；;：:]/g,'');
+  const qEl=$('query'),modeEl=$('mode'),periodEl=$('period'),workEl=$('work'),sortEl=$('sort'),resultsEl=$('results'),statusEl=$('status');
+
+  const I18N={
+    en:{
+      title:'Historical Person Data Search',
+      lead:'Search the current global person registry by standard name, former name, courtesy name, style name, imperial title, noble title, or source-text appellation. Results preserve each person ID and aggregate contexts, references, mentions, trait descriptors, occupations, and basic attributes across the Twenty-Five Histories.',
+      searchPlaceholder:'Enter a Chinese name or appellation, e.g. 劉邦, 漢高祖, 士元, 陶朱公',search:'Search',matchMode:'Match',contains:'Contains',exact:'Exact',prefix:'Starts with',period:'Period',allPeriods:'All periods',work:'Historical work',allWorks:'All works',sort:'Sort by',relevance:'Relevance',mentionsSort:'Mentions',descriptorsSort:'Trait descriptors',contextsSort:'Contexts',reset:'Clear',quick:'Examples:',loading:'Loading data…',people:'people',prompt:'Enter a name, courtesy name, title, or other appellation to begin searching.<br>You can also select one of the examples above.',noInput:'No search term entered',found:'Found {n} people',showing:', showing the first 100',noResults:'No people match the current search and filters.',personNotRecorded:'Name not recorded',nameConfidence:'name confidence',mentions:'mentions',traitDescriptors:'trait descriptors',contexts:'contexts',historicalWorks:'historical works',sameName:'people share this name',nameStructure:'Name structure',surnameClan:'Surname / clan:',givenName:'Given name:',basicAttributes:'Basic attributes',sex:'Sex:',hanStatus:'Han status:',sourceCoverage:'Source coverage',sourceUnits:'source units',chunks:'chunks',aliases:'Names, courtesy names, style names, and other appellations',formerNames:'Former names',occupations:'Occupation and status hints',historicalAffiliation:'Historical ethnocultural affiliations',places:'Places',nameDecision:'Name decision and entity information',nameNotes:'Name note:',evidence:'Evidence:',entityContains:'This entity contains {n} source person node(s):',mentionFreq:'Source-text appellation frequencies ({n} listed forms)',traitFreq:'Trait descriptor frequencies ({n} listed forms)',sourceContexts:'Historical contexts (showing {shown} of {total})',noContexts:'No contexts available.',additionalContexts:'{n} additional contexts are omitted here to keep the page responsive.',appellations:'Appellations:',identityOccupation:'Identity / occupation:',missingRationale:'No identity rationale supplied',sourceUnknown:'Historical work unknown',sectionUnknown:'Section unknown',placeFallback:'Place',additionalTypes:'{n} more',unknown:'Unknown',notAvailable:'—',sourceNote:'Interface labels are translated into English; names, appellations, descriptors, occupations, and evidence remain in the original Chinese to preserve the source data.'
+    },
+    zh:{
+      title:'人物姓名資料檢索',lead:'在目前的全局人物庫中，以標準姓名、舊名、字、號、帝號、封號或正文稱呼檢索人物。結果保留 person_id，並彙總跨史書語境、稱呼、提及、特質詞、職業及基本屬性。',searchPlaceholder:'輸入人名或稱呼，例如：劉邦、漢高祖、士元、陶朱公',search:'搜尋',matchMode:'匹配方式',contains:'包含',exact:'完全匹配',prefix:'開頭匹配',period:'時期',allPeriods:'全部時期',work:'史書',allWorks:'全部史書',sort:'排序',relevance:'相關性',mentionsSort:'提及數',descriptorsSort:'特質詞數',contextsSort:'語境數',reset:'清除',quick:'快捷：',loading:'正在載入資料……',people:'人',prompt:'輸入姓名、字、號、帝號或其他稱呼開始檢索。<br>也可以點擊上方快捷示例。',noInput:'尚未輸入檢索詞',found:'找到 {n} 人',showing:'，顯示前 100 人',noResults:'沒有找到符合目前條件的人物。',personNotRecorded:'姓名未載',nameConfidence:'姓名置信度',mentions:'提及',traitDescriptors:'特質詞',contexts:'語境',historicalWorks:'史書',sameName:'人同名',nameStructure:'姓名結構',surnameClan:'姓／氏族：',givenName:'名：',basicAttributes:'基本屬性',sex:'性別：',hanStatus:'漢／非漢：',sourceCoverage:'來源覆蓋',sourceUnits:'篇章',chunks:'chunks',aliases:'姓名、字號與其他稱呼',formerNames:'舊名／改名前姓名',occupations:'職業與身分線索',historicalAffiliation:'歷史族屬',places:'地點',nameDecision:'姓名判斷與合併資訊',nameNotes:'姓名說明：',evidence:'證據：',entityContains:'目前實體包含 {n} 個來源人物節點：',mentionFreq:'正文稱呼頻次（{n} 種已列形式）',traitFreq:'特質詞頻次（{n} 種已列形式）',sourceContexts:'史料語境（顯示 {shown}／{total}）',noContexts:'沒有可顯示的語境。',additionalContexts:'此人物另有 {n} 條語境；為保持頁面流暢，此處只展示前 30 條。',appellations:'稱呼：',identityOccupation:'身分／官職：',missingRationale:'未附身份判斷理由',sourceUnknown:'史書未詳',sectionUnknown:'篇章未詳',placeFallback:'地點',additionalTypes:'另 {n} 種',unknown:'未知',notAvailable:'—',sourceNote:'英語模式翻譯界面標籤；人名、稱呼、特質詞、職業與證據保留原始中文，以維持史料忠實性。'
+    }
+  };
+
+  const WORK_EN={'史記':'Records of the Grand Historian','漢書':'Book of Han','後漢書':'Book of Later Han','三國志':'Records of the Three Kingdoms','晉書':'Book of Jin','宋書':'Book of Song','南齊書':'Book of Southern Qi','梁書':'Book of Liang','陳書':'Book of Chen','魏書':'Book of Wei','北齊書':'Book of Northern Qi','周書':'Book of Zhou','南史':'History of the Southern Dynasties','北史':'History of the Northern Dynasties','隋書':'Book of Sui','舊唐書':'Old Book of Tang','新唐書':'New Book of Tang','舊五代史':'Old History of the Five Dynasties','新五代史':'New History of the Five Dynasties','遼史':'History of Liao','宋史':'History of Song','金史':'History of Jin','元史':'History of Yuan','明史':'History of Ming','清史稿':'Draft History of Qing'};
+  const PERIOD_EN={'先秦與西漢':'Pre-Qin and Western Han','東漢':'Eastern Han','三國':'Three Kingdoms','兩晉':'Two Jin','南北朝':'Northern and Southern Dynasties','隋':'Sui','唐':'Tang','五代':'Five Dynasties','遼宋夏金':'Liao–Song–Xia–Jin','元':'Yuan','明':'Ming','清':'Qing'};
+  const VALUE_EN={female:'Female',male:'Male',unknown:'Unknown',not_applicable:'Not applicable',han:'Han',non_han:'Non-Han',mixed_or_contested:'Mixed or contested',full_personal_name:'Full personal name',complete:'Complete',accept:'Accepted',han_surname_given:'Han surname–given-name system',non_han_unsplit:'Non-Han name, unsplit',title_or_role_only:'Title or role only'};
+  const VALUE_ZH={female:'女性',male:'男性',unknown:'未知',not_applicable:'不適用',han:'漢',non_han:'非漢',mixed_or_contested:'混合／爭議',full_personal_name:'完整姓名',complete:'完整',accept:'接受',han_surname_given:'漢姓氏—名字結構',non_han_unsplit:'非漢姓名（未拆分）',title_or_role_only:'僅稱號或角色'};
+  let lang='en';
+
+  people.forEach(person=>{person._name=norm(person.name);person._display=norm(person.display);person._terms=person.search_terms.map(norm)});
+  const t=(key,values={})=>Object.entries(values).reduce((text,[name,value])=>text.replaceAll(`{${name}}`,String(value)),I18N[lang][key]??key);
+  const valueLabel=value=>(lang==='en'?VALUE_EN:VALUE_ZH)[value]||value||t('unknown');
+  const workLabel=value=>lang==='en'?`${WORK_EN[value]||value} (${value})`:value;
+  const periodLabel=value=>lang==='en'?(PERIOD_EN[value]||value):value;
+  const joinValues=values=>values.join(lang==='en'?', ':'、');
+  const option=(value,label)=>`<option value="${esc(value)}">${esc(label)}</option>`;
+
+  function renderControls(){
+    const mode=modeEl.value||'contains',period=periodEl.value||'',work=workEl.value||'',sort=sortEl.value||'relevance';
+    modeEl.innerHTML=option('contains',t('contains'))+option('exact',t('exact'))+option('prefix',t('prefix'));
+    periodEl.innerHTML=option('',t('allPeriods'))+DATA.meta.periods.map(value=>option(value,periodLabel(value))).join('');
+    workEl.innerHTML=option('',t('allWorks'))+DATA.meta.works.map(value=>option(value,workLabel(value))).join('');
+    sortEl.innerHTML=option('relevance',t('relevance'))+option('mentions',t('mentionsSort'))+option('descriptors',t('descriptorsSort'))+option('contexts',t('contextsSort'));
+    modeEl.value=mode;periodEl.value=period;workEl.value=work;sortEl.value=sort;
+  }
+
+  function setLanguage(next,{rerun=true}={}){
+    lang=next==='zh'?'zh':'en';
+    document.documentElement.lang=lang==='zh'?'zh-Hant':'en';
+    document.title=t('title');
+    $('page-title').textContent=t('title');$('page-lead').textContent=t('lead');qEl.placeholder=t('searchPlaceholder');$('search').textContent=t('search');
+    $('mode-label').textContent=t('matchMode');$('period-label').textContent=t('period');$('work-label').textContent=t('work');$('sort-label').textContent=t('sort');$('reset').textContent=t('reset');$('quick-label').textContent=t('quick');$('source-note').textContent=t('sourceNote');
+    $('lang-en').setAttribute('aria-pressed',String(lang==='en'));$('lang-zh').setAttribute('aria-pressed',String(lang==='zh'));
+    renderControls();
+    $('version').textContent=`${DATA.meta.version} · ${people.length.toLocaleString(lang==='zh'?'zh-Hant':'en-US')} ${t('people')}`;
+    try{localStorage.setItem('personSearchLanguage',lang)}catch(_error){}
+    if(rerun)run();
+  }
+
+  function score(person,q){
+    const name=person._name,display=person._display,terms=person._terms;
+    if(name===q)return 0;if(display===q)return 1;if(terms.includes(q))return 2;
+    if(name.startsWith(q))return 3;if(terms.some(v=>v.startsWith(q)))return 4;
+    if(name.includes(q))return 5;if(terms.some(v=>v.includes(q)))return 6;return 99;
+  }
+  function matched(person,q,mode){
+    if(!q)return false;const terms=person._terms;
+    if(mode==='exact')return terms.some(v=>v===q);
+    if(mode==='prefix')return terms.some(v=>v.startsWith(q));
+    return terms.some(v=>v.includes(q));
+  }
+  function hi(value,q){
+    const text=String(value??''),needle=qEl.value.trim();if(!needle)return esc(text);
+    const i=text.toLocaleLowerCase('zh-Hant').indexOf(needle.toLocaleLowerCase('zh-Hant'));
+    return i<0?esc(text):esc(text.slice(0,i))+`<mark>${esc(text.slice(i,i+needle.length))}</mark>`+esc(text.slice(i+needle.length));
+  }
+  function chips(values,q,limit=28){
+    return values.slice(0,limit).map(value=>`<span class="tag ${norm(value).includes(q)?'match':''}">${hi(value,q)}</span>`).join('')+(values.length>limit?`<span class="tag">${esc(t('additionalTypes',{n:values.length-limit}))}</span>`:'');
+  }
+  function countedChips(values,limit=24){
+    return values.slice(0,limit).map(item=>`<span class="tag">${esc(item.form)} <span class="counted">×${item.count}</span></span>`).join('')+(values.length>limit?`<span class="tag">${esc(t('additionalTypes',{n:values.length-limit}))}</span>`:'');
+  }
+  function evidenceList(values){return (values||[]).slice(0,6).map(esc).join(lang==='en'?'; ':'；')||t('notAvailable')}
+
+  function renderPerson(p,q){
+    const contexts=p.contexts.slice(0,30).map(c=>`<div class="context"><div class="where">${esc(c.work?workLabel(c.work):t('sourceUnknown'))} · ${esc(c.section||c.page||t('sectionUnknown'))} · chunk ${esc(c.chunk_ordinal||t('notAvailable'))}/${esc(c.chunk_count||t('notAvailable'))}</div><div>${t('appellations')} ${esc(joinValues(c.references||[])||t('notAvailable'))}</div>${c.occupations?.length?`<div>${t('identityOccupation')} ${esc(joinValues(c.occupations))}</div>`:''}<div class="evidence">${esc(c.rationale||t('missingRationale'))}</div><div class="sub">${esc(c.id)} · ${esc(c.chunk)}</div></div>`).join('');
+    const places=p.places.map(v=>`<span class="tag">${esc(v.type||t('placeFallback'))}: ${esc(v.normalized||v.raw)}${v.modern?` (${esc(v.modern)})`:''}${v.confidence?` · ${v.confidence}`:''}</span>`).join('');
+    const affiliations=p.affiliations.map(v=>`<span class="tag">${esc(v.label)}${v.confidence?` · ${v.confidence}`:''}</span>`).join('');
+    const works=joinValues(p.works.map(workLabel));
+    const periods=joinValues(p.periods.map(periodLabel));
+    return `<article class="person"><div class="person-head"><div><div class="person-name">${hi(p.name||p.display||t('personNotRecorded'),q)}</div><div class="sub">${esc(p.id)} · ${esc(valueLabel(p.name_decision))} · ${t('nameConfidence')} ${esc(p.name_confidence||0)} · ${esc(valueLabel(p.name_completeness))}</div></div><div class="metrics"><span class="metric"><strong>${p.mentions.toLocaleString()}</strong> ${t('mentions')}</span><span class="metric"><strong>${p.descriptors.toLocaleString()}</strong> ${t('traitDescriptors')}</span><span class="metric"><strong>${p.context_count}</strong> ${t('contexts')}</span><span class="metric"><strong>${p.works.length}</strong> ${t('historicalWorks')}</span>${p.same_name_people>1?`<span class="metric homonym"><strong>${p.same_name_people}</strong> ${t('sameName')}</span>`:''}</div></div>
+      <div class="facts"><div class="fact"><b>${t('nameStructure')}</b>${t('surnameClan')} ${esc(p.surname||t('notAvailable'))}<br>${t('givenName')} ${esc(p.given||t('notAvailable'))}<br>${esc(valueLabel(p.name_system))}</div><div class="fact"><b>${t('basicAttributes')}</b>${t('sex')} ${esc(valueLabel(p.sex))} (${p.sex_confidence})<br>${t('hanStatus')} ${esc(valueLabel(p.han_status))} (${p.han_confidence})</div><div class="fact"><b>${t('sourceCoverage')}</b>${esc(periods||t('notAvailable'))}<br>${esc(works||t('notAvailable'))}<br>${p.source_units} ${t('sourceUnits')} · ${p.chunks} ${t('chunks')}</div></div>
+      <div class="block"><div class="block-title">${t('aliases')}</div><div class="tags">${chips(p.aliases,q)}</div></div>
+      ${p.former_names.length?`<div class="block"><div class="block-title">${t('formerNames')}</div><div class="tags">${chips(p.former_names,q)}</div></div>`:''}
+      ${p.occupations.length?`<div class="block"><div class="block-title">${t('occupations')}</div><div class="tags">${chips(p.occupations,q)}</div></div>`:''}
+      ${affiliations?`<div class="block"><div class="block-title">${t('historicalAffiliation')}</div><div class="tags">${affiliations}</div></div>`:''}
+      ${places?`<div class="block"><div class="block-title">${t('places')}</div><div class="tags">${places}</div></div>`:''}
+      <details><summary>${t('nameDecision')}</summary><div class="context"><div>${t('nameNotes')} ${esc(p.name_notes||t('notAvailable'))}</div><div class="evidence">${t('evidence')} ${evidenceList(p.name_evidence)}</div><div>${t('entityContains',{n:p.entity_member_count})} ${esc(joinValues(p.entity_members))}</div></div></details>
+      <details><summary>${t('mentionFreq',{n:p.mention_forms.length})}</summary><div class="block tags">${countedChips(p.mention_forms)}</div></details>
+      <details><summary>${t('traitFreq',{n:p.descriptor_forms.length})}</summary><div class="block tags">${countedChips(p.descriptor_forms)}</div></details>
+      <details><summary>${t('sourceContexts',{shown:Math.min(30,p.contexts.length),total:p.contexts.length})}</summary>${contexts||`<div class="context">${t('noContexts')}</div>`}${p.contexts.length>30?`<div class="warning">${t('additionalContexts',{n:p.contexts.length-30})}</div>`:''}</details></article>`;
+  }
+
+  function updateHash(raw,mode,period,work){
+    const params=new URLSearchParams();if(raw)params.set('q',raw);if(mode!=='contains')params.set('mode',mode);if(period)params.set('period',period);if(work)params.set('work',work);if(lang!=='en')params.set('lang',lang);
+    try{history.replaceState(null,'','#'+params.toString())}catch(_error){}
+  }
+  function run(){
+    const raw=qEl.value.trim(),q=norm(raw),mode=modeEl.value,period=periodEl.value,work=workEl.value;
+    updateHash(raw,mode,period,work);
+    if(!q){resultsEl.innerHTML=`<div class="empty">${t('prompt')}</div>`;statusEl.textContent=t('noInput');return}
+    let found=people.filter(p=>matched(p,q,mode)&&(!period||p.periods.includes(period))&&(!work||p.works.includes(work)));
+    const sorter=sortEl.value;
+    found.sort((a,b)=>sorter==='mentions'?b.mentions-a.mentions||score(a,q)-score(b,q):sorter==='descriptors'?b.descriptors-a.descriptors||score(a,q)-score(b,q):sorter==='contexts'?b.context_count-a.context_count||score(a,q)-score(b,q):score(a,q)-score(b,q)||b.mentions-a.mentions||a.id.localeCompare(b.id));
+    const shown=found.slice(0,100);statusEl.textContent=t('found',{n:found.length.toLocaleString(lang==='zh'?'zh-Hant':'en-US')})+(found.length>100?t('showing'):'');
+    resultsEl.innerHTML=shown.length?shown.map(p=>renderPerson(p,q)).join(''):`<div class="empty">${t('noResults')}</div>`;
+  }
+
+  let timer;
+  qEl.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(run,180)});
+  $('search').addEventListener('click',run);
+  qEl.addEventListener('keydown',event=>{if(event.key==='Enter')run()});
+  [modeEl,periodEl,workEl,sortEl].forEach(el=>el.addEventListener('change',run));
+  $('reset').addEventListener('click',()=>{qEl.value='';modeEl.value='contains';periodEl.value='';workEl.value='';sortEl.value='relevance';run();qEl.focus()});
+  document.querySelectorAll('[data-q]').forEach(button=>button.addEventListener('click',()=>{qEl.value=button.dataset.q;run()}));
+  document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.lang)));
+
+  const initial=new URLSearchParams(location.hash.slice(1));
+  qEl.value=initial.get('q')||'';
+  const savedLanguage=initial.get('lang')||(()=>{try{return localStorage.getItem('personSearchLanguage')}catch(_error){return null}})()||'en';
+  setLanguage(savedLanguage,{rerun:false});
+  modeEl.value=initial.get('mode')||'contains';periodEl.value=initial.get('period')||'';workEl.value=initial.get('work')||'';
+  run();
+})();
+</script>
+</body>
+</html>
