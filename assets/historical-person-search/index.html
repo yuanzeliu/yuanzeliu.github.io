@@ -42,12 +42,11 @@
   <div id="results" class="results"></div>
   <p id="source-note" class="source-note"></p>
 </main>
-<script src="person-search-global-entities-v3-data.js"></script>
 <script>
 (()=>{
   'use strict';
-  const DATA=window.PERSON_SEARCH_DATA;
-  const people=DATA.people;
+  const API_BASE='https://societyinmind.net/historical-trait';
+  const DATA={meta:{version:'',people:0,periods:[],works:[]}};
   const $=id=>document.getElementById(id);
   const esc=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const norm=value=>String(value??'').normalize('NFKC').toLocaleLowerCase('zh-Hant').replace(/[\s·‧・／/—–\-（）()《》〈〉「」『』,，。；;：:]/g,'');
@@ -57,10 +56,10 @@
     en:{
       title:'Historical Person Data Search',
       lead:'Search the current global person registry by standard name, former name, courtesy name, style name, imperial title, noble title, or source-text appellation. Results preserve each person ID and aggregate contexts, references, mentions, trait descriptors, occupations, and basic attributes across the Twenty-Five Histories.',
-      searchPlaceholder:'Enter a Chinese name or appellation, e.g. 劉邦, 漢高祖, 士元, 陶朱公',search:'Search',matchMode:'Match',contains:'Contains',exact:'Exact',prefix:'Starts with',period:'Period',allPeriods:'All periods',work:'Historical work',allWorks:'All works',sort:'Sort by',relevance:'Relevance',mentionsSort:'Mentions',descriptorsSort:'Trait descriptors',contextsSort:'Contexts',reset:'Clear',quick:'Examples:',loading:'Loading data…',people:'people',prompt:'Enter a name, courtesy name, title, or other appellation to begin searching.<br>You can also select one of the examples above.',noInput:'No search term entered',found:'Found {n} people',showing:', showing the first 100',noResults:'No people match the current search and filters.',personNotRecorded:'Name not recorded',nameConfidence:'name confidence',mentions:'mentions',traitDescriptors:'trait descriptors',contexts:'contexts',historicalWorks:'historical works',sameName:'people share this name',nameStructure:'Name structure',surnameClan:'Surname / clan:',givenName:'Given name:',basicAttributes:'Basic attributes',sex:'Sex:',hanStatus:'Han status:',sourceCoverage:'Source coverage',sourceUnits:'source units',chunks:'chunks',aliases:'Names, courtesy names, style names, and other appellations',formerNames:'Former names',occupations:'Occupation and status hints',historicalAffiliation:'Historical ethnocultural affiliations',places:'Places',nameDecision:'Name decision and entity information',nameNotes:'Name note:',evidence:'Evidence:',entityContains:'This entity contains {n} source person node(s):',mentionFreq:'Source-text appellation frequencies ({n} listed forms)',traitFreq:'Trait descriptor frequencies ({n} listed forms)',sourceContexts:'Historical contexts (showing {shown} of {total})',noContexts:'No contexts available.',additionalContexts:'{n} additional contexts are omitted here to keep the page responsive.',appellations:'Appellations:',identityOccupation:'Identity / occupation:',missingRationale:'No identity rationale supplied',sourceUnknown:'Historical work unknown',sectionUnknown:'Section unknown',placeFallback:'Place',additionalTypes:'{n} more',showMore:'Show {n} more',showLess:'Show fewer',unknown:'Unknown',notAvailable:'—',sourceNote:'Interface labels are translated into English; names, appellations, descriptors, occupations, and evidence remain in the original Chinese to preserve the source data.'
+      searchPlaceholder:'Enter a Chinese name or appellation, e.g. 劉邦, 漢高祖, 士元, 陶朱公',search:'Search',matchMode:'Match',contains:'Contains',exact:'Exact',prefix:'Starts with',period:'Period',allPeriods:'All periods',work:'Historical work',allWorks:'All works',sort:'Sort by',relevance:'Relevance',mentionsSort:'Mentions',descriptorsSort:'Trait descriptors',contextsSort:'Contexts',reset:'Clear',quick:'Examples:',loading:'Searching…',people:'people',prompt:'Enter a name, courtesy name, title, or other appellation to begin searching.<br>You can also select one of the examples above.',noInput:'No search term entered',found:'Found {n} people',showing:', showing the first 100',noResults:'No people match the current search and filters.',loadError:'The search service is temporarily unavailable. Please try again shortly.',personNotRecorded:'Name not recorded',nameConfidence:'name confidence',mentions:'mentions',traitDescriptors:'trait descriptors',contexts:'contexts',historicalWorks:'historical works',sameName:'people share this name',nameStructure:'Name structure',surnameClan:'Surname / clan:',givenName:'Given name:',basicAttributes:'Basic attributes',sex:'Sex:',hanStatus:'Han status:',sourceCoverage:'Source coverage',sourceUnits:'source units',chunks:'chunks',aliases:'Names, courtesy names, style names, and other appellations',formerNames:'Former names',occupations:'Occupation and status hints',historicalAffiliation:'Historical ethnocultural affiliations',places:'Places',nameDecision:'Name decision and entity information',nameNotes:'Name note:',evidence:'Evidence:',entityContains:'This entity contains {n} source person node(s):',mentionFreq:'Source-text appellation frequencies ({n} listed forms)',traitFreq:'Trait descriptor frequencies ({n} listed forms)',sourceContexts:'Historical contexts (showing {shown} of {total})',noContexts:'No contexts available.',additionalContexts:'{n} additional contexts are omitted here to keep the page responsive.',appellations:'Appellations:',identityOccupation:'Identity / occupation:',missingRationale:'No identity rationale supplied',sourceUnknown:'Historical work unknown',sectionUnknown:'Section unknown',placeFallback:'Place',additionalTypes:'{n} more',showMore:'Show {n} more',showLess:'Show fewer',unknown:'Unknown',notAvailable:'—',sourceNote:'Interface labels are translated into English; names, appellations, descriptors, occupations, and evidence remain in the original Chinese to preserve the source data.'
     },
     zh:{
-      title:'人物姓名資料檢索',lead:'在目前的全局人物庫中，以標準姓名、舊名、字、號、帝號、封號或正文稱呼檢索人物。結果保留 person_id，並彙總跨史書語境、稱呼、提及、特質詞、職業及基本屬性。',searchPlaceholder:'輸入人名或稱呼，例如：劉邦、漢高祖、士元、陶朱公',search:'搜尋',matchMode:'匹配方式',contains:'包含',exact:'完全匹配',prefix:'開頭匹配',period:'時期',allPeriods:'全部時期',work:'史書',allWorks:'全部史書',sort:'排序',relevance:'相關性',mentionsSort:'提及數',descriptorsSort:'特質詞數',contextsSort:'語境數',reset:'清除',quick:'快捷：',loading:'正在載入資料……',people:'人',prompt:'輸入姓名、字、號、帝號或其他稱呼開始檢索。<br>也可以點擊上方快捷示例。',noInput:'尚未輸入檢索詞',found:'找到 {n} 人',showing:'，顯示前 100 人',noResults:'沒有找到符合目前條件的人物。',personNotRecorded:'姓名未載',nameConfidence:'姓名置信度',mentions:'提及',traitDescriptors:'特質詞',contexts:'語境',historicalWorks:'史書',sameName:'人同名',nameStructure:'姓名結構',surnameClan:'姓／氏族：',givenName:'名：',basicAttributes:'基本屬性',sex:'性別：',hanStatus:'漢／非漢：',sourceCoverage:'來源覆蓋',sourceUnits:'篇章',chunks:'chunks',aliases:'姓名、字號與其他稱呼',formerNames:'舊名／改名前姓名',occupations:'職業與身分線索',historicalAffiliation:'歷史族屬',places:'地點',nameDecision:'姓名判斷與合併資訊',nameNotes:'姓名說明：',evidence:'證據：',entityContains:'目前實體包含 {n} 個來源人物節點：',mentionFreq:'正文稱呼頻次（{n} 種已列形式）',traitFreq:'特質詞頻次（{n} 種已列形式）',sourceContexts:'史料語境（顯示 {shown}／{total}）',noContexts:'沒有可顯示的語境。',additionalContexts:'此人物另有 {n} 條語境；為保持頁面流暢，此處只展示前 30 條。',appellations:'稱呼：',identityOccupation:'身分／官職：',missingRationale:'未附身份判斷理由',sourceUnknown:'史書未詳',sectionUnknown:'篇章未詳',placeFallback:'地點',additionalTypes:'另 {n} 種',showMore:'展開其餘 {n} 項',showLess:'收起',unknown:'未知',notAvailable:'—',sourceNote:'英語模式翻譯界面標籤；人名、稱呼、特質詞、職業與證據保留原始中文，以維持史料忠實性。'
+      title:'人物姓名資料檢索',lead:'在目前的全局人物庫中，以標準姓名、舊名、字、號、帝號、封號或正文稱呼檢索人物。結果保留 person_id，並彙總跨史書語境、稱呼、提及、特質詞、職業及基本屬性。',searchPlaceholder:'輸入人名或稱呼，例如：劉邦、漢高祖、士元、陶朱公',search:'搜尋',matchMode:'匹配方式',contains:'包含',exact:'完全匹配',prefix:'開頭匹配',period:'時期',allPeriods:'全部時期',work:'史書',allWorks:'全部史書',sort:'排序',relevance:'相關性',mentionsSort:'提及數',descriptorsSort:'特質詞數',contextsSort:'語境數',reset:'清除',quick:'快捷：',loading:'正在搜尋……',people:'人',prompt:'輸入姓名、字、號、帝號或其他稱呼開始檢索。<br>也可以點擊上方快捷示例。',noInput:'尚未輸入檢索詞',found:'找到 {n} 人',showing:'，顯示前 100 人',noResults:'沒有找到符合目前條件的人物。',loadError:'檢索服務暫時無法連線，請稍後再試。',personNotRecorded:'姓名未載',nameConfidence:'姓名置信度',mentions:'提及',traitDescriptors:'特質詞',contexts:'語境',historicalWorks:'史書',sameName:'人同名',nameStructure:'姓名結構',surnameClan:'姓／氏族：',givenName:'名：',basicAttributes:'基本屬性',sex:'性別：',hanStatus:'漢／非漢：',sourceCoverage:'來源覆蓋',sourceUnits:'篇章',chunks:'chunks',aliases:'姓名、字號與其他稱呼',formerNames:'舊名／改名前姓名',occupations:'職業與身分線索',historicalAffiliation:'歷史族屬',places:'地點',nameDecision:'姓名判斷與合併資訊',nameNotes:'姓名說明：',evidence:'證據：',entityContains:'目前實體包含 {n} 個來源人物節點：',mentionFreq:'正文稱呼頻次（{n} 種已列形式）',traitFreq:'特質詞頻次（{n} 種已列形式）',sourceContexts:'史料語境（顯示 {shown}／{total}）',noContexts:'沒有可顯示的語境。',additionalContexts:'此人物另有 {n} 條語境；為保持頁面流暢，此處只展示前 30 條。',appellations:'稱呼：',identityOccupation:'身分／官職：',missingRationale:'未附身份判斷理由',sourceUnknown:'史書未詳',sectionUnknown:'篇章未詳',placeFallback:'地點',additionalTypes:'另 {n} 種',showMore:'展開其餘 {n} 項',showLess:'收起',unknown:'未知',notAvailable:'—',sourceNote:'英語模式翻譯界面標籤；人名、稱呼、特質詞、職業與證據保留原始中文，以維持史料忠實性。'
     }
   };
 
@@ -70,7 +69,6 @@
   const VALUE_ZH={female:'女性',male:'男性',unknown:'未知',not_applicable:'不適用',han:'漢',non_han:'非漢',mixed_or_contested:'混合／爭議',full_personal_name:'完整姓名',complete:'完整',accept:'接受',han_surname_given:'漢姓氏—名字結構',non_han_unsplit:'非漢姓名（未拆分）',title_or_role_only:'僅稱號或角色'};
   let lang='en';
 
-  people.forEach(person=>{person._name=norm(person.name);person._display=norm(person.display);person._terms=person.search_terms.map(norm)});
   const t=(key,values={})=>Object.entries(values).reduce((text,[name,value])=>text.replaceAll(`{${name}}`,String(value)),I18N[lang][key]??key);
   const valueLabel=value=>(lang==='en'?VALUE_EN:VALUE_ZH)[value]||value||t('unknown');
   const workLabel=value=>lang==='en'?`${WORK_EN[value]||value} (${value})`:value;
@@ -95,23 +93,11 @@
     $('mode-label').textContent=t('matchMode');$('period-label').textContent=t('period');$('work-label').textContent=t('work');$('sort-label').textContent=t('sort');$('reset').textContent=t('reset');$('quick-label').textContent=t('quick');$('source-note').textContent=t('sourceNote');
     $('lang-en').setAttribute('aria-pressed',String(lang==='en'));$('lang-zh').setAttribute('aria-pressed',String(lang==='zh'));
     renderControls();
-    $('version').textContent=`${DATA.meta.version} · ${people.length.toLocaleString(lang==='zh'?'zh-Hant':'en-US')} ${t('people')}`;
+    $('version').textContent=DATA.meta.version?`${DATA.meta.version} · ${Number(DATA.meta.people||0).toLocaleString(lang==='zh'?'zh-Hant':'en-US')} ${t('people')}`:'';
     try{localStorage.setItem('personSearchLanguage',lang)}catch(_error){}
     if(rerun)run();
   }
 
-  function score(person,q){
-    const name=person._name,display=person._display,terms=person._terms;
-    if(name===q)return 0;if(display===q)return 1;if(terms.includes(q))return 2;
-    if(name.startsWith(q))return 3;if(terms.some(v=>v.startsWith(q)))return 4;
-    if(name.includes(q))return 5;if(terms.some(v=>v.includes(q)))return 6;return 99;
-  }
-  function matched(person,q,mode){
-    if(!q)return false;const terms=person._terms;
-    if(mode==='exact')return terms.some(v=>v===q);
-    if(mode==='prefix')return terms.some(v=>v.startsWith(q));
-    return terms.some(v=>v.includes(q));
-  }
   function hi(value,q){
     const text=String(value??''),needle=qEl.value.trim();if(!needle)return esc(text);
     const i=text.toLocaleLowerCase('zh-Hant').indexOf(needle.toLocaleLowerCase('zh-Hant'));
@@ -154,15 +140,24 @@
     const params=new URLSearchParams();if(raw)params.set('q',raw);if(mode!=='contains')params.set('mode',mode);if(period)params.set('period',period);if(work)params.set('work',work);if(lang!=='en')params.set('lang',lang);
     try{history.replaceState(null,'','#'+params.toString())}catch(_error){}
   }
-  function run(){
+  let activeRequest=0;
+  async function run(){
     const raw=qEl.value.trim(),q=norm(raw),mode=modeEl.value,period=periodEl.value,work=workEl.value;
+    const requestId=++activeRequest;
     updateHash(raw,mode,period,work);
     if(!q){resultsEl.innerHTML=`<div class="empty">${t('prompt')}</div>`;statusEl.textContent=t('noInput');return}
-    let found=people.filter(p=>matched(p,q,mode)&&(!period||p.periods.includes(period))&&(!work||p.works.includes(work)));
-    const sorter=sortEl.value;
-    found.sort((a,b)=>sorter==='mentions'?b.mentions-a.mentions||score(a,q)-score(b,q):sorter==='descriptors'?b.descriptors-a.descriptors||score(a,q)-score(b,q):sorter==='contexts'?b.context_count-a.context_count||score(a,q)-score(b,q):score(a,q)-score(b,q)||b.mentions-a.mentions||a.id.localeCompare(b.id));
-    const shown=found.slice(0,100);statusEl.textContent=t('found',{n:found.length.toLocaleString(lang==='zh'?'zh-Hant':'en-US')})+(found.length>100?t('showing'):'');
-    resultsEl.innerHTML=shown.length?shown.map(p=>renderPerson(p,q)).join(''):`<div class="empty">${t('noResults')}</div>`;
+    statusEl.textContent=t('loading');
+    const params=new URLSearchParams({q:raw,mode,sort:sortEl.value,limit:'100'});if(period)params.set('period',period);if(work)params.set('work',work);
+    try{
+      const response=await fetch(`${API_BASE}/api/search?${params}`,{headers:{Accept:'application/json'}});
+      if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      const found=await response.json();if(requestId!==activeRequest)return;
+      statusEl.textContent=t('found',{n:Number(found.total||0).toLocaleString(lang==='zh'?'zh-Hant':'en-US')})+(found.total>100?t('showing'):'');
+      resultsEl.innerHTML=found.people.length?found.people.map(p=>renderPerson(p,q)).join(''):`<div class="empty">${t('noResults')}</div>`;
+    }catch(error){
+      if(requestId!==activeRequest)return;
+      statusEl.textContent=t('loadError');resultsEl.innerHTML=`<div class="empty">${t('loadError')}</div>`;
+    }
   }
 
   let timer;
@@ -183,9 +178,16 @@
   const initial=new URLSearchParams(location.hash.slice(1));
   qEl.value=initial.get('q')||'';
   const savedLanguage=initial.get('lang')||(()=>{try{return localStorage.getItem('personSearchLanguage')}catch(_error){return null}})()||'en';
-  setLanguage(savedLanguage,{rerun:false});
-  modeEl.value=initial.get('mode')||'contains';periodEl.value=initial.get('period')||'';workEl.value=initial.get('work')||'';
-  run();
+  async function init(){
+    setLanguage(savedLanguage,{rerun:false});
+    try{
+      const response=await fetch(`${API_BASE}/api/meta`,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      DATA.meta=await response.json();renderControls();
+      modeEl.value=initial.get('mode')||'contains';periodEl.value=initial.get('period')||'';workEl.value=initial.get('work')||'';
+      setLanguage(savedLanguage,{rerun:false});await run();
+    }catch(error){statusEl.textContent=t('loadError');resultsEl.innerHTML=`<div class="empty">${t('loadError')}</div>`}
+  }
+  init();
 })();
 </script>
 </body>
