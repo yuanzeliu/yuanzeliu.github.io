@@ -2,6 +2,7 @@
 layout: archive
 permalink: /bio/
 title: "Bio"
+page_class: bio-page
 author_profile: true
 ---
 

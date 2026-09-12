@@ -2,56 +2,17 @@
 layout: archive
 title: "Research"   
 permalink: /Research/   
+page_class: research-page
 author_profile: true
 ---
 
-<style>
-/* --- Collapsible “theme” blocks --- */
-.theme { margin: 1.25rem 0; border: 1px solid var(--global-border-color); border-radius: 10px; background: var(--global-bg-color); }
-.theme > summary {
-  /* clickable header row */
-  cursor: pointer; list-style: none; padding: 12px 14px; font-weight: 600;
-  display: flex; align-items: center; gap: 10px;
-}
-.theme > summary::-webkit-details-marker { display: none; } /* hide default marker */
-.theme .chev { transition: transform .2s ease; }
-.theme[open] .chev { transform: rotate(90deg); }
-
-/* --- One left-image / right-text row (your “table”) --- */
-.rcard {
-  display: flex; gap: 16px; padding: 14px; border-top: 1px solid var(--global-border-color);
-}
-.rcard:first-of-type { border-top: 1px solid var(--global-border-color); }
-
-/* image column */
-.rcard .img img {
-  width: 180px; max-width: 35vw; height: auto;
-  border: 1px solid var(--global-border-color); border-radius: 8px;
-}
-
-/* text column */
-.rcard .txt { flex: 1; line-height: 1.55; font-size: 16px; }
-.rcard .txt h4 { margin: 0 0 6px 0; font-size: 18px; }
-
-/* link buttons */
-.rcard .links a,
-.rcard .links span.btn {
-  margin-right: 10px;
-}
-
-/* mobile */
-@media (max-width: 720px) {
-  .rcard { flex-direction: column; }
-  .rcard .img img { width: 100%; max-width: 100%; }
-}
-
-</style>
-
-Below is an introduction of my research by topics. You can find my published papers and preprints on my [Google Scholar](https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248) page or a broader list of research projects in my [CV](https://yuanzeliu.github.io/CV/). For research in progress, † denotes lead-authored projects.
+<div class="research-intro">
+  Below is an introduction to my research by topic. Published papers and preprints are also available on <a href="https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248">Google Scholar</a>; the <a href="{{ '/CV/' | relative_url }}">CV</a> includes a broader list of projects. For research in progress, † denotes lead-authored projects.
+</div>
 
 
 <!-- ===== Theme 1: Why We Became Who We Are ===== -->
-<details class="theme">
+<details class="theme" open>
   <summary><span class="chev">▶</span> Why We Became Who We Are</summary>
 
   <!-- 3) FACT model of trait language -->
@@ -60,17 +21,17 @@ Below is an introduction of my research by topics. You can find my published pap
       <img src="/images/Research_fact_model.png" alt="FACT model of trait language">
     </div>
     <div class="txt">
-      <h4>The content, structure, and history of English trait words</h4>
+      <h4>The structure and history of English words that describe people</h4>
       <p>
         Using large language models and human ratings from 3,070 English speakers, we map 2,847 trait words and uncover a four-factor structure—Fitness, Agency, Communion, Traditionalism (FACT)—that covers more of trait space than the Big Five (96% vs. 79%). The FACT dimensions differ in semantic coherence, valence, and historical trajectories (e.g., Communion converging, Agency diverging), indicating that trait language evolves adaptively with social life—optimizing interpersonal description and evaluation as cultural ecologies change.
       </p>
       <p class="citation">
-        <strong>Liu, Y.</strong>, Charlesworth, T., Koch, A., Luttrell, A., & Jackson, J. (R&amp;R).
-        The content, structure, and history of English trait words.
+        <strong>Liu, Y.</strong>, Charlesworth, T., Koch, A., Luttrell, A., & Jackson, J. (2026).
+        The structure and history of English words that describe people.
         <em>Journal of Personality and Social Psychology</em>.
       </p>
       <p class="links">
-        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7qkg8_v1">Preprint</a>
+        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7qkg8_v3">PsyArXiv</a>
         <a class="btn btn--light btn--sm" href="https://yuanzeliu.github.io/assets/trait-network/">Interactive App</a>
       </p>
     </div>

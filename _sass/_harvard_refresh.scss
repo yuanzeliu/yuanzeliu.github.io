@@ -1,0 +1,1320 @@
+/* Harvard-inspired editorial refresh. Loaded last so it can safely refine the theme. */
+
+:root {
+  color-scheme: light;
+  --harvard-crimson: #a51c30;
+  --harvard-crimson-dark: #7d1525;
+  --harvard-crimson-soft: #f7e9ec;
+  --harvard-ink: #1e1e1e;
+  --harvard-charcoal: #414141;
+  --harvard-muted: #6c6c6c;
+  --harvard-paper: #fbf8f4;
+  --harvard-line: #e5ddd6;
+  --harvard-shadow: 0 18px 50px rgba(30, 30, 30, 0.08);
+  --global-border-color: var(--harvard-line);
+  --global-code-background-color: rgba(165, 28, 48, 0.06);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: radial-gradient(circle at 88% 8%, rgba(165, 28, 48, 0.055), transparent 30rem), var(--harvard-paper);
+  color: var(--harvard-charcoal);
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+a,
+a:visited {
+  color: var(--harvard-crimson);
+  text-decoration-color: rgba(165, 28, 48, 0.3);
+  text-underline-offset: 0.2em;
+}
+
+a:hover,
+a:focus {
+  color: var(--harvard-crimson-dark);
+  text-decoration-color: currentColor;
+}
+
+h1, h2, h3, h4, h5, h6, .page__title {
+  color: var(--harvard-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.018em;
+}
+
+/* Navigation */
+.masthead {
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 5px solid var(--harvard-crimson);
+  box-shadow: 0 1px 0 rgba(30, 30, 30, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.masthead::after { display: none; }
+
+.masthead__inner-wrap {
+  max-width: 1280px !important;
+  padding: 0.45rem clamp(1rem, 3vw, 2.5rem) !important;
+}
+
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links,
+.masthead__menu,
+.masthead__menu-item {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.masthead a,
+.greedy-nav a,
+.masthead a:visited,
+.greedy-nav a:visited {
+  color: var(--harvard-ink) !important;
+  font-size: 0.93rem;
+  font-weight: 650;
+  letter-spacing: 0.015em;
+}
+
+.masthead__menu-item--lg a {
+  color: var(--harvard-crimson) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  letter-spacing: 0.04em;
+}
+
+.masthead__menu-item.is-active a,
+.masthead a:hover,
+.masthead a:focus,
+.greedy-nav a:hover,
+.greedy-nav a:focus { color: var(--harvard-crimson) !important; }
+
+.greedy-nav .visible-links a::before {
+  height: 3px !important;
+  background: var(--harvard-crimson) !important;
+}
+
+.greedy-nav > button {
+  border-radius: 50%;
+  background: var(--harvard-crimson);
+}
+
+/* The theme renders this control even when every link already fits. */
+.greedy-nav:has(.hidden-links:empty) > button { display: none; }
+
+.masthead__menu-item.is-active a::before { transform: scaleX(1) !important; }
+
+/* Main frame */
+#main {
+  display: grid;
+  grid-template-columns: minmax(205px, 235px) minmax(0, 900px);
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 4.75rem);
+  max-width: 1280px;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2.5rem) 5rem;
+}
+
+#main > .sidebar,
+#main > .archive {
+  float: none;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.archive { min-width: 0; margin-bottom: 0; }
+
+.archive > .page__title {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.archive > p,
+.archive > ul,
+.archive > ol { max-width: 780px; }
+
+/* Author card */
+.sidebar {
+  position: sticky !important;
+  top: 6rem;
+  align-self: start;
+  height: auto !important;
+  overflow: visible !important;
+  padding: 1.35rem !important;
+  border: 1px solid var(--harvard-line);
+  border-top: 5px solid var(--harvard-crimson);
+  border-radius: 4px 4px 18px 18px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--harvard-shadow);
+}
+
+.author__avatar { display: block; width: 100%; }
+
+.author__avatar img,
+img.author__avatar {
+  width: 132px;
+  max-width: 132px;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50%;
+  box-shadow: 0 0 0 7px var(--harvard-crimson-soft);
+}
+
+.author__content { display: block; padding: 0; }
+
+.sidebar .author__name {
+  margin: 1.15rem 0 0.2rem;
+  color: var(--harvard-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+}
+
+.sidebar .author__bio {
+  margin: 0 0 1.15rem;
+  color: var(--harvard-crimson);
+  font-size: 0.83rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.author__urls-wrapper { display: block; }
+
+.author__urls {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 1rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--harvard-line);
+  background: transparent;
+  box-shadow: none;
+}
+
+.author__urls::before,
+.author__urls::after { display: none; }
+
+.author__urls li { margin: 0; color: var(--harvard-muted); font-size: 0.82rem; }
+
+.author__urls a,
+.author__urls a:visited {
+  display: block;
+  margin: 0 -0.45rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 8px;
+  color: var(--harvard-charcoal);
+  font-size: 0.83rem;
+  text-decoration: none;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.author__urls a:hover,
+.author__urls a:focus {
+  color: var(--harvard-crimson);
+  background: var(--harvard-crimson-soft);
+  transform: translateX(3px);
+}
+
+.author__urls i { color: var(--harvard-crimson); }
+
+/* Homepage */
+.home-page > .page__title { display: none; }
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 4rem);
+  border-radius: 4px 4px 28px 4px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(125, 21, 37, 0.98), rgba(165, 28, 48, 0.92)), var(--harvard-crimson);
+  box-shadow: 0 28px 65px rgba(125, 21, 37, 0.2);
+}
+
+.home-hero::after {
+  content: "";
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  right: -8rem;
+  bottom: -12rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3rem rgba(255, 255, 255, 0.035), 0 0 0 7rem rgba(255, 255, 255, 0.025);
+}
+
+.home-hero__eyebrow,
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.4rem, 5.8vw, 4.7rem);
+  line-height: 0.99;
+}
+
+.home-hero__lede {
+  position: relative;
+  z-index: 1;
+  max-width: 670px;
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  line-height: 1.7;
+}
+
+.home-hero__pronunciation { margin: 1rem 0 0; color: rgba(255, 255, 255, 0.7); font-size: 0.82rem; }
+.home-hero__pronunciation a { color: #fff; }
+
+.home-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.home-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.65rem 1.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: transform 160ms ease;
+}
+
+.home-actions a:first-child { color: var(--harvard-crimson-dark); background: #fff; border-color: #fff; }
+.home-actions a:hover { transform: translateY(-2px); }
+
+.home-section { padding: clamp(3rem, 7vw, 5.5rem) 0 0; }
+
+.home-section__intro {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.65fr) minmax(0, 1.35fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.section-kicker { color: var(--harvard-crimson); }
+.home-section__intro h2 { margin: 0; font-size: clamp(1.9rem, 3.3vw, 2.8rem); line-height: 1.12; }
+.home-section__intro p { margin: 0; color: var(--harvard-muted); font-size: 1rem; }
+
+.research-pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+
+.research-pillar {
+  position: relative;
+  min-height: 100%;
+  padding: 1.45rem;
+  border: 1px solid var(--harvard-line);
+  border-radius: 3px 3px 18px 3px;
+  background: rgba(255, 255, 255, 0.78);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.research-pillar:hover { transform: translateY(-4px); border-color: rgba(165, 28, 48, 0.3); box-shadow: var(--harvard-shadow); }
+.research-pillar__number { display: block; margin-bottom: 2rem; color: var(--harvard-crimson); font-family: Georgia, "Times New Roman", serif; font-size: 0.92rem; font-style: italic; }
+.research-pillar h3 { margin: 0 0 0.9rem; font-size: 1.2rem; line-height: 1.25; }
+.research-pillar p { margin: 0; color: var(--harvard-muted); font-size: 0.88rem; line-height: 1.65; }
+
+.visitor-map { margin-top: 3rem; padding: 1rem 1.25rem; border: 1px solid var(--harvard-line); border-radius: 12px; background: rgba(255, 255, 255, 0.55); }
+.visitor-map summary { cursor: pointer; color: var(--harvard-muted); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.statable-map-wrap { margin-top: 1rem; text-align: center; }
+
+/* Research */
+.research-page .page__title { margin-bottom: 0.75rem; }
+.research-intro { max-width: 760px; margin: 0 0 2.25rem; color: var(--harvard-muted); font-size: 1.02rem; }
+.research-intro__links { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.2rem; }
+.research-intro__links a { display: inline-flex; padding: 0.52rem 0.9rem; border: 1px solid rgba(165, 28, 48, 0.3); border-radius: 999px; font-size: 0.8rem; font-weight: 750; text-decoration: none; }
+
+.research-page .theme { overflow: hidden; margin: 0 0 1rem; border: 1px solid var(--harvard-line); border-radius: 4px 4px 20px 4px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 8px 30px rgba(30, 30, 30, 0.035); }
+.research-page .theme > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.8rem; padding: 1.15rem 1.35rem; color: var(--harvard-ink); font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.05rem, 2vw, 1.32rem); font-weight: 700; background: linear-gradient(90deg, var(--harvard-crimson-soft), rgba(255, 255, 255, 0.25)); transition: color 160ms ease; }
+.research-page .theme > summary::-webkit-details-marker { display: none; }
+.research-page .theme > summary:hover { color: var(--harvard-crimson); }
+.research-page .theme .chev { display: inline-grid; place-items: center; width: 1.55rem; height: 1.55rem; color: #fff; border-radius: 50%; background: var(--harvard-crimson); font-family: Arial, sans-serif; font-size: 0.65rem; transition: transform 180ms ease; }
+.research-page .theme[open] .chev { transform: rotate(90deg); }
+
+.research-page .rcard { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 1.5rem; padding: 1.6rem; border-top: 1px solid var(--harvard-line); background: rgba(255, 255, 255, 0.82); }
+.research-page .rcard .img { display: grid; place-items: center; align-self: start; aspect-ratio: 4 / 3; overflow: hidden; padding: 0.55rem; border: 1px solid var(--harvard-line); border-radius: 12px; background: #fff; }
+.research-page .rcard .img img { width: 100%; max-width: 100%; height: 100%; object-fit: contain; border: 0; border-radius: 6px; }
+.research-page .rcard .txt { font-size: 0.91rem; line-height: 1.66; }
+.research-page .rcard .txt h4 { margin: 0 0 0.7rem; color: var(--harvard-ink); font-size: 1.18rem; line-height: 1.25; }
+.research-page .rcard .txt p { margin: 0 0 0.8rem; }
+.research-page .citation { color: var(--harvard-muted); font-size: 0.82rem; }
+.research-page .links { padding-top: 0.2rem; }
+.research-page .btn { margin: 0.2rem 0.35rem 0.2rem 0; padding: 0.48rem 0.82rem; border-radius: 999px; font-size: 0.72rem; letter-spacing: 0.035em; text-decoration: none !important; }
+.research-page a.btn--primary { color: #fff !important; background: var(--harvard-crimson); }
+.research-page a.btn--light { color: var(--harvard-crimson) !important; border: 1px solid rgba(165, 28, 48, 0.35) !important; background: #fff; }
+.research-page span.btn--light { color: var(--harvard-muted) !important; border: 1px solid var(--harvard-line) !important; background: #f4f1ee; }
+
+/* CV */
+.cv-page .cv-lede { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; margin-bottom: 1.5rem; padding: 1.2rem 1.35rem; border-left: 5px solid var(--harvard-crimson); background: var(--harvard-crimson-soft); }
+.cv-page .cv-lede p { margin: 0; color: var(--harvard-charcoal); }
+.cv-download { flex: 0 0 auto; display: inline-flex; padding: 0.65rem 1rem; border-radius: 999px; color: #fff !important; background: var(--harvard-crimson); font-size: 0.8rem; font-weight: 750; text-decoration: none !important; }
+.cv-frame-wrapper { width: 100%; margin-top: 0; padding: 0.65rem; border: 1px solid var(--harvard-line); border-radius: 4px 4px 20px 4px; background: #fff; box-shadow: var(--harvard-shadow); }
+.cv-frame-wrapper iframe { display: block; width: 100%; height: 78vh; min-height: 720px; border: 0; border-radius: 8px; }
+
+/* Bio and footer */
+.bio-page img { border-radius: 4px 4px 18px 4px !important; box-shadow: var(--harvard-shadow) !important; }
+.page__footer { color: var(--harvard-muted); border-top: 1px solid var(--harvard-line); background: #f3efeb; }
+.page__footer footer { max-width: 1280px; padding: 0.9rem clamp(1rem, 3vw, 2.5rem) 1.25rem; }
+.page__footer-copyright { font-size: 0.72rem; }
+
+/* Responsive */
+@media (max-width: 1023px) {
+  #main { display: block; padding-top: 1.6rem; }
+  .sidebar { position: relative !important; top: auto; width: 100% !important; margin: 0 0 2rem !important; padding: 1rem !important; }
+  .sidebar > div[itemscope] { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1rem; align-items: center; }
+  .author__avatar { width: 72px; }
+  .author__avatar img, img.author__avatar { width: 64px; max-width: 64px; }
+  .sidebar .author__name { margin-top: 0; }
+  .sidebar .author__bio { margin-bottom: 0; }
+  .author__urls-wrapper { display: block; }
+  .author__urls-wrapper > button { display: inline-block; }
+  .author__urls { display: none; position: absolute; right: 0; min-width: 210px; padding: 0.8rem; border: 1px solid var(--harvard-line); border-radius: 12px; background: #fff; box-shadow: var(--harvard-shadow); }
+  .author__urls-wrapper .btn { color: #fff !important; background: var(--harvard-crimson); }
+  .research-pillars { grid-template-columns: 1fr; }
+  .research-pillar__number { margin-bottom: 1rem; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .masthead__menu-item--lg { padding-right: 0.7rem; }
+  .masthead a, .greedy-nav a { font-size: 0.82rem !important; }
+  #main { padding: 1rem 0.9rem 3.5rem; }
+  .sidebar > div[itemscope] { gap: 0.75rem; }
+  .sidebar .author__name { font-size: 1.05rem; }
+  .sidebar .author__bio { font-size: 0.68rem; }
+  .home-hero { padding: 2rem 1.4rem 2.2rem; border-radius: 3px 3px 20px 3px; }
+  .home-hero h1 { font-size: clamp(2.35rem, 13vw, 3.5rem); }
+  .home-actions { gap: 0.5rem; }
+  .home-section__intro { grid-template-columns: 1fr; gap: 0.65rem; }
+  .research-page .rcard { grid-template-columns: 1fr; gap: 1rem; padding: 1.15rem; }
+  .research-page .rcard .img { width: 100%; max-width: 360px; aspect-ratio: 16 / 9; }
+  .research-page .theme > summary { padding: 1rem; }
+  .cv-page .cv-lede { align-items: flex-start; flex-direction: column; }
+  .cv-frame-wrapper { padding: 0.35rem; }
+  .cv-frame-wrapper iframe { height: 72vh; min-height: 540px; }
+}
+
+/* Dark mode remains calm and readable while retaining crimson accents. */
+html[data-theme="dark"] {
+  --harvard-ink: #f4f1ed;
+  --harvard-charcoal: #ded9d3;
+  --harvard-muted: #aaa39c;
+  --harvard-paper: #171514;
+  --harvard-line: #3b3733;
+  --harvard-crimson-soft: #341b21;
+  --global-border-color: var(--harvard-line);
+}
+
+html[data-theme="dark"] body { background: var(--harvard-paper); }
+html[data-theme="dark"] .masthead { background: rgba(23, 21, 20, 0.96); }
+html[data-theme="dark"] .masthead__menu-item--lg a,
+html[data-theme="dark"] .masthead__menu-item.is-active a,
+html[data-theme="dark"] .masthead a:hover,
+html[data-theme="dark"] .masthead a:focus { color: #f1a0ad !important; }
+html[data-theme="dark"] .sidebar,
+html[data-theme="dark"] .research-pillar,
+html[data-theme="dark"] .research-page .theme,
+html[data-theme="dark"] .research-page .rcard { background: rgba(33, 31, 29, 0.92); }
+html[data-theme="dark"] .research-page .rcard .img,
+html[data-theme="dark"] .cv-frame-wrapper { background: #292623; }
+html[data-theme="dark"] .page__footer { background: #211f1d; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --harvard-ink: #f4f1ed;
+    --harvard-charcoal: #ded9d3;
+    --harvard-muted: #aaa39c;
+    --harvard-paper: #171514;
+    --harvard-line: #3b3733;
+    --harvard-crimson-soft: #341b21;
+    --global-border-color: var(--harvard-line);
+  }
+  body { background: var(--harvard-paper); }
+  .masthead { background: rgba(23, 21, 20, 0.96); }
+  .masthead__menu-item--lg a,
+  .masthead__menu-item.is-active a,
+  .masthead a:hover,
+  .masthead a:focus { color: #f1a0ad !important; }
+  .sidebar, .research-pillar, .research-page .theme, .research-page .rcard { background: rgba(33, 31, 29, 0.92); }
+  .research-page .rcard .img, .cv-frame-wrapper { background: #292623; }
+  .page__footer { background: #211f1d; }
+}
+
+/* --------------------------------------------------------------------------
+   Research dossier direction
+   A deliberately un-card-like, editorial system that belongs to this site.
+   -------------------------------------------------------------------------- */
+
+body {
+  background-color: #f7f2ea;
+  background-image: linear-gradient(rgba(91, 75, 64, 0.035) 1px, transparent 1px);
+  background-size: 100% 2rem;
+}
+
+/* Crimson reads as institutional ink, not as a generic hero background. */
+.masthead {
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  background: var(--harvard-crimson);
+  box-shadow: none;
+}
+
+.masthead__inner-wrap { padding-top: 0.62rem !important; padding-bottom: 0.62rem !important; }
+.masthead a,
+.masthead a:visited,
+.greedy-nav a,
+.greedy-nav a:visited { color: rgba(255, 255, 255, 0.78) !important; }
+.masthead__menu-item--lg a { color: #fff !important; font-size: 1rem; letter-spacing: 0.08em; }
+.masthead__menu-item.is-active a,
+.masthead a:hover,
+.masthead a:focus,
+.greedy-nav a:hover,
+.greedy-nav a:focus { color: #fff !important; }
+.greedy-nav .visible-links a::before { background: #fff !important; }
+.greedy-nav > button { background: rgba(255, 255, 255, 0.15); }
+
+/* Interior-page identity rail: portrait and information, never a profile card. */
+.sidebar {
+  padding: 0 1.4rem 0 0 !important;
+  border: 0;
+  border-right: 1px solid var(--harvard-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.author__avatar img,
+img.author__avatar {
+  width: 112px;
+  max-width: 112px;
+  aspect-ratio: 4 / 5;
+  border-radius: 0;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.04);
+  box-shadow: 9px 9px 0 var(--harvard-crimson-soft);
+}
+
+.sidebar .author__name { margin-top: 1.35rem; font-size: 1.5rem; }
+.sidebar .author__bio { color: var(--harvard-muted); font-size: 0.72rem; letter-spacing: 0.1em; }
+.author__urls { padding-top: 0.8rem; }
+.author__urls a,
+.author__urls a:visited { border-radius: 0; }
+.author__urls a:hover,
+.author__urls a:focus { transform: none; border-left: 2px solid var(--harvard-crimson); }
+
+/* Homepage takes the full reading surface and carries its own identity. */
+#main:has(.home-page) {
+  display: block;
+  max-width: 1220px;
+  padding-top: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.home-page { width: 100%; }
+.home-page > .page__title { display: none; }
+
+.dossier-hero { border-top: 6px solid var(--harvard-ink); }
+
+.dossier-hero__topline {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--harvard-ink);
+  color: var(--harvard-muted);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.dossier-hero__grid {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: end;
+  min-height: 245px;
+  padding: clamp(1.25rem, 2.5vw, 2rem) 0;
+}
+
+.dossier-portrait { margin: 0; }
+.dossier-portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.06);
+  box-shadow: 13px 13px 0 var(--harvard-crimson);
+}
+.dossier-portrait figcaption {
+  display: none;
+}
+
+.dossier-label {
+  color: var(--harvard-crimson);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dossier-statement h1 {
+  max-width: 850px;
+  margin: 1.1rem 0 0;
+  color: var(--harvard-ink);
+  font-size: clamp(3.25rem, 5.7vw, 5.35rem);
+  font-weight: 500;
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+}
+.dossier-statement h1 em { color: var(--harvard-crimson); font-weight: 400; }
+
+.dossier-abstract {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) 220px;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: start;
+  padding: 0.8rem 0 0.9rem;
+  border-top: 1px solid var(--harvard-ink);
+  border-bottom: 1px solid var(--harvard-ink);
+}
+.dossier-abstract p { max-width: 680px; margin: 0; font-size: 0.85rem; line-height: 1.52; }
+.dossier-abstract nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; }
+.dossier-abstract nav a {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.28rem 0;
+  border-bottom: 1px solid var(--harvard-line);
+  color: var(--harvard-ink);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.dossier-abstract nav a:hover { padding-left: 0.45rem; color: var(--harvard-crimson); }
+
+.question-index {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 1.5rem;
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  border-top: 4px solid var(--harvard-crimson);
+}
+.question-index > header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.45rem 0 0.75rem;
+}
+.question-index > header p { margin: 0; color: var(--harvard-muted); font-size: 0.76rem; letter-spacing: 0.04em; }
+
+.question-index article {
+  display: block;
+  min-height: 76px;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--harvard-line);
+  transition: background 180ms ease, color 180ms ease, padding 180ms ease;
+}
+.question-index article:last-child { border-bottom: 0; }
+.question-index__number { display: block; margin-bottom: 0.15rem; color: var(--harvard-crimson); font-family: Georgia, serif; font-size: 0.7rem; font-style: italic; }
+.question-index h2 { margin: 0; font-size: clamp(1.15rem, 1.7vw, 1.4rem); line-height: 1; }
+.question-index article p { margin: 0.45rem 0 0; color: var(--harvard-muted); font-size: 0.7rem; line-height: 1.45; }
+.question-index article:hover { margin: 0; padding: 0.4rem 0.65rem; color: #fff; background: var(--harvard-crimson); }
+.question-index article:hover h2,
+.question-index article:hover p,
+.question-index article:hover .question-index__number { color: #fff; }
+
+.dossier-note {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 2rem;
+  margin: 4rem 0 0 auto;
+  padding-left: 1.2rem;
+  border-left: 6px solid var(--harvard-crimson);
+}
+.dossier-note p { margin: 0; font-size: 0.84rem; }
+
+.home-page .visitor-map { margin: 5rem 0 0; border: 0; border-top: 1px solid var(--harvard-line); border-radius: 0; background: transparent; }
+
+/* Interior pages use a document index rather than stacks of rounded cards. */
+.research-page .theme,
+.research-page .theme > summary,
+.research-page .rcard,
+.research-page .rcard .img,
+.cv-page .cv-lede,
+.cv-frame-wrapper,
+.bio-page img { border-radius: 0 !important; box-shadow: none !important; }
+.research-page .theme { border-width: 0 0 1px; background: transparent; }
+.research-page .theme > summary { border-left: 5px solid var(--harvard-crimson); background: transparent; }
+.research-page .rcard { background: rgba(255, 255, 255, 0.45); }
+.research-page .btn,
+.research-intro__links a,
+.cv-download { border-radius: 0; }
+.cv-page .cv-lede { background: transparent; border-top: 1px solid var(--harvard-line); border-bottom: 1px solid var(--harvard-line); }
+.page__footer { color: rgba(255, 255, 255, 0.7); border: 0; background: var(--harvard-crimson-dark); }
+
+@media (max-width: 1023px) {
+  .sidebar {
+    padding: 0 0 1rem !important;
+    border-right: 0;
+    border-bottom: 1px solid var(--harvard-line);
+  }
+  .sidebar > div[itemscope] { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .author__avatar img,
+  img.author__avatar { width: 64px; height: 74px; }
+}
+
+@media (max-width: 760px) {
+  .dossier-hero__topline { grid-template-columns: 1fr auto; gap: 0.5rem 1rem; }
+  .dossier-hero__topline span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+  .dossier-hero__grid { grid-template-columns: 88px minmax(0, 1fr); gap: 1.4rem; min-height: 0; padding: 2.3rem 0 3rem; }
+  .dossier-portrait img { box-shadow: 7px 7px 0 var(--harvard-crimson); }
+  .dossier-portrait figcaption { display: none; }
+  .dossier-statement h1 { margin-top: 0.7rem; font-size: clamp(2.5rem, 11.5vw, 4.1rem); line-height: 0.94; }
+  .dossier-abstract { grid-template-columns: 1fr; gap: 1rem; }
+  .dossier-abstract nav { grid-template-columns: repeat(3, 1fr); }
+  .dossier-abstract nav a { margin-right: 0.7rem; }
+  .question-index { grid-template-columns: 1fr; }
+  .question-index > header { display: block; }
+  .question-index > header p { margin-top: 0.6rem; }
+  .question-index article { grid-template-columns: 38px minmax(0, 1fr); gap: 0.8rem; }
+  .question-index article p { grid-column: 2; }
+  .question-index article:hover { margin: 0 -0.5rem; padding-right: 0.5rem; padding-left: 0.5rem; }
+  .dossier-note { grid-template-columns: 1fr; gap: 0.5rem; }
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px); }
+  .masthead { background: var(--harvard-crimson-dark); }
+  .research-page .rcard { background: rgba(255, 255, 255, 0.035); }
+}
+
+/* --------------------------------------------------------------------------
+   Compact Harvard edition
+   Returns to the warmer first concept while replacing its template-like cues.
+   -------------------------------------------------------------------------- */
+
+body {
+  background: radial-gradient(circle at 88% 8%, rgba(165, 28, 48, 0.055), transparent 30rem), var(--harvard-paper);
+}
+
+.masthead {
+  border-top: 5px solid var(--harvard-crimson);
+  border-bottom: 0;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 0 rgba(30, 30, 30, 0.08);
+}
+.masthead a,
+.masthead a:visited,
+.greedy-nav a,
+.greedy-nav a:visited { color: var(--harvard-ink) !important; }
+.masthead__menu-item--lg a,
+.masthead__menu-item.is-active a,
+.masthead a:hover,
+.masthead a:focus,
+.greedy-nav a:hover,
+.greedy-nav a:focus { color: var(--harvard-crimson) !important; }
+.greedy-nav .visible-links a::before { background: var(--harvard-crimson) !important; }
+
+#main:has(.home-page) {
+  display: grid;
+  grid-template-columns: minmax(205px, 235px) minmax(0, 900px);
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 4.75rem);
+  max-width: 1280px;
+  padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1rem, 3vw, 2.5rem) 3rem;
+}
+
+.sidebar {
+  padding: 1.2rem !important;
+  border: 1px solid var(--harvard-line);
+  border-top: 5px solid var(--harvard-crimson);
+  border-radius: 3px 3px 16px 3px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 40px rgba(30, 30, 30, 0.07);
+}
+.author__avatar img,
+img.author__avatar {
+  width: 112px;
+  max-width: 112px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: none;
+  box-shadow: 0 0 0 6px var(--harvard-crimson-soft);
+}
+.sidebar .author__name { margin-top: 1rem; font-size: 1.3rem; }
+.sidebar .author__bio { color: var(--harvard-crimson); font-size: 0.72rem; letter-spacing: 0.08em; }
+.author__urls a,
+.author__urls a:visited { border-radius: 7px; }
+.author__urls a:hover,
+.author__urls a:focus { border-left: 0; transform: translateX(3px); }
+
+.home-hero--signature {
+  min-height: 330px;
+  padding: clamp(1.65rem, 3vw, 2.25rem) clamp(7rem, 12vw, 9.5rem) clamp(1.65rem, 3vw, 2.25rem) clamp(1.6rem, 3vw, 2.5rem);
+  border: 0;
+  border-radius: 3px 30px 3px 3px;
+  background: linear-gradient(125deg, #781423 0%, var(--harvard-crimson) 72%, #b52a40 100%);
+  box-shadow: 0 18px 45px rgba(125, 21, 37, 0.18);
+}
+.home-hero--signature::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: clamp(5.5rem, 12vw, 8rem);
+  height: auto;
+  border: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0;
+  background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 12px);
+  box-shadow: none;
+}
+.home-hero__eyebrow { margin-bottom: 0.6rem; font-size: 0.64rem; }
+.home-hero--signature h1 {
+  max-width: 660px;
+  font-size: clamp(2.55rem, 4.4vw, 3.45rem);
+  line-height: 0.98;
+}
+.home-hero--signature h1 em { display: block; color: #f3cbd1; font-weight: 400; }
+.home-hero--signature .home-hero__lede { max-width: 660px; margin-top: 0.85rem; font-size: 0.9rem; line-height: 1.55; }
+.home-hero--signature .home-actions { margin-top: 1rem; }
+.home-hero--signature .home-actions a { min-height: 36px; padding: 0.42rem 0.8rem; font-size: 0.72rem; }
+.home-hero__margin-note {
+  position: absolute;
+  z-index: 2;
+  top: 1.7rem;
+  right: 1.25rem;
+  bottom: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.6rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.home-hero__margin-note strong { color: #fff; font-family: Georgia, serif; font-size: 0.8rem; font-weight: 400; }
+
+.home-section--compact { padding-top: clamp(1rem, 2.2vw, 1.5rem); }
+.home-section--compact .home-section__intro {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.home-section--compact .section-kicker { margin-bottom: 0.2rem; font-size: 0.6rem; }
+.home-section--compact .home-section__intro h2 { font-size: clamp(1.25rem, 2.1vw, 1.65rem); line-height: 1.05; }
+.home-section--compact .home-section__intro p { font-size: 0.78rem; line-height: 1.45; }
+.home-section--compact .research-pillars { gap: 0.7rem; }
+.home-section--compact .research-pillar {
+  min-height: 118px;
+  padding: 0.7rem 0;
+  border: 0;
+  border-top: 2px solid var(--harvard-crimson);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.home-section--compact .research-pillar:hover { transform: none; border-color: var(--harvard-crimson); box-shadow: none; }
+.home-section--compact .research-pillar__number { margin-bottom: 0.25rem; font-size: 0.7rem; }
+.home-section--compact .research-pillar h3 { margin: 0; font-size: 1rem; line-height: 1.12; }
+.home-section--compact .research-pillar p { margin: 0.4rem 0 0; color: var(--harvard-muted); font-size: 0.7rem; line-height: 1.4; }
+.home-page .visitor-map { margin-top: 1rem; padding: 0.55rem 0; border: 0; border-top: 1px solid var(--harvard-line); border-radius: 0; background: transparent; }
+
+.research-page .theme {
+  border: 1px solid var(--harvard-line);
+  border-radius: 4px 4px 20px 4px !important;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 30px rgba(30, 30, 30, 0.035) !important;
+}
+.research-page .theme > summary {
+  border-left: 0;
+  border-radius: 0 !important;
+  background: linear-gradient(90deg, var(--harvard-crimson-soft), rgba(255, 255, 255, 0.25));
+}
+.research-page .rcard { border-radius: 0 !important; background: rgba(255, 255, 255, 0.82); }
+.research-page .rcard .img { border-radius: 12px !important; box-shadow: none !important; }
+.research-page .btn,
+.research-intro__links a,
+.cv-download { border-radius: 999px; }
+.cv-page .cv-lede { border: 0; border-left: 5px solid var(--harvard-crimson); border-radius: 0 !important; background: var(--harvard-crimson-soft); }
+.cv-frame-wrapper { border-radius: 4px 4px 20px 4px !important; box-shadow: var(--harvard-shadow) !important; }
+.bio-page img { border-radius: 4px 4px 18px 4px !important; box-shadow: var(--harvard-shadow) !important; }
+.page__footer { color: var(--harvard-muted); border-top: 1px solid var(--harvard-line); background: #f3efeb; }
+
+@media (max-width: 1023px) {
+  #main:has(.home-page) { display: block; padding-top: 1.2rem; }
+  .sidebar { padding: 1rem !important; border-right: 1px solid var(--harvard-line); border-bottom: 1px solid var(--harvard-line); }
+  .author__avatar img,
+  img.author__avatar { width: 64px; height: 64px; }
+  .home-section--compact .research-pillars { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .home-hero--signature { min-height: 0; padding: 1.5rem 4.5rem 1.5rem 1.2rem; border-radius: 3px 20px 3px 3px; }
+  .home-hero--signature h1 { font-size: clamp(2.15rem, 10.5vw, 3.15rem); }
+  .home-section--compact .home-section__intro { grid-template-columns: 1fr; gap: 0.4rem; }
+  .home-section--compact .research-pillars { grid-template-columns: 1fr; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .masthead { background: rgba(23, 21, 20, 0.96); }
+  .masthead__menu-item--lg a,
+  .masthead__menu-item.is-active a,
+  .masthead a:hover,
+  .masthead a:focus { color: #f1a0ad !important; }
+  .sidebar,
+  .home-section--compact .research-pillar,
+  .research-page .theme,
+  .research-page .rcard { background: rgba(33, 31, 29, 0.92); }
+  .page__footer { background: #211f1d; }
+}
+
+/* A quieter, straightforward academic homepage. */
+body { background: var(--harvard-paper); }
+
+.masthead {
+  border-top-width: 3px;
+  box-shadow: 0 1px 0 var(--harvard-line);
+}
+
+.sidebar {
+  border-top-width: 2px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+}
+.author__avatar img,
+img.author__avatar { box-shadow: none; }
+
+.home-hero--signature {
+  min-height: 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--harvard-line);
+  border-left: 5px solid var(--harvard-crimson);
+  border-radius: 0;
+  color: var(--harvard-charcoal);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: none;
+}
+.home-hero--signature::after { display: none; }
+.home-hero--signature .home-hero__eyebrow { color: var(--harvard-crimson); }
+.home-hero--signature h1 { max-width: 760px; color: var(--harvard-ink); }
+.home-hero--signature h1 em { color: var(--harvard-crimson); }
+.home-hero--signature .home-hero__lede { max-width: 740px; color: var(--harvard-charcoal); }
+.home-hero--signature .home-actions { gap: 1rem; }
+.home-hero--signature .home-actions a,
+.home-hero--signature .home-actions a:first-child {
+  min-height: 0;
+  padding: 0.25rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(165, 28, 48, 0.35);
+  border-radius: 0;
+  color: var(--harvard-crimson-dark);
+  background: transparent;
+  font-size: 0.75rem;
+}
+.home-hero--signature .home-actions a:hover {
+  transform: none;
+  border-color: var(--harvard-crimson);
+}
+.home-section--compact .research-pillar { border-top: 1px solid var(--harvard-line); }
+.home-section--compact .research-pillar:hover { border-color: var(--harvard-line); }
+
+@media (prefers-color-scheme: dark) {
+  .home-hero--signature { background: rgba(33, 31, 29, 0.72); }
+  .home-hero--signature .home-actions a,
+  .home-hero--signature .home-actions a:first-child { color: #f1a0ad; }
+}
+
+/* Keep every author-information row on the same vertical rhythm. */
+.author__urls li {
+  min-height: 2.15rem;
+  margin: 0 !important;
+  padding: 0;
+  align-items: center;
+  line-height: 1.25;
+}
+.author__urls li > a,
+.author__urls li > a:visited {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.15rem;
+  margin: 0 -0.3rem;
+  padding: 0 0.3rem;
+}
+.author__urls li i,
+.author__urls li > a i {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  margin: 0 0.55rem 0 0;
+  padding: 0;
+  font-size: 1em;
+  line-height: 1;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .sidebar .author__desktop { display: flex; }
+}
+
+/* The theme assigns LinkedIn its brand blue; the profile rail uses one palette. */
+.author__urls.social-icons i { color: var(--harvard-crimson) !important; }
+
+.sidebar .author__pronunciation {
+  margin: 0.12rem 0 0.45rem;
+  color: var(--harvard-muted);
+  font-size: 0.7rem;
+  line-height: 1.3;
+  letter-spacing: 0.015em;
+}
+.sidebar .author__pronunciation a {
+  color: var(--harvard-muted);
+  text-decoration: underline dotted rgba(108, 108, 108, 0.6);
+  text-underline-offset: 0.16em;
+}
+.sidebar .author__pronunciation a:hover { color: var(--harvard-crimson); }
+
+.profile-visitor-map {
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--harvard-line);
+}
+.profile-visitor-map h4 {
+  margin: 0;
+  color: var(--harvard-muted);
+  font-family: inherit;
+  font-size: 0.58rem;
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.profile-visitor-map .statable-map-wrap {
+  width: 100%;
+  max-width: 210px;
+  margin: 0.45rem auto 0;
+  overflow: hidden;
+}
+
+@media (min-width: 721px) and (max-width: 1023px) {
+  #main:has(.home-page) .sidebar { min-height: 145px; }
+  .profile-visitor-map {
+    position: absolute;
+    top: 0.55rem;
+    right: 4.7rem;
+    width: 150px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .profile-visitor-map h4 { font-size: 0.5rem; }
+  .profile-visitor-map .statable-map-wrap { margin-top: 0.2rem; }
+}
+
+@media (max-width: 720px) {
+  .profile-visitor-map { display: none; }
+}
+
+/* Keep the visitor map as a separate, collapsible block below the profile card. */
+.sidebar {
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.profile-card {
+  padding: 1.2rem;
+  border: 1px solid var(--harvard-line);
+  border-top: 2px solid var(--harvard-crimson);
+  background: rgba(255, 255, 255, 0.7);
+}
+.profile-visitor-map {
+  position: static;
+  top: auto;
+  right: auto;
+  display: block;
+  width: auto;
+  margin: 0.3rem 0 0;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid var(--harvard-line);
+  background: rgba(255, 255, 255, 0.55);
+}
+.profile-visitor-map summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--harvard-muted);
+  font-size: 0.58rem;
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.profile-visitor-map summary::-webkit-details-marker { display: none; }
+.profile-visitor-map summary::after { content: "+"; color: var(--harvard-crimson); font-size: 0.85rem; }
+.profile-visitor-map[open] summary::after { content: "−"; }
+.profile-visitor-map .statable-map-wrap {
+  width: 100%;
+  max-width: 210px;
+  margin: 0.65rem auto 0;
+  overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+  .profile-card { padding: 0.75rem 1rem; }
+  .profile-card > div[itemscope] {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1023px) {
+  .profile-visitor-map { display: none; }
+}
+
+/* Research figures keep their original proportions instead of sharing a frame. */
+.research-page .rcard .img {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  aspect-ratio: auto;
+  justify-self: start;
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0 !important;
+  background: transparent;
+}
+.research-page .rcard .img img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  border-radius: 0;
+  object-fit: initial;
+}
+
+/* Contact dropdown must sit above the map rail and page content. */
+.sidebar { z-index: 100; }
+.profile-card { position: relative; z-index: 2; }
+.archive { position: relative; z-index: 1; }
+.author__urls-wrapper { z-index: 50; }
+.author__urls {
+  z-index: 60 !important;
+  opacity: 1;
+  background: #fff;
+}
+.author__urls-wrapper > button { position: relative; z-index: 70; }
+
+/* Give the portrait more presence in the full desktop identity card. */
+@media (min-width: 1024px) {
+  .profile-card .author__avatar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-card .author__avatar img,
+  .profile-card img.author__avatar {
+    display: block;
+    width: 150px;
+    max-width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Stacked research questions should read as a compact list on phones. */
+@media (max-width: 720px) {
+  .home-section--compact .research-pillars {
+    gap: 0;
+  }
+
+  .home-section--compact .research-pillar {
+    min-height: 0;
+    padding: 0.9rem 0 1rem;
+  }
+}
+
+/* Expandable research statements: concise at first glance, substantive on demand. */
+.home-section--compact details.research-pillar {
+  min-height: 0;
+  padding: 0;
+}
+
+.research-pillar > summary {
+  display: block;
+  padding: 0.8rem 1.35rem 0.85rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.research-pillar > summary::-webkit-details-marker { display: none; }
+.research-pillar > summary::marker { display: none; content: ""; }
+.research-pillar > summary:focus-visible {
+  outline: 2px solid var(--harvard-crimson);
+  outline-offset: 4px;
+}
+
+.home-section--compact .research-pillar > summary h3 {
+  margin: 0;
+}
+
+.research-pillar__abstract {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--harvard-muted);
+  font-size: 0.72rem;
+  line-height: 1.48;
+}
+
+.research-pillar__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.65rem;
+  color: var(--harvard-crimson);
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.research-pillar__toggle::after { content: "+"; font-size: 0.8rem; }
+.research-pillar[open] .research-pillar__toggle::after { content: "−"; }
+
+.research-pillar__statement {
+  padding: 0.85rem 0 1rem;
+  border-top: 1px solid var(--harvard-line);
+}
+
+.home-section--compact .research-pillar__statement p {
+  margin: 0;
+  color: var(--harvard-charcoal);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .research-pillar > summary { padding: 0.9rem 1.25rem 0.9rem 0; }
+  .research-pillar__statement { padding-top: 0.8rem; }
+}
+
+/* A scholarly statement leads; the broad question remains as a quiet motif. */
+.home-hero--statement {
+  display: block;
+}
+
+.home-hero--statement .home-hero__heading {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--harvard-line);
+}
+
+.home-hero--statement .home-hero__eyebrow {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.home-hero--statement .home-hero__heading h1 {
+  max-width: none;
+  margin: 0;
+  font-size: clamp(1.3rem, 1.75vw, 1.6rem);
+  line-height: 1.22;
+}
+
+.home-hero--statement .home-hero__lede {
+  max-width: none;
+  margin: 0.9rem 0 0;
+  font-size: 0.96rem;
+  line-height: 1.62;
+}
+
+.home-hero__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.home-hero__framing-question {
+  max-width: 540px;
+  margin: 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--harvard-crimson);
+  color: var(--harvard-crimson-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.96rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.home-hero--statement .home-actions {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  .home-hero--statement .home-hero__heading {
+    display: block;
+  }
+
+  .home-hero--statement .home-hero__heading h1 {
+    max-width: 520px;
+    margin-top: 0.4rem;
+    font-size: 1.45rem;
+  }
+
+  .home-hero--statement .home-hero__lede {
+    font-size: 0.94rem;
+    line-height: 1.62;
+  }
+
+  .home-hero__footer {
+    display: block;
+  }
+
+  .home-hero--statement .home-actions {
+    margin-top: 0.9rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .author__urls { background: #211f1d; }
+}

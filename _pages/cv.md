@@ -1,56 +1,20 @@
 ---
 layout: archive
-title: "CV"
+title: "Curriculum Vitae"
 permalink: /CV/
+page_class: cv-page
 author_profile: true
 ---
 
-You can download a PDF version of my CV
-[here](/files/LIU%20Yuanze_CV_202609.pdf).
-
-<style>
-/* 容器样式 */
-.cv-frame-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
-
-/* iframe 核心样式 */
-.cv-frame-wrapper iframe {
-  /* 电脑端默认设置 */
-  width: 80%;               
-  height: 55vh;             
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* --- 响应式设计 (手机/平板适配) --- */
-
-/* 平板 (iPad 等) */
-@media (max-width: 1024px) {
-  .cv-frame-wrapper iframe {
-    width: 90%;             
-    height: 50vh;           
-  }
-}
-
-/* 手机 (iPhone / Android) */
-@media (max-width: 768px) {
-  .cv-frame-wrapper iframe {
-    width: 95%;             
-    height: 50vh;           
-    min-height: 400px;      
-  }
-}
-</style>
+<div class="cv-lede">
+  <p>Research, education, awards, presentations, and current projects. Last updated September 2026.</p>
+  <a class="cv-download" href="{{ '/files/LIU Yuanze_CV_202609.pdf' | relative_url }}">Download PDF ↓</a>
+</div>
 
 <div class="cv-frame-wrapper">
   <iframe
-    src="/files/LIU%20Yuanze_CV_202609.pdf#view=FitH"
+    src="{{ '/files/LIU Yuanze_CV_202609.pdf#view=FitH' | relative_url }}"
     loading="lazy"
-    title="CV Preview">
+    title="Yuanze Liu curriculum vitae preview">
   </iframe>
 </div>
