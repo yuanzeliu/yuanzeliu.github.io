@@ -23,9 +23,6 @@ repository    : "yuanzeliu/yuanzeliu.github.io"
 author:
   avatar     : "profile1.png"                    # Avatar image in /images or root
   name       : "Yuanze Liu"
-  pronunciation:
-    yuan_audio: "https://en.wiktionary.org/wiki/File:zh-yu%C7%8En.ogg"
-    ze_audio: "https://en.wiktionary.org/wiki/File:zh-z%C3%A9.ogg"
   #pronouns   : "He/Him"                         # Standard English format
   bio        : "PhD student @HBS"
   location   : "Boston, MA"

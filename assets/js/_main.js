@@ -48,7 +48,7 @@ if (plotlyElements.length > 0) {
 
 $(document).ready(function () {
   // SCSS SETTINGS - These should be the same as the settings in the relevant files 
-  const sidebarCollapseWidth = 1024; // pixels, from the custom sidebar layout
+  const scssLarge = 925;          // pixels, from /_sass/_themes.scss
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
   // Enable the sticky footer
@@ -70,56 +70,15 @@ $(document).ready(function () {
   fitvids();
 
   // Follow menu drop down
-  var $authorUrlsWrapper = $(".author__urls-wrapper");
-  var $authorUrlsButton = $authorUrlsWrapper.find("button");
-  var $authorUrls = $authorUrlsWrapper.find(".author__urls");
-  var authorUrlsAreCollapsible = function () {
-    return $(window).width() < sidebarCollapseWidth;
-  };
-
-  var closeAuthorUrls = function () {
-    // On wider screens the links are part of the permanent sidebar.
-    if (!authorUrlsAreCollapsible()) return;
-
-    $authorUrls.stop(true, true).fadeOut("fast");
-    $authorUrlsButton.removeClass("open").attr("aria-expanded", "false");
-  };
-
-  $authorUrlsButton.on("click", function (event) {
-    event.stopPropagation();
-
-    var willOpen = $(this).attr("aria-expanded") !== "true";
-    $authorUrls.stop(true, true)[willOpen ? "fadeIn" : "fadeOut"]("fast");
-    $(this).toggleClass("open", willOpen).attr("aria-expanded", String(willOpen));
-  });
-
-  // Keep clicks within the menu from being treated as outside clicks.
-  $authorUrls.on("click", function (event) {
-    event.stopPropagation();
-  });
-
-  $authorUrls.find("a").on("click", closeAuthorUrls);
-
-  $(document).on("click", function (event) {
-    if (!$(event.target).closest(".author__urls-wrapper").length) {
-      closeAuthorUrls();
-    }
-  });
-
-  $(document).on("keydown", function (event) {
-    if (event.key === "Escape" && $authorUrls.is(":visible")) {
-      closeAuthorUrls();
-      $authorUrlsButton.trigger("focus");
-    }
+  $(".author__urls-wrapper button").on("click", function () {
+    $(".author__urls").fadeToggle("fast", function () { });
+    $(".author__urls-wrapper button").toggleClass("open");
   });
 
   // Restore the follow menu if toggled on a window resize
   jQuery(window).on('resize', function () {
-    if (!authorUrlsAreCollapsible()) {
-      $authorUrls.stop(true, true).css('display', 'block');
-      $authorUrlsButton.removeClass("open").attr("aria-expanded", "false");
-    } else if ($authorUrlsButton.attr("aria-expanded") !== "true") {
-      $authorUrls.stop(true, true).css('display', 'none');
+    if ($('.author__urls.social-icons').css('display') == 'none' && $(window).width() >= scssLarge) {
+      $(".author__urls").css('display', 'block')
     }
   });
 
