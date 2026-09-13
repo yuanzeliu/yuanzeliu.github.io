@@ -12,10 +12,16 @@ author_profile: true
   /* clickable header row */
   cursor: pointer; list-style: none; padding: 12px 14px; font-weight: 600;
   display: flex; align-items: center; gap: 10px;
+  transition: color .18s ease, background-color .18s ease;
 }
 .theme > summary::-webkit-details-marker { display: none; } /* hide default marker */
 .theme .chev { transition: transform .2s ease; }
 .theme[open] .chev { transform: rotate(90deg); }
+.theme > summary:hover,
+.theme > summary:focus-visible {
+  color: var(--academic-accent);
+  background: rgba(165, 28, 48, 0.035);
+}
 
 /* --- One left-image / right-text row (your “table”) --- */
 .rcard {
@@ -37,6 +43,26 @@ author_profile: true
 .rcard .links a,
 .rcard .links span.btn {
   margin-right: 10px;
+}
+
+.rcard .links .btn {
+  color: var(--academic-ink) !important;
+  background: rgba(102, 100, 95, 0.12) !important;
+  border-color: rgba(102, 100, 95, 0.24) !important;
+  box-shadow: none;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.rcard .links a.btn:hover,
+.rcard .links a.btn:focus {
+  color: #fff !important;
+  background: var(--academic-accent) !important;
+  border-color: var(--academic-accent) !important;
+  transform: translateY(-1px);
+}
+
+.rcard .links span.btn {
+  opacity: 0.82;
 }
 
 /* mobile */

@@ -70,15 +70,31 @@ $(document).ready(function () {
   fitvids();
 
   // Follow menu drop down
-  $(".author__urls-wrapper button").on("click", function () {
-    $(".author__urls").fadeToggle("fast", function () { });
-    $(".author__urls-wrapper button").toggleClass("open");
+  var $followButton = $(".author__urls-wrapper button");
+  var $followMenu = $(".author__urls");
+
+  function closeFollowMenu() {
+    $followMenu.stop(true, true).fadeOut("fast");
+    $followButton.removeClass("open").attr("aria-expanded", "false");
+  }
+
+  $followButton.on("click", function () {
+    var isOpening = !$followButton.hasClass("open");
+    $followMenu.stop(true, true).fadeToggle("fast");
+    $followButton.toggleClass("open", isOpening).attr("aria-expanded", String(isOpening));
+  });
+
+  $(document).on("click", function (event) {
+    if ($followButton.is(":visible") && $followButton.hasClass("open") && !$(event.target).closest(".author__urls-wrapper").length) {
+      closeFollowMenu();
+    }
   });
 
   // Restore the follow menu if toggled on a window resize
   jQuery(window).on('resize', function () {
     if ($('.author__urls.social-icons').css('display') == 'none' && $(window).width() >= scssLarge) {
-      $(".author__urls").css('display', 'block')
+      $followMenu.css('display', 'block');
+      $followButton.removeClass("open").attr("aria-expanded", "false");
     }
   });
 
