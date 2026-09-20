@@ -2,6 +2,7 @@
 layout: archive
 permalink: /
 title: "About Me"
+seo_title: "Yuanze Liu — Collective Psychology & Cultural Evolution"
 page_class: academic-home
 author_profile: true
 redirect_from: 

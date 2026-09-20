@@ -12,6 +12,8 @@ site_theme    : "default"  # Currently available options are "default", "air"
 title         : "YUANZE LIU"
 title_separator: "-"
 name          : &name "Yuanze Liu"
+site_name     : "Yuanze Liu"
+site_name_alternate: "Yuanze Liu Academic Website"
 description   : &description "Yuanze Liu is a PhD student in Organizational Behavior at Harvard Business School studying collective psychology and cultural evolution."
 
 # For a user/organization site (https://yuanzeliu.github.io)
