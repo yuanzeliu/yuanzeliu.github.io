@@ -93,9 +93,10 @@ Below is an introduction of my research by topics. You can find my published pap
       <p class="citation">
         <strong>Liu, Y.</strong>, Charlesworth, T., Koch, A., Luttrell, A., & Jackson, J. (2026).
         The Structure and History of English Words that Describe People.
-        <em>Journal of Personality and Social Psychology</em>.
+        <em>Journal of Personality and Social Psychology: Personality Processes and Individual Differences</em>.
       </p>
       <p class="links">
+        <a class="btn btn--light btn--sm" href="https://doi.org/10.1037/pspp0000627">DOI</a>
         <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7qkg8_v3">PsyArXiv</a>
         <a class="btn btn--light btn--sm" href="https://yuanzeliu.github.io/assets/trait-network/">Interactive App</a>
       </p>
