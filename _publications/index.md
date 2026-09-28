@@ -88,7 +88,7 @@ Below is an introduction of my research by topics. You can find my published pap
     <div class="txt">
       <h4>The Structure and History of English Words that Describe People</h4>
       <p>
-        Using large language models and human ratings from 3,070 English speakers, we map 2,847 trait words and uncover a four-factor structure—Fitness, Agency, Communion, Traditionalism (FACT)—that covers more of trait space than the Big Five (96% vs. 79%). The FACT dimensions differ in semantic coherence, valence, and historical trajectories (e.g., Communion converging, Agency diverging), indicating that trait language evolves adaptively with social life—optimizing interpersonal description and evaluation as cultural ecologies change.
+        Using large language models and human ratings from 3,070 English speakers, we map 2,847 trait words and identify four broad dimensions—Fitness, Agency, Communion, and Traditionalism (FACT)—that characterize trait language. These dimensions differ in semantic coherence, valence, and historical trajectories (e.g., Communion converging, Agency diverging), indicating that trait language evolves adaptively with social life—supporting interpersonal description and evaluation as cultural ecologies change.
       </p>
       <p class="citation">
         <strong>Liu, Y.</strong>, Charlesworth, T., Koch, A., Luttrell, A., & Jackson, J. (2026).
