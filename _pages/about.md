@@ -24,6 +24,9 @@ redirect_from:
   <p>
     I am especially interested in how these dynamics unfold amid changes in social ecology, including the emergence of new institutions and technologies such as large AI models. Ultimately, my work aims to understand how we can build better forms of collective life.
   </p>
+  <p>
+    I'm always happy to connect with people interested in my research, potential collaborations, or simply exchanging ideas. Feel free to <a href="https://calendly.com/yuanzeliu/new-meeting">schedule a 30-minute chat with me</a>!
+  </p>
   <p class="academic-statement__links">
     For more about my research, see <a href="{{ '/Research/' | relative_url }}">Research</a> or <a href="https://scholar.google.com/citations?user=UCWX53IAAAAJ&hl=en&inst=5778974199078678248">Google Scholar</a>; for my personal story, see <a href="{{ '/bio/' | relative_url }}">Bio</a>.
   </p>
