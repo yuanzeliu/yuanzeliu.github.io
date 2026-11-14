@@ -97,7 +97,6 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="links">
         <a class="btn btn--light btn--sm" href="https://doi.org/10.1037/pspp0000627">DOI</a>
-        <a class="btn btn--light btn--sm" href="https://doi.org/10.31234/osf.io/7qkg8_v3">PsyArXiv</a>
         <a class="btn btn--light btn--sm" href="https://yuanzeliu.github.io/assets/trait-network/">Interactive App</a>
       </p>
     </div>
