@@ -96,7 +96,7 @@ Below is an introduction of my research by topics. You can find my published pap
         <em>Journal of Personality and Social Psychology: Personality Processes and Individual Differences</em>.
       </p>
       <p class="links">
-        <a class="btn btn--light btn--sm" href="https://doi.org/10.1037/pspp0000627">DOI</a>
+        <a class="btn btn--light btn--sm" href="https://doi.org/10.1037/pspp0000627">Journal</a>
         <a class="btn btn--light btn--sm" href="https://yuanzeliu.github.io/assets/trait-network/">Interactive App</a>
       </p>
     </div>
