@@ -146,7 +146,23 @@ Below is an introduction of my research by topics. You can find my published pap
     </div>
   </div>
 
-  <!-- 6) Income & cultural variation -->
+  <!-- 6) Cultural convergence/divergence modeling -->
+  <div class="rcard">
+    <div class="img">
+      <img src="/images/Research_cultural_contact_model.png" alt="Cultural convergence and divergence phase portrait">
+    </div>
+    <div class="txt">
+      <h4>Convergence or divergence? A dynamical model of intergroup contact and cultural change</h4>
+      <p>
+        This project develops dynamical and agent-based models of when contact between cultural groups makes them more similar or more different. Contact changes both the behaviors people observe and the symbolic meanings they learn, creating feedback between individual decisions and group-level cultural patterns. The same degree of contact can therefore support convergence or divergence, with outcomes shaped by social learning, network structure, and history.
+      </p>
+      <p class="citation">
+        (With Jackson, J., Yang, V., & Zhang, X.) †
+      </p>
+    </div>
+  </div>
+
+  <!-- 7) Income & cultural variation -->
   <div class="rcard">
     <div class="img">
       <img src="/images/Research_income_values.png" alt="Income and cultural values">
@@ -158,25 +174,6 @@ Below is an introduction of my research by topics. You can find my published pap
       </p>
       <p class="citation">
         (With Medvedev, D., Talhelm, T., & Jackson, J.)
-      </p>
-      <p class="links">
-        <span class="btn btn--light btn--sm">Available upon request</span>
-      </p>
-    </div>
-  </div>
-
-  <!-- 8) LLM value measurement tool -->
-  <div class="rcard">
-    <div class="img">
-      <img src="/images/Research_value_tool.png" alt="LLM-based value measurement">
-    </div>
-    <div class="txt">
-      <h4>Scaling cross-national measurement of political values in parliamentary speeches using large language models</h4>
-      <p>
-        We are developing an LLM-based framework for annotating political values in parliamentary speeches across countries. The project evaluates whether major theories of values can be integrated into a scalable approach for studying how elite value expression varies across societies and over time.
-      </p>
-      <p class="citation">
-        (With Zhang, H., Bai, R., & Jackson, J.)
       </p>
       <p class="links">
         <span class="btn btn--light btn--sm">Available upon request</span>
